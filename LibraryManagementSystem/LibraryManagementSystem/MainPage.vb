@@ -6,14 +6,8 @@ Imports System.Data.SqlClient
 ' auto scroll of form and panel 2 to true and auto scale mode to  false
 ' dynamic connection strinng not working
 Public Class MainPage
-    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Database.accdb"
+    Public connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Database.accdb"
     'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\LibraryManagementSystem\Database.accdb"
-
-
-    Private Sub MainPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        
-    End Sub
-
 
     Private Sub TitleRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles TitleRadioButton.CheckedChanged
         AuthorRadioButton.Checked = False
@@ -37,7 +31,7 @@ Public Class MainPage
         PublisherRadioButton.Checked = False
         ISBNRadioButton.Checked = False
         If AuthorRadioButton.Checked = True Then
-            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
+            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
             Dim cn As OleDbConnection = New OleDbConnection(connectionString)
             cn.Open()
             Dim selectString As String = "SELECT * FROM Books WHERE Author like '%" & SearchTextBox.Text & "%'"
@@ -55,7 +49,7 @@ Public Class MainPage
         TitleRadioButton.Checked = False
         ISBNRadioButton.Checked = False
         If FieldRadioButton1.Checked = True Then
-            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
+            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
             Dim cn As OleDbConnection = New OleDbConnection(connectionString)
             cn.Open()
             Dim selectString As String = "SELECT * FROM Books WHERE Field like '%" & SearchTextBox.Text & "%'"
@@ -73,7 +67,7 @@ Public Class MainPage
         TitleRadioButton.Checked = False
         ISBNRadioButton.Checked = False
         If PublisherRadioButton.Checked = True Then
-            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
+            ' Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
             Dim cn As OleDbConnection = New OleDbConnection(connectionString)
             cn.Open()
             Dim selectString As String = "SELECT * FROM Books WHERE Publisher like '%" & SearchTextBox.Text & "%'"
@@ -90,7 +84,7 @@ Public Class MainPage
         TitleRadioButton.Checked = False
         PublisherRadioButton.Checked = False
         If ISBNRadioButton.Checked = True Then
-            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
+            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
             Dim cn As OleDbConnection = New OleDbConnection(connectionString)
             cn.Open()
             Dim selectString As String = "SELECT * FROM Books WHERE ISBN like '%" & SearchTextBox.Text & "%'"
@@ -102,7 +96,7 @@ Public Class MainPage
     End Sub
 
     Public Sub Thumbnails(reader As OleDbDataReader)
-        MessageBox.Show("thumbnail working")
+
         Panel2.Controls.Clear()
         Dim x, y, count As Integer
         count = 0
@@ -172,7 +166,7 @@ Public Class MainPage
 
 
     Private Sub BrowseButton_Click(sender As Object, e As EventArgs) Handles BrowseButton.Click
-        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
+        'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
         Dim cn As OleDbConnection = New OleDbConnection(connectionString)
         cn.Open()
         Dim selectString As String = "SELECT * FROM Books "
@@ -185,4 +179,7 @@ Public Class MainPage
 
 
    
+    Private Sub LoginButton_Click(sender As Object, e As EventArgs) Handles LoginButton.Click
+        Login.Show()
+    End Sub
 End Class

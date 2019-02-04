@@ -73,7 +73,7 @@ Partial Class MainPage
         Me.ISBNRadioButton.AutoSize = True
         Me.ISBNRadioButton.Location = New System.Drawing.Point(985, 108)
         Me.ISBNRadioButton.Name = "ISBNRadioButton"
-        Me.ISBNRadioButton.Size = New System.Drawing.Size(60, 21)
+        Me.ISBNRadioButton.Size = New System.Drawing.Size(50, 17)
         Me.ISBNRadioButton.TabIndex = 11
         Me.ISBNRadioButton.TabStop = True
         Me.ISBNRadioButton.Text = "ISBN"
@@ -84,7 +84,7 @@ Partial Class MainPage
         Me.PublisherRadioButton.AutoSize = True
         Me.PublisherRadioButton.Location = New System.Drawing.Point(815, 108)
         Me.PublisherRadioButton.Name = "PublisherRadioButton"
-        Me.PublisherRadioButton.Size = New System.Drawing.Size(91, 21)
+        Me.PublisherRadioButton.Size = New System.Drawing.Size(70, 17)
         Me.PublisherRadioButton.TabIndex = 10
         Me.PublisherRadioButton.TabStop = True
         Me.PublisherRadioButton.Text = "Publilsher"
@@ -95,7 +95,7 @@ Partial Class MainPage
         Me.AuthorRadioButton.AutoSize = True
         Me.AuthorRadioButton.Location = New System.Drawing.Point(461, 108)
         Me.AuthorRadioButton.Name = "AuthorRadioButton"
-        Me.AuthorRadioButton.Size = New System.Drawing.Size(71, 21)
+        Me.AuthorRadioButton.Size = New System.Drawing.Size(56, 17)
         Me.AuthorRadioButton.TabIndex = 9
         Me.AuthorRadioButton.TabStop = True
         Me.AuthorRadioButton.Text = "Author"
@@ -106,7 +106,7 @@ Partial Class MainPage
         Me.FieldRadioButton1.AutoSize = True
         Me.FieldRadioButton1.Location = New System.Drawing.Point(615, 108)
         Me.FieldRadioButton1.Name = "FieldRadioButton1"
-        Me.FieldRadioButton1.Size = New System.Drawing.Size(59, 21)
+        Me.FieldRadioButton1.Size = New System.Drawing.Size(47, 17)
         Me.FieldRadioButton1.TabIndex = 8
         Me.FieldRadioButton1.TabStop = True
         Me.FieldRadioButton1.Text = "Field"
@@ -117,7 +117,7 @@ Partial Class MainPage
         Me.TitleRadioButton.AutoSize = True
         Me.TitleRadioButton.Location = New System.Drawing.Point(314, 108)
         Me.TitleRadioButton.Name = "TitleRadioButton"
-        Me.TitleRadioButton.Size = New System.Drawing.Size(56, 21)
+        Me.TitleRadioButton.Size = New System.Drawing.Size(45, 17)
         Me.TitleRadioButton.TabIndex = 7
         Me.TitleRadioButton.TabStop = True
         Me.TitleRadioButton.Text = "Title"
@@ -128,7 +128,7 @@ Partial Class MainPage
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(109, 44)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(53, 17)
+        Me.Label1.Size = New System.Drawing.Size(41, 13)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Search"
         '
@@ -152,7 +152,7 @@ Partial Class MainPage
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1262, 673)
+        Me.ClientSize = New System.Drawing.Size(1264, 681)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.LoginButton)

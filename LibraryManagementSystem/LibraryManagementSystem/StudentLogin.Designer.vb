@@ -22,52 +22,76 @@ Partial Class StudentLogin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnMyProfile = New System.Windows.Forms.Button()
+        Me.buttonPanel = New System.Windows.Forms.Panel()
+        Me.btnEditProfile = New System.Windows.Forms.Button()
         Me.btnItemsCheckedout = New System.Windows.Forms.Button()
-        Me.Panel1.SuspendLayout()
+        Me.btnMyProfile = New System.Windows.Forms.Button()
+        Me.contentPanel = New System.Windows.Forms.Panel()
+        Me.buttonPanel.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Panel1
+        'buttonPanel
         '
-        Me.Panel1.Controls.Add(Me.btnItemsCheckedout)
-        Me.Panel1.Controls.Add(Me.btnMyProfile)
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(135, 638)
-        Me.Panel1.TabIndex = 0
+        Me.buttonPanel.Controls.Add(Me.btnEditProfile)
+        Me.buttonPanel.Controls.Add(Me.btnItemsCheckedout)
+        Me.buttonPanel.Controls.Add(Me.btnMyProfile)
+        Me.buttonPanel.Dock = System.Windows.Forms.DockStyle.Left
+        Me.buttonPanel.Location = New System.Drawing.Point(0, 0)
+        Me.buttonPanel.Name = "buttonPanel"
+        Me.buttonPanel.Size = New System.Drawing.Size(179, 681)
+        Me.buttonPanel.TabIndex = 0
+        '
+        'btnEditProfile
+        '
+        Me.btnEditProfile.Location = New System.Drawing.Point(0, 95)
+        Me.btnEditProfile.Name = "btnEditProfile"
+        Me.btnEditProfile.Size = New System.Drawing.Size(177, 45)
+        Me.btnEditProfile.TabIndex = 2
+        Me.btnEditProfile.Text = "Edit Profile"
+        Me.btnEditProfile.UseVisualStyleBackColor = True
+        '
+        'btnItemsCheckedout
+        '
+        Me.btnItemsCheckedout.Location = New System.Drawing.Point(0, 49)
+        Me.btnItemsCheckedout.Name = "btnItemsCheckedout"
+        Me.btnItemsCheckedout.Size = New System.Drawing.Size(179, 40)
+        Me.btnItemsCheckedout.TabIndex = 1
+        Me.btnItemsCheckedout.Text = "Items Checked Out"
+        Me.btnItemsCheckedout.UseVisualStyleBackColor = True
         '
         'btnMyProfile
         '
         Me.btnMyProfile.Location = New System.Drawing.Point(0, 0)
         Me.btnMyProfile.Name = "btnMyProfile"
-        Me.btnMyProfile.Size = New System.Drawing.Size(135, 43)
+        Me.btnMyProfile.Size = New System.Drawing.Size(179, 43)
         Me.btnMyProfile.TabIndex = 0
         Me.btnMyProfile.Text = "My Profile"
         Me.btnMyProfile.UseVisualStyleBackColor = True
         '
-        'btnItemsCheckedout
+        'contentPanel
         '
-        Me.btnItemsCheckedout.Location = New System.Drawing.Point(2, 49)
-        Me.btnItemsCheckedout.Name = "btnItemsCheckedout"
-        Me.btnItemsCheckedout.Size = New System.Drawing.Size(133, 40)
-        Me.btnItemsCheckedout.TabIndex = 1
-        Me.btnItemsCheckedout.Text = "Button1"
-        Me.btnItemsCheckedout.UseVisualStyleBackColor = True
+        Me.contentPanel.Dock = System.Windows.Forms.DockStyle.Right
+        Me.contentPanel.Location = New System.Drawing.Point(185, 0)
+        Me.contentPanel.Name = "contentPanel"
+        Me.contentPanel.Size = New System.Drawing.Size(1079, 681)
+        Me.contentPanel.TabIndex = 1
         '
         'StudentLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1275, 636)
-        Me.Controls.Add(Me.Panel1)
+        Me.ClientSize = New System.Drawing.Size(1264, 681)
+        Me.Controls.Add(Me.buttonPanel)
+        Me.Controls.Add(Me.contentPanel)
         Me.Name = "StudentLogin"
         Me.Text = "StudentLogin"
-        Me.Panel1.ResumeLayout(False)
+        Me.buttonPanel.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents buttonPanel As System.Windows.Forms.Panel
     Friend WithEvents btnItemsCheckedout As System.Windows.Forms.Button
     Friend WithEvents btnMyProfile As System.Windows.Forms.Button
+    Friend WithEvents contentPanel As System.Windows.Forms.Panel
+    Friend WithEvents btnEditProfile As System.Windows.Forms.Button
 End Class
