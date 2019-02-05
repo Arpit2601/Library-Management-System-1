@@ -70,6 +70,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addBook.Designer.vb">
+      <DependentUpon>addBook.vb</DependentUpon>
+    </Compile>
+    <Compile Include="addBook.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="DatabaseDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -79,6 +85,12 @@
       <DependentUpon>EditStudentProfile_UserControl.vb</DependentUpon>
     </Compile>
     <Compile Include="EditStudentProfile_UserControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="issuebook.Designer.vb">
+      <DependentUpon>issuebook.vb</DependentUpon>
+    </Compile>
+    <Compile Include="issuebook.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ItemsCheckedOut_UserControl.Designer.vb">
@@ -115,11 +127,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="StaffLogin.Designer.vb">
-      <DependentUpon>StaffLogin.vb</DependentUpon>
+    <Compile Include="reIssueBook.Designer.vb">
+      <DependentUpon>reIssueBook.vb</DependentUpon>
     </Compile>
-    <Compile Include="StaffLogin.vb">
-      <SubType>Form</SubType>
+    <Compile Include="reIssueBook.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="returnBook.Designer.vb">
+      <DependentUpon>returnBook.vb</DependentUpon>
+    </Compile>
+    <Compile Include="returnBook.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="StudentLogin.Designer.vb">
       <DependentUpon>StudentLogin.vb</DependentUpon>
@@ -133,8 +151,17 @@
     <Compile Include="StudentProfile_UserControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="StaffLogin.Designer.vb">
+      <DependentUpon>StaffLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="StaffLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="addBook.resx">
+      <DependentUpon>addBook.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditStudentProfile_UserControl.resx">
       <DependentUpon>EditStudentProfile_UserControl.vb</DependentUpon>
     </EmbeddedResource>
@@ -153,14 +180,20 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="StaffLogin.resx">
-      <DependentUpon>StaffLogin.vb</DependentUpon>
+    <EmbeddedResource Include="reIssueBook.resx">
+      <DependentUpon>reIssueBook.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="returnBook.resx">
+      <DependentUpon>returnBook.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentLogin.resx">
       <DependentUpon>StudentLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentProfile_UserControl.resx">
       <DependentUpon>StudentProfile_UserControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffLogin.resx">
+      <DependentUpon>StaffLogin.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

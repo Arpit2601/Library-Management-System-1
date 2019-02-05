@@ -8,10 +8,7 @@ Public Class Login
         Dim username As String = txtUsername.Text
         Dim password As String = txtPassword.Text
 
-        'Dim connectString As String = "Provider=Microsoft.ACE.OLEDB.12.0;" & "Data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
         Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
-
-        'Dim selectString As String = "SELECT * FROM Users"
 
         Dim selectString As String = "SELECT * FROM Users WHERE UserName = '" & username & "' AND Password = '" & password & "'"
         Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
