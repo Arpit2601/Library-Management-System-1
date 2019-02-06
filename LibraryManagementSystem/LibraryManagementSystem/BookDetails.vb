@@ -51,7 +51,7 @@ Public Class BookDetails
             Publisherlabel.Size = New Size(250, 40)
             PublishYearlabel.Size = New Size(200, 40)
             Locationlabel.Size = New Size(250, 40)
-            pictureBox.Size = New Size(200, 200)
+            pictureBox.Size = New Size(200, 250)
             pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
 
             pictureBox.Tag = fullPath
@@ -65,15 +65,33 @@ Public Class BookDetails
             Totallabel.Text = "Total number: " & reader("Total")
             ISBNlabel.Text = "ISBN: " & reader("ISBN")
 
-            pictureBox.Location = New Point(x, y)
-            Titlelabel.Location = New Point(x + 350, y)
-            Authorlabel.Location = New Point(x + 350, y + 50)
-            Publisherlabel.Location = New Point(x + 350, y + 100)
-            PublishYearlabel.Location = New Point(x + 350, y + 150)
-            ISBNlabel.Location = New Point(x + 350, y + 200)
-            Totallabel.Location = New Point(x + 350, y + 250)
-            Remaininglabel.Location = New Point(x + 350, y + 300)
-            Locationlabel.Location = New Point(x + 350, y + 350)
+            pictureBox.Location = New Point(x, y + 10)
+            Titlelabel.Location = New Point(x + 250, y)
+            Authorlabel.Location = New Point(x + 250, y + 40)
+            Publisherlabel.Location = New Point(x + 250, y + 80)
+            PublishYearlabel.Location = New Point(x + 250, y + 120)
+            ISBNlabel.Location = New Point(x + 250, y + 160)
+            Totallabel.Location = New Point(x + 250, y + 200)
+            Remaininglabel.Location = New Point(x + 250, y + 240)
+            Locationlabel.Location = New Point(x + 250, y + 280)
+
+            Titlelabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
+            Authorlabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
+            Publisherlabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
+            PublishYearlabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
+            ISBNlabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
+            Totallabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
+            Remaininglabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
+            Locationlabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
+
+            Titlelabel.ForeColor = Color.White
+            Authorlabel.ForeColor = Color.White
+            Publisherlabel.ForeColor = Color.White
+            PublishYearlabel.ForeColor = Color.White
+            ISBNlabel.ForeColor = Color.White
+            Totallabel.ForeColor = Color.White
+            Remaininglabel.ForeColor = Color.White
+            Locationlabel.ForeColor = Color.White
 
             x += 430
             count += 1
@@ -131,13 +149,5 @@ Public Class BookDetails
             End While
             cn.Close()
         End While
-    End Sub
-
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
-    End Sub
-
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
-
     End Sub
 End Class

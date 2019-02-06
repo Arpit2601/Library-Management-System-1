@@ -34,4 +34,49 @@ Public Class Login
         cn.Close()
     End Sub
 
+    Private Sub txtUsername_Enter(sender As Object, e As EventArgs) Handles txtUsername.Enter
+        If txtUsername.Text = "Username" Then
+            txtUsername.Text = ""
+            Dim objFont As System.Drawing.Font
+
+            objFont = New System.Drawing.Font("Comic Sans MS", 12, FontStyle.Regular)
+
+
+            txtUsername.Font = objFont
+            txtUsername.ForeColor = Color.Black
+        End If
+    End Sub
+
+
+    Private Sub txtUsername_Leave(sender As Object, e As EventArgs) Handles txtUsername.Leave
+        If txtUsername.Text = "" Then
+            Dim objfont As System.Drawing.Font
+            objfont = New System.Drawing.Font("Comic Sans MS", 12, FontStyle.Italic)
+            txtUsername.Font = objfont
+            txtUsername.ForeColor = Color.DarkGray
+            txtUsername.Text = "Username"
+        End If
+    End Sub
+
+    Private Sub txtPassword_Enter(sender As Object, e As EventArgs) Handles txtPassword.Enter
+        If txtPassword.Text = "Password" Then
+            txtPassword.UseSystemPasswordChar = True
+            txtPassword.Text = ""
+            Dim objFont As System.Drawing.Font
+
+            objFont = New System.Drawing.Font("Comic Sans MS", 12, FontStyle.Regular)
+
+
+            txtPassword.Font = objFont
+            txtPassword.ForeColor = Color.Black
+        End If
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked Then
+            txtPassword.UseSystemPasswordChar = False
+        Else
+            txtPassword.UseSystemPasswordChar = True
+        End If
+    End Sub
 End Class

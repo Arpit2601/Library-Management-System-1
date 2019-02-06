@@ -134,6 +134,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="My Project\Resources1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -197,9 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources1.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="reIssueBook.resx">
       <DependentUpon>reIssueBook.vb</DependentUpon>
@@ -246,6 +251,16 @@
     <Content Include="Database.accdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\search.png" />
+    <None Include="Resources\51424881_2128666100554892_7501468374568796160_n1.png" />
+    <None Include="Resources\icons8-search-321.png" />
+    <None Include="Resources\icons8-delete-321.png" />
+    <None Include="Resources\icons8-customer-321.png" />
+    <None Include="Resources\icons8-search-folder-321.png" />
+    <None Include="Resources\19-1User-512.png" />
+    <None Include="Resources\51424881_2128666100554892_7501468374568796160_n.png" />
+    <None Include="Resources\blue_background_2.jpg" />
+    <None Include="Resources\pexels-photo-953214.jpeg" />
     <None Include="Resources\127761-download-free-light-yellow-background-1920x1080-for-iphone-6.jpg" />
     <None Include="Resources\0db91f0d7d1f2b4c8d6af61c988093a0bb89461e.jpg" />
     <None Include="Resources\1200px-IIT_Guwahati_Logo.svg.png" />
