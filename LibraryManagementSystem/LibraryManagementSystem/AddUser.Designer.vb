@@ -34,165 +34,158 @@ Partial Class AddUser
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.txtPhone = New System.Windows.Forms.TextBox()
         Me.txtPassword = New System.Windows.Forms.TextBox()
-        Me.lblDepartment = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.lblDesignation = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.btnAddUser = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(74, 58)
+        Me.Label1.Location = New System.Drawing.Point(99, 71)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(55, 13)
+        Me.Label1.Size = New System.Drawing.Size(73, 17)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Username"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(77, 104)
+        Me.Label2.Location = New System.Drawing.Point(103, 128)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(35, 13)
+        Me.Label2.Size = New System.Drawing.Size(45, 17)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Name"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(82, 364)
+        Me.Label3.Location = New System.Drawing.Point(109, 448)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(53, 13)
+        Me.Label3.Size = New System.Drawing.Size(69, 17)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Password"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(77, 199)
+        Me.Label4.Location = New System.Drawing.Point(103, 245)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(32, 13)
+        Me.Label4.Size = New System.Drawing.Size(42, 17)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Email"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(73, 243)
+        Me.Label5.Location = New System.Drawing.Point(97, 299)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(78, 13)
+        Me.Label5.Size = New System.Drawing.Size(103, 17)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Phone Number"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(79, 283)
+        Me.Label6.Location = New System.Drawing.Point(105, 348)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(62, 13)
+        Me.Label6.Size = New System.Drawing.Size(82, 17)
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Department"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(82, 321)
+        Me.Label7.Location = New System.Drawing.Point(109, 395)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(63, 13)
+        Me.Label7.Size = New System.Drawing.Size(83, 17)
         Me.Label7.TabIndex = 6
         Me.Label7.Text = "Designation"
         '
         'txtUsername
         '
-        Me.txtUsername.Location = New System.Drawing.Point(163, 59)
+        Me.txtUsername.Location = New System.Drawing.Point(217, 73)
+        Me.txtUsername.Margin = New System.Windows.Forms.Padding(4)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(100, 20)
+        Me.txtUsername.Size = New System.Drawing.Size(132, 22)
         Me.txtUsername.TabIndex = 7
         '
         'txtName
         '
-        Me.txtName.Location = New System.Drawing.Point(165, 110)
+        Me.txtName.Location = New System.Drawing.Point(220, 135)
+        Me.txtName.Margin = New System.Windows.Forms.Padding(4)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(100, 20)
+        Me.txtName.Size = New System.Drawing.Size(132, 22)
         Me.txtName.TabIndex = 8
         '
         'txtEmail
         '
-        Me.txtEmail.Location = New System.Drawing.Point(164, 199)
+        Me.txtEmail.Location = New System.Drawing.Point(219, 245)
+        Me.txtEmail.Margin = New System.Windows.Forms.Padding(4)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(100, 20)
+        Me.txtEmail.Size = New System.Drawing.Size(132, 22)
         Me.txtEmail.TabIndex = 9
         '
         'txtPhone
         '
-        Me.txtPhone.Location = New System.Drawing.Point(175, 247)
+        Me.txtPhone.Location = New System.Drawing.Point(233, 304)
+        Me.txtPhone.Margin = New System.Windows.Forms.Padding(4)
         Me.txtPhone.Name = "txtPhone"
-        Me.txtPhone.Size = New System.Drawing.Size(100, 20)
+        Me.txtPhone.Size = New System.Drawing.Size(132, 22)
         Me.txtPhone.TabIndex = 10
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(165, 367)
+        Me.txtPassword.Location = New System.Drawing.Point(220, 452)
+        Me.txtPassword.Margin = New System.Windows.Forms.Padding(4)
         Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.Size = New System.Drawing.Size(100, 20)
+        Me.txtPassword.Size = New System.Drawing.Size(132, 22)
         Me.txtPassword.TabIndex = 13
-        '
-        'lblDepartment
-        '
-        Me.lblDepartment.AutoSize = True
-        Me.lblDepartment.Location = New System.Drawing.Point(175, 287)
-        Me.lblDepartment.Name = "lblDepartment"
-        Me.lblDepartment.Size = New System.Drawing.Size(39, 13)
-        Me.lblDepartment.TabIndex = 14
-        Me.lblDepartment.Text = "Label8"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(242, 287)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(23, 23)
-        Me.Button1.TabIndex = 15
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'lblDesignation
-        '
-        Me.lblDesignation.AutoSize = True
-        Me.lblDesignation.Location = New System.Drawing.Point(173, 331)
-        Me.lblDesignation.Name = "lblDesignation"
-        Me.lblDesignation.Size = New System.Drawing.Size(39, 13)
-        Me.lblDesignation.TabIndex = 16
-        Me.lblDesignation.Text = "Label9"
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(245, 330)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(20, 23)
-        Me.Button2.TabIndex = 17
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'btnAddUser
         '
-        Me.btnAddUser.Location = New System.Drawing.Point(217, 430)
+        Me.btnAddUser.Location = New System.Drawing.Point(289, 529)
+        Me.btnAddUser.Margin = New System.Windows.Forms.Padding(4)
         Me.btnAddUser.Name = "btnAddUser"
-        Me.btnAddUser.Size = New System.Drawing.Size(145, 36)
+        Me.btnAddUser.Size = New System.Drawing.Size(193, 44)
         Me.btnAddUser.TabIndex = 18
         Me.btnAddUser.Text = "Add user"
         Me.btnAddUser.UseVisualStyleBackColor = True
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Biosciences & Bioengineering", "Chemical Engineering", "Chemistry", "Civil Engineering", "Computer Science & Engg.", "Design", "Electronics & Electrical Engg.", "Humanities and Social Sciences", "Mathematics", "Mechanical Engineering", "Physics"})
+        Me.ComboBox1.Location = New System.Drawing.Point(228, 348)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(173, 24)
+        Me.ComboBox1.TabIndex = 19
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Items.AddRange(New Object() {"Student", "Professor"})
+        Me.ComboBox2.Location = New System.Drawing.Point(228, 395)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(173, 24)
+        Me.ComboBox2.TabIndex = 20
+        '
         'AddUser
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.btnAddUser)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.lblDesignation)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.lblDepartment)
         Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.txtPhone)
         Me.Controls.Add(Me.txtEmail)
@@ -205,8 +198,9 @@ Partial Class AddUser
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "AddUser"
-        Me.Size = New System.Drawing.Size(1293, 661)
+        Me.Size = New System.Drawing.Size(1724, 814)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -223,10 +217,8 @@ Partial Class AddUser
     Friend WithEvents txtEmail As System.Windows.Forms.TextBox
     Friend WithEvents txtPhone As System.Windows.Forms.TextBox
     Friend WithEvents txtPassword As System.Windows.Forms.TextBox
-    Friend WithEvents lblDepartment As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents lblDesignation As System.Windows.Forms.Label
-    Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents btnAddUser As System.Windows.Forms.Button
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
 
 End Class
