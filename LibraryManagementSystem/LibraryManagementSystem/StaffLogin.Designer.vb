@@ -40,16 +40,18 @@ Partial Class StaffLogin
         Me.Buttons.Controls.Add(Me.BookButton)
         Me.Buttons.Controls.Add(Me.StudentButton)
         Me.Buttons.Location = New System.Drawing.Point(2, 0)
+        Me.Buttons.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Buttons.Name = "Buttons"
-        Me.Buttons.Size = New System.Drawing.Size(230, 735)
+        Me.Buttons.Size = New System.Drawing.Size(172, 597)
         Me.Buttons.TabIndex = 0
         '
         'ReIssueBook
         '
         Me.ReIssueBook.Font = New System.Drawing.Font("Palatino Linotype", 15.0!, System.Drawing.FontStyle.Bold)
-        Me.ReIssueBook.Location = New System.Drawing.Point(0, 205)
+        Me.ReIssueBook.Location = New System.Drawing.Point(0, 167)
+        Me.ReIssueBook.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ReIssueBook.Name = "ReIssueBook"
-        Me.ReIssueBook.Size = New System.Drawing.Size(230, 95)
+        Me.ReIssueBook.Size = New System.Drawing.Size(172, 77)
         Me.ReIssueBook.TabIndex = 4
         Me.ReIssueBook.Text = "ReIssue Book"
         Me.ReIssueBook.UseVisualStyleBackColor = True
@@ -57,9 +59,10 @@ Partial Class StaffLogin
         'ReturnBook
         '
         Me.ReturnBook.Font = New System.Drawing.Font("Palatino Linotype", 15.0!, System.Drawing.FontStyle.Bold)
-        Me.ReturnBook.Location = New System.Drawing.Point(0, 104)
+        Me.ReturnBook.Location = New System.Drawing.Point(0, 84)
+        Me.ReturnBook.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ReturnBook.Name = "ReturnBook"
-        Me.ReturnBook.Size = New System.Drawing.Size(230, 95)
+        Me.ReturnBook.Size = New System.Drawing.Size(172, 77)
         Me.ReturnBook.TabIndex = 3
         Me.ReturnBook.Text = "Return Book"
         Me.ReturnBook.UseVisualStyleBackColor = True
@@ -67,9 +70,10 @@ Partial Class StaffLogin
         'IssueBook
         '
         Me.IssueBook.Font = New System.Drawing.Font("Palatino Linotype", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IssueBook.Location = New System.Drawing.Point(0, 3)
+        Me.IssueBook.Location = New System.Drawing.Point(0, 2)
+        Me.IssueBook.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.IssueBook.Name = "IssueBook"
-        Me.IssueBook.Size = New System.Drawing.Size(230, 95)
+        Me.IssueBook.Size = New System.Drawing.Size(172, 77)
         Me.IssueBook.TabIndex = 2
         Me.IssueBook.Text = "Issue Book"
         Me.IssueBook.UseVisualStyleBackColor = True
@@ -77,9 +81,10 @@ Partial Class StaffLogin
         'BookButton
         '
         Me.BookButton.Font = New System.Drawing.Font("Palatino Linotype", 15.0!, System.Drawing.FontStyle.Bold)
-        Me.BookButton.Location = New System.Drawing.Point(0, 306)
+        Me.BookButton.Location = New System.Drawing.Point(0, 249)
+        Me.BookButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.BookButton.Name = "BookButton"
-        Me.BookButton.Size = New System.Drawing.Size(230, 95)
+        Me.BookButton.Size = New System.Drawing.Size(172, 77)
         Me.BookButton.TabIndex = 1
         Me.BookButton.Text = "Add/Modify Book"
         Me.BookButton.UseVisualStyleBackColor = True
@@ -87,28 +92,31 @@ Partial Class StaffLogin
         'StudentButton
         '
         Me.StudentButton.Font = New System.Drawing.Font("Palatino Linotype", 15.0!, System.Drawing.FontStyle.Bold)
-        Me.StudentButton.Location = New System.Drawing.Point(0, 407)
+        Me.StudentButton.Location = New System.Drawing.Point(0, 331)
+        Me.StudentButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.StudentButton.Name = "StudentButton"
-        Me.StudentButton.Size = New System.Drawing.Size(230, 95)
+        Me.StudentButton.Size = New System.Drawing.Size(172, 77)
         Me.StudentButton.TabIndex = 0
         Me.StudentButton.Text = "Add/Modify Student"
         Me.StudentButton.UseVisualStyleBackColor = True
         '
         'Action
         '
-        Me.Action.Location = New System.Drawing.Point(238, 0)
+        Me.Action.Location = New System.Drawing.Point(178, 0)
+        Me.Action.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Action.Name = "Action"
-        Me.Action.Size = New System.Drawing.Size(880, 735)
+        Me.Action.Size = New System.Drawing.Size(660, 597)
         Me.Action.TabIndex = 1
         '
-        'testing
+        'StaffLogin
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1113, 733)
+        Me.ClientSize = New System.Drawing.Size(835, 596)
         Me.Controls.Add(Me.Action)
         Me.Controls.Add(Me.Buttons)
-        Me.Name = "testing"
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Name = "StaffLogin"
         Me.Text = "testing"
         Me.Buttons.ResumeLayout(False)
         Me.ResumeLayout(False)

@@ -76,6 +76,12 @@
     <Compile Include="addBook.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="AddUser.Designer.vb">
+      <DependentUpon>AddUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddUser.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="BookDetails.Designer.vb">
       <DependentUpon>BookDetails.vb</DependentUpon>
     </Compile>
@@ -167,6 +173,9 @@
   <ItemGroup>
     <EmbeddedResource Include="addBook.resx">
       <DependentUpon>addBook.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BookDetails.resx">
       <DependentUpon>BookDetails.vb</DependentUpon>

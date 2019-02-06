@@ -19,4 +19,9 @@
         Action.Controls.Clear()
         Action.Controls.Add(New addBook)
     End Sub
+
+    Private Sub StudentButton_Click(sender As Object, e As EventArgs) Handles StudentButton.Click
+        Action.Controls.Clear()
+        Action.Controls.Add(New AddUser)
+    End Sub
 End Class

@@ -11,6 +11,7 @@ Public Class EditStudentProfile_UserControl
         Dim email As String = EmailTextBox.Text
         Dim phonenumber As String = PhoneNumberTextBox.Text
         Dim department As String = lblDepartment.Text
+        Dim password As String = txtPassword.Text
 
         ' Data validation
         Dim update As Boolean = True
@@ -53,8 +54,10 @@ Public Class EditStudentProfile_UserControl
             MessageBox.Show("Please upload a valid image")
         End If
 
+        ' Password Validation
+
         If update Then
-            Dim updateString As String = "UPDATE Users SET ProfileName='" & name & "', Email='" & email & "',  PhoneNumber='" & phonenumber & "', Department='" & department & "', ProfileImage='" & StudentLogin.UserID & ".JPG' WHERE Userid = " & StudentLogin.UserID
+            Dim updateString As String = "UPDATE Users SET ProfileName='" & name & "', [Password]='" & txtPassword.Text & "', Email='" & email & "',  PhoneNumber='" & phonenumber & "', Department='" & department & "', ProfileImage='" & StudentLogin.UserID & ".JPG' WHERE Userid = " & StudentLogin.UserID
             picBoxProfile.Image.Save(System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & StudentLogin.UserID & ".JPG")
             Dim cmd As OleDbCommand = New OleDbCommand(updateString, cn)
             If cmd.ExecuteNonQuery() > 0 Then
