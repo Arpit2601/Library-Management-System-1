@@ -13,16 +13,7 @@ Public Class MainPage
         AuthorRadioButton.Checked = False
         FieldRadioButton1.Checked = False
         PublisherRadioButton.Checked = False
-        If TitleRadioButton.Checked = True Then
-            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
-            Dim cn As OleDbConnection = New OleDbConnection(connectionString)
-            Dim selectString As String = "SELECT * FROM Books WHERE Title like '%" & SearchTextBox.Text & "%'"
-            Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
-            cn.Open()
-            Dim reader As OleDbDataReader = cmd.ExecuteReader()
-            Thumbnails(reader)
-            cn.Close()
-        End If
+        ISBNRadioButton.Checked = False
     End Sub
 
     Private Sub AuthorRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles AuthorRadioButton.CheckedChanged
@@ -30,17 +21,7 @@ Public Class MainPage
         FieldRadioButton1.Checked = False
         PublisherRadioButton.Checked = False
         ISBNRadioButton.Checked = False
-        If AuthorRadioButton.Checked = True Then
-            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
-            Dim cn As OleDbConnection = New OleDbConnection(connectionString)
-            cn.Open()
-            Dim selectString As String = "SELECT * FROM Books WHERE Author like '%" & SearchTextBox.Text & "%'"
-            Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
-            Dim reader As OleDbDataReader = cmd.ExecuteReader()
-            Thumbnails(reader)
-
-            cn.Close()
-        End If
+        
     End Sub
 
     Private Sub FieldRadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles FieldRadioButton1.CheckedChanged
@@ -48,17 +29,7 @@ Public Class MainPage
         PublisherRadioButton.Checked = False
         TitleRadioButton.Checked = False
         ISBNRadioButton.Checked = False
-        If FieldRadioButton1.Checked = True Then
-            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
-            Dim cn As OleDbConnection = New OleDbConnection(connectionString)
-            cn.Open()
-            Dim selectString As String = "SELECT * FROM Books WHERE Field like '%" & SearchTextBox.Text & "%'"
-
-            Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
-            Dim reader As OleDbDataReader = cmd.ExecuteReader()
-            Thumbnails(reader)
-            cn.Close()
-        End If
+       
     End Sub
 
     Private Sub PublisherRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles PublisherRadioButton.CheckedChanged
@@ -66,16 +37,7 @@ Public Class MainPage
         FieldRadioButton1.Checked = False
         TitleRadioButton.Checked = False
         ISBNRadioButton.Checked = False
-        If PublisherRadioButton.Checked = True Then
-            ' Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
-            Dim cn As OleDbConnection = New OleDbConnection(connectionString)
-            cn.Open()
-            Dim selectString As String = "SELECT * FROM Books WHERE Publisher like '%" & SearchTextBox.Text & "%'"
-            Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
-            Dim reader As OleDbDataReader = cmd.ExecuteReader()
-            Thumbnails(reader)
-            cn.Close()
-        End If
+        
     End Sub
 
     Private Sub ISBNRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles ISBNRadioButton.CheckedChanged
@@ -83,16 +45,7 @@ Public Class MainPage
         FieldRadioButton1.Checked = False
         TitleRadioButton.Checked = False
         PublisherRadioButton.Checked = False
-        If ISBNRadioButton.Checked = True Then
-            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
-            Dim cn As OleDbConnection = New OleDbConnection(connectionString)
-            cn.Open()
-            Dim selectString As String = "SELECT * FROM Books WHERE ISBN like '%" & SearchTextBox.Text & "%'"
-            Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
-            Dim reader As OleDbDataReader = cmd.ExecuteReader()
-            Thumbnails(reader)
-            cn.Close()
-        End If
+        
     End Sub
 
     Public Sub Thumbnails(reader As OleDbDataReader)
@@ -243,5 +196,9 @@ Public Class MainPage
 
             cn.Close()
         End If
+    End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
     End Sub
 End Class
