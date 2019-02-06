@@ -103,7 +103,7 @@ Public Class MainPage
         x = Panel2.Location.X
         y = -Panel2.Location.Y + Panel2.Height
         While reader.Read()
-            Dim Titlelabel As New Label
+            Dim Titlelabel As New LinkLabel
             Dim Authorlabel As New Label
             Dim Publisherlabel As New Label
 
@@ -117,7 +117,7 @@ Public Class MainPage
             Locationlabel.Size = New Size(150, 20)
             pictureBox.Size = New Size(200, 200)
             pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-
+            Titlelabel.Tag = reader("ISBN")
             pictureBox.Tag = reader("Image").ToString
             pictureBox.ImageLocation = reader("Image").ToString
             Titlelabel.Text = "Title: " & reader("Title")
@@ -160,6 +160,9 @@ Public Class MainPage
 
     Private Sub Titlelabel_click(ByVal sender As Object, ByVal e As EventArgs)
         'Dim Form2Caller As New Information
+        Dim frm As New BookDetails
+        frm.passISBN = sender.tag
+        frm.Show()
         'Form2Caller.SetInformation(sender.Text)
     End Sub
 
@@ -181,5 +184,64 @@ Public Class MainPage
    
     Private Sub LoginButton_Click(sender As Object, e As EventArgs) Handles LoginButton.Click
         Login.Show()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If TitleRadioButton.Checked = True Then
+            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
+            Dim cn As OleDbConnection = New OleDbConnection(connectionString)
+            Dim selectString As String = "SELECT * FROM Books WHERE Title like '%" & SearchTextBox.Text & "%'"
+            Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
+            cn.Open()
+            Dim reader As OleDbDataReader = cmd.ExecuteReader()
+            Thumbnails(reader)
+            cn.Close()
+        End If
+
+        If ISBNRadioButton.Checked = True Then
+            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
+            Dim cn As OleDbConnection = New OleDbConnection(connectionString)
+            cn.Open()
+            Dim selectString As String = "SELECT * FROM Books WHERE ISBN like '%" & SearchTextBox.Text & "%'"
+            Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
+            Dim reader As OleDbDataReader = cmd.ExecuteReader()
+            Thumbnails(reader)
+            cn.Close()
+        End If
+
+        If FieldRadioButton1.Checked = True Then
+            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
+            Dim cn As OleDbConnection = New OleDbConnection(connectionString)
+            cn.Open()
+            Dim selectString As String = "SELECT * FROM Books WHERE Field like '%" & SearchTextBox.Text & "%'"
+
+            Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
+            Dim reader As OleDbDataReader = cmd.ExecuteReader()
+            Thumbnails(reader)
+            cn.Close()
+        End If
+
+        If PublisherRadioButton.Checked = True Then
+            ' Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
+            Dim cn As OleDbConnection = New OleDbConnection(connectionString)
+            cn.Open()
+            Dim selectString As String = "SELECT * FROM Books WHERE Publisher like '%" & SearchTextBox.Text & "%'"
+            Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
+            Dim reader As OleDbDataReader = cmd.ExecuteReader()
+            Thumbnails(reader)
+            cn.Close()
+        End If
+
+        If AuthorRadioButton.Checked = True Then
+            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
+            Dim cn As OleDbConnection = New OleDbConnection(connectionString)
+            cn.Open()
+            Dim selectString As String = "SELECT * FROM Books WHERE Author like '%" & SearchTextBox.Text & "%'"
+            Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
+            Dim reader As OleDbDataReader = cmd.ExecuteReader()
+            Thumbnails(reader)
+
+            cn.Close()
+        End If
     End Sub
 End Class
