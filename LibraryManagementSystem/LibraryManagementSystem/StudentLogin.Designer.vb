@@ -27,23 +27,25 @@ Partial Class StudentLogin
         Me.btnItemsCheckedout = New System.Windows.Forms.Button()
         Me.btnMyProfile = New System.Windows.Forms.Button()
         Me.contentPanel = New System.Windows.Forms.Panel()
+        Me.btnLogout = New System.Windows.Forms.Button()
         Me.buttonPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'buttonPanel
         '
+        Me.buttonPanel.Controls.Add(Me.btnLogout)
         Me.buttonPanel.Controls.Add(Me.btnEditProfile)
         Me.buttonPanel.Controls.Add(Me.btnItemsCheckedout)
         Me.buttonPanel.Controls.Add(Me.btnMyProfile)
         Me.buttonPanel.Dock = System.Windows.Forms.DockStyle.Left
         Me.buttonPanel.Location = New System.Drawing.Point(0, 0)
         Me.buttonPanel.Name = "buttonPanel"
-        Me.buttonPanel.Size = New System.Drawing.Size(179, 681)
+        Me.buttonPanel.Size = New System.Drawing.Size(247, 681)
         Me.buttonPanel.TabIndex = 0
         '
         'btnEditProfile
         '
-        Me.btnEditProfile.Location = New System.Drawing.Point(0, 95)
+        Me.btnEditProfile.Location = New System.Drawing.Point(70, 156)
         Me.btnEditProfile.Name = "btnEditProfile"
         Me.btnEditProfile.Size = New System.Drawing.Size(177, 45)
         Me.btnEditProfile.TabIndex = 2
@@ -52,7 +54,7 @@ Partial Class StudentLogin
         '
         'btnItemsCheckedout
         '
-        Me.btnItemsCheckedout.Location = New System.Drawing.Point(0, 49)
+        Me.btnItemsCheckedout.Location = New System.Drawing.Point(65, 110)
         Me.btnItemsCheckedout.Name = "btnItemsCheckedout"
         Me.btnItemsCheckedout.Size = New System.Drawing.Size(179, 40)
         Me.btnItemsCheckedout.TabIndex = 1
@@ -61,7 +63,7 @@ Partial Class StudentLogin
         '
         'btnMyProfile
         '
-        Me.btnMyProfile.Location = New System.Drawing.Point(0, 0)
+        Me.btnMyProfile.Location = New System.Drawing.Point(70, 61)
         Me.btnMyProfile.Name = "btnMyProfile"
         Me.btnMyProfile.Size = New System.Drawing.Size(179, 43)
         Me.btnMyProfile.TabIndex = 0
@@ -71,10 +73,19 @@ Partial Class StudentLogin
         'contentPanel
         '
         Me.contentPanel.Dock = System.Windows.Forms.DockStyle.Right
-        Me.contentPanel.Location = New System.Drawing.Point(185, 0)
+        Me.contentPanel.Location = New System.Drawing.Point(255, 0)
         Me.contentPanel.Name = "contentPanel"
-        Me.contentPanel.Size = New System.Drawing.Size(1079, 681)
+        Me.contentPanel.Size = New System.Drawing.Size(1009, 681)
         Me.contentPanel.TabIndex = 1
+        '
+        'btnLogout
+        '
+        Me.btnLogout.Location = New System.Drawing.Point(70, 207)
+        Me.btnLogout.Name = "btnLogout"
+        Me.btnLogout.Size = New System.Drawing.Size(177, 44)
+        Me.btnLogout.TabIndex = 3
+        Me.btnLogout.Text = "Log out"
+        Me.btnLogout.UseVisualStyleBackColor = True
         '
         'StudentLogin
         '
@@ -96,4 +107,5 @@ Partial Class StudentLogin
     Friend WithEvents btnMyProfile As System.Windows.Forms.Button
     Friend WithEvents contentPanel As System.Windows.Forms.Panel
     Friend WithEvents btnEditProfile As System.Windows.Forms.Button
+    Friend WithEvents btnLogout As System.Windows.Forms.Button
 End Class
