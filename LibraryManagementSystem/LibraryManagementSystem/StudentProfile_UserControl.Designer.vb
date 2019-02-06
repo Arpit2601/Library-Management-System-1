@@ -43,6 +43,7 @@ Partial Class StudentProfile_UserControl
         Me.DesignationTextBox = New System.Windows.Forms.TextBox()
         Me.TotalFineTextBox = New System.Windows.Forms.TextBox()
         Me.MaxBooksTextBox = New System.Windows.Forms.TextBox()
+        Me.picBoxProfile = New System.Windows.Forms.PictureBox()
         UserIdLabel = New System.Windows.Forms.Label()
         UserNameLabel = New System.Windows.Forms.Label()
         EmailLabel = New System.Windows.Forms.Label()
@@ -53,6 +54,7 @@ Partial Class StudentProfile_UserControl
         MaxBooksLabel = New System.Windows.Forms.Label()
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UserBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picBoxProfile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UserIdLabel
@@ -213,10 +215,20 @@ Partial Class StudentProfile_UserControl
         Me.MaxBooksTextBox.Size = New System.Drawing.Size(104, 20)
         Me.MaxBooksTextBox.TabIndex = 24
         '
+        'picBoxProfile
+        '
+        Me.picBoxProfile.Location = New System.Drawing.Point(436, 168)
+        Me.picBoxProfile.Name = "picBoxProfile"
+        Me.picBoxProfile.Size = New System.Drawing.Size(191, 225)
+        Me.picBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picBoxProfile.TabIndex = 25
+        Me.picBoxProfile.TabStop = False
+        '
         'StudentProfile_UserControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.picBoxProfile)
         Me.Controls.Add(UserIdLabel)
         Me.Controls.Add(Me.UserIdTextBox)
         Me.Controls.Add(UserNameLabel)
@@ -237,6 +249,7 @@ Partial Class StudentProfile_UserControl
         Me.Size = New System.Drawing.Size(1079, 681)
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UserBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picBoxProfile, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -253,5 +266,6 @@ Partial Class StudentProfile_UserControl
     Friend WithEvents DesignationTextBox As System.Windows.Forms.TextBox
     Friend WithEvents TotalFineTextBox As System.Windows.Forms.TextBox
     Friend WithEvents MaxBooksTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents picBoxProfile As System.Windows.Forms.PictureBox
 
 End Class

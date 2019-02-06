@@ -11,8 +11,8 @@ Public Class EditStudentProfile_UserControl
         Dim phonenumber As String = PhoneNumberTextBox.Text
         Dim department As String = DepartmentTextBox.Text
 
-        Dim updateString As String = "UPDATE Users SET UserName='" & username & "', Email='" & email & "',  PhoneNumber='" & phonenumber & "', Department='" & department & "' WHERE Userid = " & StudentLogin.UserID
-
+        Dim updateString As String = "UPDATE Users SET UserName='" & username & "', Email='" & email & "',  PhoneNumber='" & phonenumber & "', Department='" & department & "', ProfileImage='" & StudentLogin.UserID & ".JPG' WHERE Userid = " & StudentLogin.UserID
+        picBoxPic.Image.Save(System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & StudentLogin.UserID & ".JPG")
         Dim cmd As OleDbCommand = New OleDbCommand(updateString, cn)
         If cmd.ExecuteNonQuery() > 0 Then
             cmd.Dispose()
@@ -22,4 +22,8 @@ Public Class EditStudentProfile_UserControl
         cn.Close()
     End Sub
 
+    Private Sub btnChangePic_Click(sender As Object, e As EventArgs) Handles btnChangePic.Click
+        OpenFileDialog1.ShowDialog()
+        picBoxPic.ImageLocation = OpenFileDialog1.FileName.ToString
+    End Sub
 End Class

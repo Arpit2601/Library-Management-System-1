@@ -80,9 +80,11 @@ Partial Class StudentLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(1264, 681)
         Me.Controls.Add(Me.buttonPanel)
         Me.Controls.Add(Me.contentPanel)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "StudentLogin"
         Me.Text = "StudentLogin"
         Me.buttonPanel.ResumeLayout(False)

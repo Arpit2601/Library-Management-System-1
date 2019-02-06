@@ -10,6 +10,9 @@ Public Class StudentProfile_UserControl
         Dim reader As OleDbDataReader = cmd.ExecuteReader()
 
         If reader.Read Then
+            Dim fullPath As String = System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & reader("ProfileImage")
+            picBoxProfile.ImageLocation = fullPath
+
             UserIdTextBox.Text = reader("UserId")
             UserNameTextBox.Text = reader("UserName")
             EmailTextBox.Text = reader("Email")
@@ -21,4 +24,5 @@ Public Class StudentProfile_UserControl
         End If
         cn.Close()
     End Sub
+
 End Class

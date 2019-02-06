@@ -56,6 +56,8 @@ Public Class MainPage
         x = Panel2.Location.X
         y = -Panel2.Location.Y + Panel2.Height
         While reader.Read()
+            Dim fullPath As String = System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & reader("BookImage")
+
             Dim Titlelabel As New LinkLabel
             Dim Authorlabel As New Label
             Dim Publisherlabel As New Label
@@ -71,8 +73,8 @@ Public Class MainPage
             pictureBox.Size = New Size(200, 200)
             pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
             Titlelabel.Tag = reader("ISBN")
-            pictureBox.Tag = reader("Image").ToString
-            pictureBox.ImageLocation = reader("Image").ToString
+            pictureBox.Tag = fullPath
+            pictureBox.ImageLocation = fullPath
             Titlelabel.Text = "Title: " & reader("Title")
             Authorlabel.Text = "Author: " & reader("Author")
             Publisherlabel.Text = "Publisher: " & reader("Publisher")
@@ -198,7 +200,4 @@ Public Class MainPage
         End If
     End Sub
 
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
-
-    End Sub
 End Class

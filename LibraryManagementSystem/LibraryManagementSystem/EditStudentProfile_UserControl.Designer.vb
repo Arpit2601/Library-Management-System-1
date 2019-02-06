@@ -38,6 +38,9 @@ Partial Class EditStudentProfile_UserControl
         Me.DepartmentTextBox = New System.Windows.Forms.TextBox()
         Me.UserNameTextBox = New System.Windows.Forms.TextBox()
         Me.btnUpdate = New System.Windows.Forms.Button()
+        Me.picBoxPic = New System.Windows.Forms.PictureBox()
+        Me.btnChangePic = New System.Windows.Forms.Button()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         PasswordLabel = New System.Windows.Forms.Label()
         EmailLabel = New System.Windows.Forms.Label()
         PhoneNumberLabel = New System.Windows.Forms.Label()
@@ -45,6 +48,7 @@ Partial Class EditStudentProfile_UserControl
         UserNameLabel = New System.Windows.Forms.Label()
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UserBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picBoxPic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PasswordLabel
@@ -163,10 +167,34 @@ Partial Class EditStudentProfile_UserControl
         Me.btnUpdate.Text = "Update Profile"
         Me.btnUpdate.UseVisualStyleBackColor = True
         '
+        'picBoxPic
+        '
+        Me.picBoxPic.Location = New System.Drawing.Point(591, 155)
+        Me.picBoxPic.Name = "picBoxPic"
+        Me.picBoxPic.Size = New System.Drawing.Size(163, 195)
+        Me.picBoxPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picBoxPic.TabIndex = 16
+        Me.picBoxPic.TabStop = False
+        '
+        'btnChangePic
+        '
+        Me.btnChangePic.Location = New System.Drawing.Point(601, 395)
+        Me.btnChangePic.Name = "btnChangePic"
+        Me.btnChangePic.Size = New System.Drawing.Size(121, 41)
+        Me.btnChangePic.TabIndex = 17
+        Me.btnChangePic.Text = "Upload Image"
+        Me.btnChangePic.UseVisualStyleBackColor = True
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
         'EditStudentProfile_UserControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.btnChangePic)
+        Me.Controls.Add(Me.picBoxPic)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(UserNameLabel)
         Me.Controls.Add(Me.UserNameTextBox)
@@ -182,6 +210,7 @@ Partial Class EditStudentProfile_UserControl
         Me.Size = New System.Drawing.Size(1079, 681)
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UserBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picBoxPic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -196,5 +225,8 @@ Partial Class EditStudentProfile_UserControl
     Friend WithEvents DepartmentTextBox As System.Windows.Forms.TextBox
     Friend WithEvents UserNameTextBox As System.Windows.Forms.TextBox
     Friend WithEvents btnUpdate As System.Windows.Forms.Button
+    Friend WithEvents picBoxPic As System.Windows.Forms.PictureBox
+    Friend WithEvents btnChangePic As System.Windows.Forms.Button
+    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
 
 End Class

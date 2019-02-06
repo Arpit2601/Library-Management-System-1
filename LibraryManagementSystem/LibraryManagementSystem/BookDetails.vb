@@ -31,6 +31,8 @@ Public Class BookDetails
         x = Panel1.Location.X
         y = Panel1.Location.Y
         While reader.Read()
+            Dim fullPath As String = System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & reader("BookImage")
+
             Dim Titlelabel As New Label
             Dim Authorlabel As New Label
             Dim Publisherlabel As New Label
@@ -51,9 +53,9 @@ Public Class BookDetails
             Locationlabel.Size = New Size(250, 40)
             pictureBox.Size = New Size(200, 200)
             pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-            'Titlelabel.Tag = reader("ISBN")
-            pictureBox.Tag = reader("Image").ToString
-            pictureBox.ImageLocation = reader("Image").ToString
+
+            pictureBox.Tag = fullPath
+            pictureBox.ImageLocation = fullPath
             Titlelabel.Text = "Title: " & reader("Title")
             PublishYearlabel.Text = "Published on: " & reader("PublishYear")
             Remaininglabel.Text = "Remaining: " & reader("Remaining")
