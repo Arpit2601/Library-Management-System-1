@@ -234,6 +234,9 @@
     <Content Include="Database.accdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\127761-download-free-light-yellow-background-1920x1080-for-iphone-6.jpg" />
+    <None Include="Resources\0db91f0d7d1f2b4c8d6af61c988093a0bb89461e.jpg" />
+    <None Include="Resources\1200px-IIT_Guwahati_Logo.svg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

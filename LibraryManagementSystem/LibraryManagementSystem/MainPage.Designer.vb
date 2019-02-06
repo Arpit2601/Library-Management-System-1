@@ -25,6 +25,7 @@ Partial Class MainPage
         Me.BrowseButton = New System.Windows.Forms.Button()
         Me.LoginButton = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.ISBNRadioButton = New System.Windows.Forms.RadioButton()
         Me.PublisherRadioButton = New System.Windows.Forms.RadioButton()
         Me.AuthorRadioButton = New System.Windows.Forms.RadioButton()
@@ -33,7 +34,6 @@ Partial Class MainPage
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -57,6 +57,7 @@ Partial Class MainPage
         '
         'Panel1
         '
+        Me.Panel1.BackColor = System.Drawing.Color.Transparent
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.ISBNRadioButton)
         Me.Panel1.Controls.Add(Me.PublisherRadioButton)
@@ -69,6 +70,15 @@ Partial Class MainPage
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1243, 151)
         Me.Panel1.TabIndex = 3
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(1053, 27)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(112, 34)
+        Me.Button1.TabIndex = 5
+        Me.Button1.Text = "SEARCH"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'ISBNRadioButton
         '
@@ -136,38 +146,35 @@ Partial Class MainPage
         '
         'SearchTextBox
         '
+        Me.SearchTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SearchTextBox.ForeColor = System.Drawing.SystemColors.InactiveCaption
         Me.SearchTextBox.Location = New System.Drawing.Point(314, 27)
         Me.SearchTextBox.Multiline = True
         Me.SearchTextBox.Name = "SearchTextBox"
         Me.SearchTextBox.Size = New System.Drawing.Size(742, 34)
         Me.SearchTextBox.TabIndex = 0
+        Me.SearchTextBox.Text = "Enter Book Detail here"
         '
         'Panel2
         '
         Me.Panel2.AutoScroll = True
+        Me.Panel2.BackColor = System.Drawing.Color.Transparent
         Me.Panel2.Location = New System.Drawing.Point(12, 273)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1242, 329)
         Me.Panel2.TabIndex = 4
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(1053, 27)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(112, 34)
-        Me.Button1.TabIndex = 5
-        Me.Button1.Text = "SEARCH"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'MainPage
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
+        Me.BackgroundImage = Global.LibraryManagementSystem.My.Resources.Resources._127761_download_free_light_yellow_background_1920x1080_for_iphone_6
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1262, 673)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.LoginButton)
         Me.Controls.Add(Me.BrowseButton)
+        Me.Controls.Add(Me.Panel2)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximumSize = New System.Drawing.Size(1280, 720)
         Me.MinimumSize = New System.Drawing.Size(1280, 720)
