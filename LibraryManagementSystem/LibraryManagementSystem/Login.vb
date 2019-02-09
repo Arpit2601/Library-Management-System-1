@@ -6,7 +6,14 @@ Public Class Login
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim username As String = txtUsername.Text
-        Dim password As String = txtPassword.Text
+        Dim pre_password As String = txtPassword.Text
+
+        Dim password As String = ""
+        For Each c In pre_password
+            If Not c = " " Then
+                password += c
+            End If
+        Next
 
         Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
 
@@ -24,7 +31,7 @@ Public Class Login
             Else
                 StudentLogin.UserName = reader("UserName")
                 StudentLogin.Show()
-                Me.Hide()
+                Me.Close()
                 MainPage.Hide()
             End If
         Else
@@ -80,4 +87,7 @@ Public Class Login
         End If
     End Sub
 
+    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

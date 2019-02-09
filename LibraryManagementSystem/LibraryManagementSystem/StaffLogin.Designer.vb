@@ -34,87 +34,107 @@ Partial Class StaffLogin
         '
         'Buttons
         '
+        Me.Buttons.BackColor = System.Drawing.Color.MidnightBlue
         Me.Buttons.Controls.Add(Me.ReIssueBook)
         Me.Buttons.Controls.Add(Me.ReturnBook)
         Me.Buttons.Controls.Add(Me.IssueBook)
         Me.Buttons.Controls.Add(Me.BookButton)
         Me.Buttons.Controls.Add(Me.StudentButton)
-        Me.Buttons.Location = New System.Drawing.Point(2, 0)
+        Me.Buttons.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Buttons.ForeColor = System.Drawing.Color.White
+        Me.Buttons.Location = New System.Drawing.Point(0, 0)
         Me.Buttons.Margin = New System.Windows.Forms.Padding(2)
         Me.Buttons.Name = "Buttons"
-        Me.Buttons.Size = New System.Drawing.Size(172, 597)
+        Me.Buttons.Size = New System.Drawing.Size(247, 681)
         Me.Buttons.TabIndex = 0
         '
         'ReIssueBook
         '
-        Me.ReIssueBook.Font = New System.Drawing.Font("Palatino Linotype", 15.0!, System.Drawing.FontStyle.Bold)
-        Me.ReIssueBook.Location = New System.Drawing.Point(0, 167)
+        Me.ReIssueBook.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ReIssueBook.FlatAppearance.BorderSize = 0
+        Me.ReIssueBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ReIssueBook.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ReIssueBook.Location = New System.Drawing.Point(0, 125)
         Me.ReIssueBook.Margin = New System.Windows.Forms.Padding(2)
         Me.ReIssueBook.Name = "ReIssueBook"
-        Me.ReIssueBook.Size = New System.Drawing.Size(172, 77)
+        Me.ReIssueBook.Size = New System.Drawing.Size(247, 45)
         Me.ReIssueBook.TabIndex = 4
         Me.ReIssueBook.Text = "ReIssue Book"
         Me.ReIssueBook.UseVisualStyleBackColor = True
         '
         'ReturnBook
         '
-        Me.ReturnBook.Font = New System.Drawing.Font("Palatino Linotype", 15.0!, System.Drawing.FontStyle.Bold)
-        Me.ReturnBook.Location = New System.Drawing.Point(0, 84)
+        Me.ReturnBook.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ReturnBook.FlatAppearance.BorderSize = 0
+        Me.ReturnBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ReturnBook.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ReturnBook.Location = New System.Drawing.Point(0, 82)
         Me.ReturnBook.Margin = New System.Windows.Forms.Padding(2)
         Me.ReturnBook.Name = "ReturnBook"
-        Me.ReturnBook.Size = New System.Drawing.Size(172, 77)
+        Me.ReturnBook.Size = New System.Drawing.Size(247, 45)
         Me.ReturnBook.TabIndex = 3
         Me.ReturnBook.Text = "Return Book"
         Me.ReturnBook.UseVisualStyleBackColor = True
         '
         'IssueBook
         '
-        Me.IssueBook.Font = New System.Drawing.Font("Palatino Linotype", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IssueBook.Location = New System.Drawing.Point(0, 2)
+        Me.IssueBook.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.IssueBook.FlatAppearance.BorderSize = 0
+        Me.IssueBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IssueBook.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IssueBook.Location = New System.Drawing.Point(0, 39)
         Me.IssueBook.Margin = New System.Windows.Forms.Padding(2)
         Me.IssueBook.Name = "IssueBook"
-        Me.IssueBook.Size = New System.Drawing.Size(172, 77)
+        Me.IssueBook.Size = New System.Drawing.Size(247, 45)
         Me.IssueBook.TabIndex = 2
         Me.IssueBook.Text = "Issue Book"
         Me.IssueBook.UseVisualStyleBackColor = True
         '
         'BookButton
         '
-        Me.BookButton.Font = New System.Drawing.Font("Palatino Linotype", 15.0!, System.Drawing.FontStyle.Bold)
-        Me.BookButton.Location = New System.Drawing.Point(0, 249)
+        Me.BookButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BookButton.FlatAppearance.BorderSize = 0
+        Me.BookButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BookButton.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BookButton.Location = New System.Drawing.Point(0, 168)
         Me.BookButton.Margin = New System.Windows.Forms.Padding(2)
         Me.BookButton.Name = "BookButton"
-        Me.BookButton.Size = New System.Drawing.Size(172, 77)
+        Me.BookButton.Size = New System.Drawing.Size(247, 45)
         Me.BookButton.TabIndex = 1
         Me.BookButton.Text = "Add/Modify Book"
         Me.BookButton.UseVisualStyleBackColor = True
         '
         'StudentButton
         '
-        Me.StudentButton.Font = New System.Drawing.Font("Palatino Linotype", 15.0!, System.Drawing.FontStyle.Bold)
-        Me.StudentButton.Location = New System.Drawing.Point(0, 331)
+        Me.StudentButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.StudentButton.FlatAppearance.BorderSize = 0
+        Me.StudentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.StudentButton.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.StudentButton.Location = New System.Drawing.Point(0, 211)
         Me.StudentButton.Margin = New System.Windows.Forms.Padding(2)
         Me.StudentButton.Name = "StudentButton"
-        Me.StudentButton.Size = New System.Drawing.Size(172, 77)
+        Me.StudentButton.Size = New System.Drawing.Size(247, 45)
         Me.StudentButton.TabIndex = 0
         Me.StudentButton.Text = "Add/Modify Student"
         Me.StudentButton.UseVisualStyleBackColor = True
         '
         'Action
         '
-        Me.Action.Location = New System.Drawing.Point(178, 0)
+        Me.Action.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Action.Location = New System.Drawing.Point(247, 0)
         Me.Action.Margin = New System.Windows.Forms.Padding(2)
         Me.Action.Name = "Action"
-        Me.Action.Size = New System.Drawing.Size(660, 597)
+        Me.Action.Size = New System.Drawing.Size(1017, 681)
         Me.Action.TabIndex = 1
         '
         'StaffLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(835, 596)
+        Me.ClientSize = New System.Drawing.Size(1264, 681)
         Me.Controls.Add(Me.Action)
         Me.Controls.Add(Me.Buttons)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "StaffLogin"
         Me.Text = "testing"

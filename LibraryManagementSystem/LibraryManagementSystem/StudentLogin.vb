@@ -40,7 +40,7 @@
 
         Dim result = MessageBox.Show("Do you want to logout?", "Confirm logout", MessageBoxButtons.YesNo)
         If result = DialogResult.Yes Then
-            Me.Hide()
+            Me.Close()
             MainPage.Show()
         Else
             contentPanel.Controls.Clear()

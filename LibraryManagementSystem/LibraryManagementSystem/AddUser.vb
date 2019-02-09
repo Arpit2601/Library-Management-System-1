@@ -57,6 +57,10 @@ Public Class AddUser
             End If
         Next
 
+        If password = "" Then
+            MessageBox.Show("Please enter the user's password")
+        End If
+
         Dim connectionString As String = MainPage.connectionString
         Dim cn As OleDbConnection = New OleDbConnection(connectionString)
         Dim cmdString As String

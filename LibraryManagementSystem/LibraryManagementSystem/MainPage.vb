@@ -123,6 +123,8 @@ Public Class MainPage
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+
         If TitleRadioButton.Checked = True Then
             'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
             Dim cn As OleDbConnection = New OleDbConnection(connectionString)
@@ -132,9 +134,8 @@ Public Class MainPage
             Dim reader As OleDbDataReader = cmd.ExecuteReader()
             Thumbnails(reader)
             cn.Close()
-        End If
 
-        If ISBNRadioButton.Checked = True Then
+        ElseIf ISBNRadioButton.Checked = True Then
             'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
             Dim cn As OleDbConnection = New OleDbConnection(connectionString)
             cn.Open()
@@ -143,9 +144,8 @@ Public Class MainPage
             Dim reader As OleDbDataReader = cmd.ExecuteReader()
             Thumbnails(reader)
             cn.Close()
-        End If
 
-        If FieldRadioButton1.Checked = True Then
+        ElseIf FieldRadioButton1.Checked = True Then
             'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
             Dim cn As OleDbConnection = New OleDbConnection(connectionString)
             cn.Open()
@@ -155,9 +155,8 @@ Public Class MainPage
             Dim reader As OleDbDataReader = cmd.ExecuteReader()
             Thumbnails(reader)
             cn.Close()
-        End If
 
-        If PublisherRadioButton.Checked = True Then
+        ElseIf PublisherRadioButton.Checked = True Then
             ' Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
             Dim cn As OleDbConnection = New OleDbConnection(connectionString)
             cn.Open()
@@ -166,9 +165,8 @@ Public Class MainPage
             Dim reader As OleDbDataReader = cmd.ExecuteReader()
             Thumbnails(reader)
             cn.Close()
-        End If
 
-        If AuthorRadioButton.Checked = True Then
+        ElseIf AuthorRadioButton.Checked = True Then
             'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;data Source=C:\Users\ARPIT\Desktop\project 2\Library-Management-System\LibraryManagementSystem\Database.accdb"
             Dim cn As OleDbConnection = New OleDbConnection(connectionString)
             cn.Open()
@@ -178,6 +176,8 @@ Public Class MainPage
             Thumbnails(reader)
 
             cn.Close()
+        Else
+            MessageBox.Show("Please choose a search criteria", "No radio buttons checked")
         End If
     End Sub
 
@@ -211,4 +211,7 @@ Public Class MainPage
     End Sub
 
 
+    Private Sub MainPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
