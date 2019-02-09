@@ -144,6 +144,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PasswordEncryptionModule.vb" />
     <Compile Include="reIssueBook.Designer.vb">
       <DependentUpon>reIssueBook.vb</DependentUpon>
     </Compile>

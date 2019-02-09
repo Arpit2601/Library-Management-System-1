@@ -9,7 +9,7 @@ Public Class addBook
 
 
     Private Sub ISBNTextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles ISBNTextBox1.KeyDown
-        Dim regex As Regex = New Regex("^(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)[\d-]+$")
+        Dim regex As Regex = New Regex("^(97(8|9))?\d{9}(\d|X)$")
         Console.Write(e.KeyCode)
         If e.KeyCode = Keys.Enter Then
             If regex.IsMatch(ISBNTextBox1.Text) AndAlso ValidateISBN(ISBNinput) Then
@@ -23,9 +23,10 @@ Public Class addBook
     Private Sub ISBNTextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ISBNTextBox1.KeyPress
         If ISBNinput.Length > 13 AndAlso e.KeyChar <> ControlChars.Back Then
             e.Handled = True
-        ElseIf Asc(e.KeyChar) >= 48 AndAlso Asc(e.KeyChar) <= 57 Then
+        ElseIf Asc(e.KeyChar) >= 48 AndAlso Asc(e.KeyChar) <= 57 Or e.KeyChar = "X" Or e.KeyChar = "x" Then
             ISBNinput = ISBNinput + e.KeyChar
-        ElseIf Asc(e.KeyChar) <> 45 AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> "X" AndAlso e.KeyChar = "x" Then
+        ElseIf Asc(e.KeyChar) <> 45 AndAlso e.KeyChar <> ControlChars.Back Then
+
             e.Handled = True
         End If
 
@@ -38,7 +39,7 @@ Public Class addBook
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles myButton.Click
 
         If myButton.Text = "Search" Then
-            Dim regex As Regex = New Regex("^(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)[\d-]+$")
+            Dim regex As Regex = New Regex("^(97(8|9))?\d{9}(\d|X)$")
 
             If regex.IsMatch(ISBNTextBox1.Text) AndAlso ValidateISBN(ISBNinput) Then
                 myfunction()
@@ -54,22 +55,23 @@ Public Class addBook
         If Not ValidateInput() Then
             Return
         End If
-
         Dim imgLocation As String = ISBNTextBox1.Text
-        If imgLocation = "" Then
+        If PictureBox1.Image Is Nothing Then
             imgLocation = "defaultBook"
         End If
 
         cn.Open()
         TotalTextBox.Text = AddNumber.Value + Convert.ToInt64(TotalTextBox.Text)
         If myButton.Text = "Add" Then
-            cmdString = "insert into Books values(" & ISBNinput & ", " & TotalTextBox.Text & "," & TotalTextBox.Text & "," & LocationTextBox.Text & ",'" & PublishYearDateTimePicker.Value.Date & "','" & TitleTextBox.Text & "','" & AuthorTextBox.Text & "','" & PublisherTextBox.Text & "','" & FieldTextBox.Text & "','" & ISBNinput & ".JPG'," & PriceBox.Text & ")"
-            PictureBox1.Image.Save(System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & imgLocation & ".JPG")
+            cmdString = "insert into Books values(" & ISBNinput & ", " & TotalTextBox.Text & "," & TotalTextBox.Text & "," & LocationTextBox.Text & ",'" & PublishYearDateTimePicker.Value.Date & "','" & TitleTextBox.Text & "','" & AuthorTextBox.Text & "','" & PublisherTextBox.Text & "','" & FieldTextBox.Text & "','" & imgLocation & ".JPG'," & PriceBox.Text & ")"
         Else
-            cmdString = "update Books set Total= " & TotalTextBox.Text & ",PublishYear='" & PublishYearDateTimePicker.Value & "',Location= '" & LocationTextBox.Text & "',Title='" & TitleTextBox.Text & "',Author='" & AuthorTextBox.Text & "',Field='" & FieldTextBox.Text & "' and Publisher='" & PublisherTextBox.Text & "' where ISBN='" & ISBNinput & "'"
+            cmdString = "update Books set Total= " & TotalTextBox.Text & ",PublishYear='" & PublishYearDateTimePicker.Value & "',Location= '" & LocationTextBox.Text & "',Title='" & TitleTextBox.Text & "',Author='" & AuthorTextBox.Text & "',Field='" & FieldTextBox.Text & "' , Publisher='" & PublisherTextBox.Text & "' ,BookImage='" & imgLocation & ".JPG'where ISBN='" & ISBNinput & "'"
+        End If
+
+        If PictureBox1.Image IsNot Nothing Then
             PictureBox1.Image.Save(System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & imgLocation & ".JPG")
         End If
-        Console.WriteLine(cmdString)
+
 
         Dim cmd As OleDbCommand = New OleDbCommand(cmdString, cn)
         Dim reader As OleDbDataReader = cmd.ExecuteReader
@@ -134,26 +136,11 @@ Public Class addBook
         End While
         cn.Close()
 
-        TitleLabel.Show()
-        TitleTextBox.Show()
-        TotalLabel.Show()
-        TotalTextBox.Show()
-        RemainingLabel.Show()
-        RemainingTextBox.Show()
-        LocationLabel.Show()
-        LocationTextBox.Show()
-        PublisherLabel.Show()
-        PublisherTextBox.Show()
-        AuthorLabel.Show()
-        AuthorTextBox.Show()
-        FieldLabel.Show()
-        FieldTextBox.Show()
-        PublishYearLabel.Show()
-        PublishYearDateTimePicker.Show()
-        PriceLabel.Show()
-        PriceBox.Show()
-        PictureBox1.Show()
-        uploadButton.Show()
+        For Each Control In Me.Controls
+            Control.visible = True
+        Next
+
+
         ISBNTextBox1.Enabled = False
         Return True
     End Function
@@ -195,5 +182,19 @@ Public Class addBook
 
         Return True
     End Function
+
+
+    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim textBoxes = Me.Controls.OfType(Of TextBox)()
+
+        For Each txt In textBoxes
+            AddHandler txt.KeyDown, AddressOf ReturnHandler
+        Next
+    End Sub
+    Public Sub ReturnHandler(sender As Object, e As System.Windows.Forms.KeyEventArgs)
+        If e.KeyCode = Keys.Enter Then
+            SendKeys.Send("{Tab}")
+        End If
+    End Sub
 
 End Class

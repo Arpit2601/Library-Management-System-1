@@ -10,6 +10,11 @@
 
 
         Action.Controls.Clear()
+        Dim textBoxes = Me.Controls.OfType(Of TextBox)()
+        For Each txt In textBoxes
+            AddHandler txt.KeyDown, AddressOf ReturnHandler
+        Next
+
 
 
         Dim returnBookInstance = New returnBook
@@ -164,6 +169,12 @@
         If result = DialogResult.Yes Then
             Me.Close()
             MainPage.Show()
+        End If
+    End Sub
+
+    Public Sub ReturnHandler(sender As Object, e As System.Windows.Forms.KeyEventArgs)
+        If e.KeyCode = Keys.Enter Then
+            SendKeys.Send(Keys.Tab)
         End If
     End Sub
 End Class

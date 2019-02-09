@@ -88,6 +88,15 @@ Public Class Login
     End Sub
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim textBoxes = Me.Controls.OfType(Of TextBox)()
 
+        For Each txt In textBoxes
+            AddHandler txt.KeyDown, AddressOf ReturnHandler
+        Next
+    End Sub
+    Public Sub ReturnHandler(sender As Object, e As System.Windows.Forms.KeyEventArgs)
+        If e.KeyCode = Keys.Enter Then
+            SendKeys.Send("{Tab}")
+        End If
     End Sub
 End Class
