@@ -3,15 +3,16 @@ Imports System.Text.RegularExpressions
 
 
 Public Class addBook
+    'Global variables 
+    Dim connectionString = MainPage.connectionString
     Dim ISBNinput As String = ""
-    Private Sub ISBNTextBox1_TextChanged(sender As Object, e As KeyEventArgs) Handles ISBNTextBox1.KeyDown
+
+
+    Private Sub ISBNTextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles ISBNTextBox1.KeyDown
         Dim regex As Regex = New Regex("^(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)[\d-]+$")
         Console.Write(e.KeyCode)
         If e.KeyCode = Keys.Enter Then
-            Console.WriteLine()
-            Console.WriteLine(ISBNinput)
-
-            If regex.IsMatch(ISBNTextBox1.Text) AndAlso validateISBN(ISBNinput) Then
+            If regex.IsMatch(ISBNTextBox1.Text) AndAlso ValidateISBN(ISBNinput) Then
                 myfunction()
             Else
                 MessageBox.Show("Invalid ISBN Number")
@@ -23,8 +24,8 @@ Public Class addBook
         If ISBNinput.Length > 13 AndAlso e.KeyChar <> ControlChars.Back Then
             e.Handled = True
         ElseIf Asc(e.KeyChar) >= 48 AndAlso Asc(e.KeyChar) <= 57 Then
-            ISBNinput += e.KeyChar
-        ElseIf Asc(e.KeyChar) <> 45 AndAlso e.KeyChar <> ControlChars.Back Then
+            ISBNinput = ISBNinput + e.KeyChar
+        ElseIf Asc(e.KeyChar) <> 45 AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> "X" AndAlso e.KeyChar = "x" Then
             e.Handled = True
         End If
 
@@ -39,7 +40,7 @@ Public Class addBook
         If myButton.Text = "Search" Then
             Dim regex As Regex = New Regex("^(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)[\d-]+$")
 
-            If regex.IsMatch(ISBNTextBox1.Text) AndAlso validateISBN(ISBNinput) Then
+            If regex.IsMatch(ISBNTextBox1.Text) AndAlso ValidateISBN(ISBNinput) Then
                 myfunction()
             Else
                 MessageBox.Show("Invalid ISBN Number")
@@ -47,23 +48,26 @@ Public Class addBook
             Return
         End If
 
-        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Database.accdb"
         Dim cn As OleDbConnection = New OleDbConnection(connectionString)
         Dim cmdString As String
 
-        'To do create a better function for checking price
-        If Not IsNumeric(PriceBox.Text) Then
-            MessageBox.Show("Enter a valid Price for the book")
+        If Not ValidateInput() Then
+            Return
+        End If
+
+        Dim imgLocation As String = ISBNTextBox1.Text
+        If imgLocation = "" Then
+            imgLocation = "defaultBook"
         End If
 
         cn.Open()
         TotalTextBox.Text = AddNumber.Value + Convert.ToInt64(TotalTextBox.Text)
         If myButton.Text = "Add" Then
             cmdString = "insert into Books values(" & ISBNinput & ", " & TotalTextBox.Text & "," & TotalTextBox.Text & "," & LocationTextBox.Text & ",'" & PublishYearDateTimePicker.Value.Date & "','" & TitleTextBox.Text & "','" & AuthorTextBox.Text & "','" & PublisherTextBox.Text & "','" & FieldTextBox.Text & "','" & ISBNinput & ".JPG'," & PriceBox.Text & ")"
-            PictureBox1.Image.Save(System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & ISBNTextBox1.Text & ".JPG")
+            PictureBox1.Image.Save(System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & imgLocation & ".JPG")
         Else
             cmdString = "update Books set Total= " & TotalTextBox.Text & ",PublishYear='" & PublishYearDateTimePicker.Value & "',Location= '" & LocationTextBox.Text & "',Title='" & TitleTextBox.Text & "',Author='" & AuthorTextBox.Text & "',Field='" & FieldTextBox.Text & "' and Publisher='" & PublisherTextBox.Text & "' where ISBN='" & ISBNinput & "'"
-            PictureBox1.Image.Save(System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & ISBNTextBox1.Text & ".JPG")
+            PictureBox1.Image.Save(System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & imgLocation & ".JPG")
         End If
         Console.WriteLine(cmdString)
 
@@ -102,7 +106,6 @@ Public Class addBook
 
     Function myfunction() As Boolean
         'User has entered isbn number
-        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\Database.accdb"
         Dim cn As OleDbConnection = New OleDbConnection(connectionString)
         Dim cmdString = "select * from Books where ISBN = '" & ISBNinput & "'"
         cn.Open()
@@ -152,11 +155,46 @@ Public Class addBook
         PictureBox1.Show()
         ImageLabel.Show()
         uploadButton.Show()
+        ISBNTextBox1.Enabled = False
         Return True
     End Function
 
-    Function validateISBN(ISBNnumber As String) As String
-        'Complete this function
+    Friend Function ValidateInput() As Boolean
+        If LocationTextBox.Text = "" Then
+            MessageBox.Show("Please enter shelf location of the book")
+            Return False
+        ElseIf TitleTextBox.Text = "" Then
+            MessageBox.Show("Please Enter Title of the Book")
+            Return False
+        ElseIf AuthorTextBox.Text = "" Then
+            MessageBox.Show("Please Enter Author of the Book")
+
+        ElseIf PublisherTextBox.Text = "" Then
+            MessageBox.Show("Please Enter Publisher of the Book")
+            Return False
+        ElseIf FieldTextBox.Text = "" Then
+            MessageBox.Show("Please Enter Field of the Book")
+            Return False
+        ElseIf PriceBox.Text = "" Then
+            MessageBox.Show("Please Enter Price of the Book")
+            Return False
+        End If
+
+        Dim countDot As Integer = 0
+        For i As Integer = 0 To PriceBox.Text.Length - 1
+            If PriceBox.Text(i) = "." Then
+                countDot += 1
+            ElseIf PriceBox.Text(i) <= "0" Or PriceBox.Text(i) >= "9" Then
+                MessageBox.Show("Invalid Price Entered.Please Enter a valid Price for the book")
+                Return False
+            End If
+        Next
+
+        If countDot > 1 Or PriceBox.Text.Length - countDot < 1 Or PriceBox.Text(0) = "." Or PriceBox.Text(PriceBox.Text.Length - 1) = "." Then
+            Return False
+        End If
+
         Return True
     End Function
+
 End Class
