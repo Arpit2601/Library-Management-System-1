@@ -23,52 +23,87 @@ Partial Class StudentLogin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.buttonPanel = New System.Windows.Forms.Panel()
+        Me.btnLogout = New System.Windows.Forms.Button()
         Me.btnEditProfile = New System.Windows.Forms.Button()
         Me.btnItemsCheckedout = New System.Windows.Forms.Button()
         Me.btnMyProfile = New System.Windows.Forms.Button()
         Me.contentPanel = New System.Windows.Forms.Panel()
-        Me.btnLogout = New System.Windows.Forms.Button()
         Me.buttonPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'buttonPanel
         '
+        Me.buttonPanel.BackColor = System.Drawing.Color.MidnightBlue
         Me.buttonPanel.Controls.Add(Me.btnLogout)
         Me.buttonPanel.Controls.Add(Me.btnEditProfile)
         Me.buttonPanel.Controls.Add(Me.btnItemsCheckedout)
         Me.buttonPanel.Controls.Add(Me.btnMyProfile)
         Me.buttonPanel.Dock = System.Windows.Forms.DockStyle.Left
+        Me.buttonPanel.ForeColor = System.Drawing.Color.Black
         Me.buttonPanel.Location = New System.Drawing.Point(0, 0)
         Me.buttonPanel.Name = "buttonPanel"
         Me.buttonPanel.Size = New System.Drawing.Size(247, 681)
         Me.buttonPanel.TabIndex = 0
         '
+        'btnLogout
+        '
+        Me.btnLogout.BackColor = System.Drawing.Color.MidnightBlue
+        Me.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnLogout.FlatAppearance.BorderSize = 0
+        Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogout.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLogout.ForeColor = System.Drawing.Color.White
+        Me.btnLogout.Location = New System.Drawing.Point(0, 162)
+        Me.btnLogout.Name = "btnLogout"
+        Me.btnLogout.Size = New System.Drawing.Size(247, 45)
+        Me.btnLogout.TabIndex = 3
+        Me.btnLogout.Text = "Log out"
+        Me.btnLogout.UseVisualStyleBackColor = False
+        '
         'btnEditProfile
         '
-        Me.btnEditProfile.Location = New System.Drawing.Point(70, 156)
+        Me.btnEditProfile.BackColor = System.Drawing.Color.MidnightBlue
+        Me.btnEditProfile.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnEditProfile.FlatAppearance.BorderSize = 0
+        Me.btnEditProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEditProfile.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEditProfile.ForeColor = System.Drawing.Color.White
+        Me.btnEditProfile.Location = New System.Drawing.Point(0, 119)
         Me.btnEditProfile.Name = "btnEditProfile"
-        Me.btnEditProfile.Size = New System.Drawing.Size(177, 45)
+        Me.btnEditProfile.Size = New System.Drawing.Size(247, 45)
         Me.btnEditProfile.TabIndex = 2
         Me.btnEditProfile.Text = "Edit Profile"
-        Me.btnEditProfile.UseVisualStyleBackColor = True
+        Me.btnEditProfile.UseVisualStyleBackColor = False
         '
         'btnItemsCheckedout
         '
-        Me.btnItemsCheckedout.Location = New System.Drawing.Point(65, 110)
+        Me.btnItemsCheckedout.BackColor = System.Drawing.Color.MidnightBlue
+        Me.btnItemsCheckedout.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnItemsCheckedout.FlatAppearance.BorderSize = 0
+        Me.btnItemsCheckedout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnItemsCheckedout.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnItemsCheckedout.ForeColor = System.Drawing.Color.White
+        Me.btnItemsCheckedout.Location = New System.Drawing.Point(0, 76)
         Me.btnItemsCheckedout.Name = "btnItemsCheckedout"
-        Me.btnItemsCheckedout.Size = New System.Drawing.Size(179, 40)
+        Me.btnItemsCheckedout.Size = New System.Drawing.Size(247, 45)
         Me.btnItemsCheckedout.TabIndex = 1
         Me.btnItemsCheckedout.Text = "Items Checked Out"
-        Me.btnItemsCheckedout.UseVisualStyleBackColor = True
+        Me.btnItemsCheckedout.UseVisualStyleBackColor = False
         '
         'btnMyProfile
         '
-        Me.btnMyProfile.Location = New System.Drawing.Point(70, 61)
+        Me.btnMyProfile.BackColor = System.Drawing.Color.MidnightBlue
+        Me.btnMyProfile.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnMyProfile.FlatAppearance.BorderSize = 0
+        Me.btnMyProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMyProfile.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMyProfile.ForeColor = System.Drawing.Color.White
+        Me.btnMyProfile.Location = New System.Drawing.Point(0, 33)
         Me.btnMyProfile.Name = "btnMyProfile"
-        Me.btnMyProfile.Size = New System.Drawing.Size(179, 43)
+        Me.btnMyProfile.Size = New System.Drawing.Size(247, 45)
         Me.btnMyProfile.TabIndex = 0
         Me.btnMyProfile.Text = "My Profile"
-        Me.btnMyProfile.UseVisualStyleBackColor = True
+        Me.btnMyProfile.UseVisualStyleBackColor = False
         '
         'contentPanel
         '
@@ -77,15 +112,6 @@ Partial Class StudentLogin
         Me.contentPanel.Name = "contentPanel"
         Me.contentPanel.Size = New System.Drawing.Size(1009, 681)
         Me.contentPanel.TabIndex = 1
-        '
-        'btnLogout
-        '
-        Me.btnLogout.Location = New System.Drawing.Point(70, 207)
-        Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(177, 44)
-        Me.btnLogout.TabIndex = 3
-        Me.btnLogout.Text = "Log out"
-        Me.btnLogout.UseVisualStyleBackColor = True
         '
         'StudentLogin
         '

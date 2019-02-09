@@ -23,7 +23,6 @@ Partial Class EditStudentProfile_UserControl
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim PasswordLabel As System.Windows.Forms.Label
         Dim EmailLabel As System.Windows.Forms.Label
         Dim PhoneNumberLabel As System.Windows.Forms.Label
         Dim DepartmentLabel As System.Windows.Forms.Label
@@ -32,7 +31,6 @@ Partial Class EditStudentProfile_UserControl
         Me.UserBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UserTableAdapter = New LibraryManagementSystem.DatabaseDataSetTableAdapters.UserTableAdapter()
         Me.TableAdapterManager = New LibraryManagementSystem.DatabaseDataSetTableAdapters.TableAdapterManager()
-        Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.EmailTextBox = New System.Windows.Forms.TextBox()
         Me.PhoneNumberTextBox = New System.Windows.Forms.TextBox()
         Me.txtName = New System.Windows.Forms.TextBox()
@@ -51,7 +49,6 @@ Partial Class EditStudentProfile_UserControl
         Me.MechanicjalEngineeringToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PhysicsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        PasswordLabel = New System.Windows.Forms.Label()
         EmailLabel = New System.Windows.Forms.Label()
         PhoneNumberLabel = New System.Windows.Forms.Label()
         DepartmentLabel = New System.Windows.Forms.Label()
@@ -62,55 +59,49 @@ Partial Class EditStudentProfile_UserControl
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'PasswordLabel
-        '
-        PasswordLabel.AutoSize = True
-        PasswordLabel.Location = New System.Drawing.Point(261, 242)
-        PasswordLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        PasswordLabel.Name = "PasswordLabel"
-        PasswordLabel.Size = New System.Drawing.Size(73, 17)
-        PasswordLabel.TabIndex = 5
-        PasswordLabel.Text = "Password:"
-        '
         'EmailLabel
         '
         EmailLabel.AutoSize = True
-        EmailLabel.Location = New System.Drawing.Point(261, 311)
-        EmailLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        EmailLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        EmailLabel.Location = New System.Drawing.Point(123, 211)
         EmailLabel.Name = "EmailLabel"
-        EmailLabel.Size = New System.Drawing.Size(46, 17)
+        EmailLabel.Size = New System.Drawing.Size(45, 19)
         EmailLabel.TabIndex = 9
         EmailLabel.Text = "Email:"
+        AddHandler EmailLabel.Click, AddressOf Me.EmailLabel_Click
         '
         'PhoneNumberLabel
         '
         PhoneNumberLabel.AutoSize = True
-        PhoneNumberLabel.Location = New System.Drawing.Point(261, 343)
-        PhoneNumberLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        PhoneNumberLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        PhoneNumberLabel.Location = New System.Drawing.Point(64, 244)
         PhoneNumberLabel.Name = "PhoneNumberLabel"
-        PhoneNumberLabel.Size = New System.Drawing.Size(107, 17)
+        PhoneNumberLabel.Size = New System.Drawing.Size(104, 19)
         PhoneNumberLabel.TabIndex = 11
         PhoneNumberLabel.Text = "Phone Number:"
+        AddHandler PhoneNumberLabel.Click, AddressOf Me.PhoneNumberLabel_Click
         '
         'DepartmentLabel
         '
         DepartmentLabel.AutoSize = True
-        DepartmentLabel.Location = New System.Drawing.Point(261, 375)
-        DepartmentLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        DepartmentLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DepartmentLabel.Location = New System.Drawing.Point(85, 282)
         DepartmentLabel.Name = "DepartmentLabel"
-        DepartmentLabel.Size = New System.Drawing.Size(86, 17)
+        DepartmentLabel.Size = New System.Drawing.Size(83, 19)
         DepartmentLabel.TabIndex = 13
         DepartmentLabel.Text = "Department:"
+        AddHandler DepartmentLabel.Click, AddressOf Me.DepartmentLabel_Click
         '
         'UserNameLabel
         '
         UserNameLabel.AutoSize = True
-        UserNameLabel.Location = New System.Drawing.Point(261, 210)
-        UserNameLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        UserNameLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        UserNameLabel.Location = New System.Drawing.Point(123, 104)
         UserNameLabel.Name = "UserNameLabel"
-        UserNameLabel.Size = New System.Drawing.Size(49, 17)
+        UserNameLabel.Size = New System.Drawing.Size(49, 19)
         UserNameLabel.TabIndex = 3
         UserNameLabel.Text = "Name:"
+        AddHandler UserNameLabel.Click, AddressOf Me.UserNameLabel_Click
         '
         'DatabaseDataSet
         '
@@ -134,71 +125,71 @@ Partial Class EditStudentProfile_UserControl
         Me.TableAdapterManager.UpdateOrder = LibraryManagementSystem.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.UserTableAdapter = Me.UserTableAdapter
         '
-        'txtPassword
-        '
-        Me.txtPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UserBindingSource, "Password", True))
-        Me.txtPassword.Location = New System.Drawing.Point(377, 239)
-        Me.txtPassword.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.Size = New System.Drawing.Size(137, 22)
-        Me.txtPassword.TabIndex = 6
-        '
         'EmailTextBox
         '
         Me.EmailTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UserBindingSource, "Email", True))
-        Me.EmailTextBox.Location = New System.Drawing.Point(377, 308)
-        Me.EmailTextBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.EmailTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EmailTextBox.Location = New System.Drawing.Point(202, 211)
         Me.EmailTextBox.Name = "EmailTextBox"
-        Me.EmailTextBox.Size = New System.Drawing.Size(137, 22)
+        Me.EmailTextBox.Size = New System.Drawing.Size(225, 26)
         Me.EmailTextBox.TabIndex = 10
         '
         'PhoneNumberTextBox
         '
         Me.PhoneNumberTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UserBindingSource, "PhoneNumber", True))
-        Me.PhoneNumberTextBox.Location = New System.Drawing.Point(377, 340)
-        Me.PhoneNumberTextBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.PhoneNumberTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PhoneNumberTextBox.Location = New System.Drawing.Point(202, 244)
         Me.PhoneNumberTextBox.Name = "PhoneNumberTextBox"
-        Me.PhoneNumberTextBox.Size = New System.Drawing.Size(137, 22)
+        Me.PhoneNumberTextBox.Size = New System.Drawing.Size(225, 26)
         Me.PhoneNumberTextBox.TabIndex = 12
         '
         'txtName
         '
         Me.txtName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UserBindingSource, "UserName", True))
-        Me.txtName.Location = New System.Drawing.Point(377, 207)
-        Me.txtName.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtName.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtName.Location = New System.Drawing.Point(202, 104)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(137, 22)
+        Me.txtName.Size = New System.Drawing.Size(225, 26)
         Me.txtName.TabIndex = 4
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(347, 498)
-        Me.btnUpdate.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnUpdate.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnUpdate.FlatAppearance.BorderSize = 0
+        Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnUpdate.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.ForeColor = System.Drawing.Color.White
+        Me.btnUpdate.Location = New System.Drawing.Point(202, 382)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(253, 52)
+        Me.btnUpdate.Size = New System.Drawing.Size(225, 42)
         Me.btnUpdate.TabIndex = 15
         Me.btnUpdate.Text = "Update Profile"
-        Me.btnUpdate.UseVisualStyleBackColor = True
+        Me.btnUpdate.UseVisualStyleBackColor = False
         '
         'picBoxProfile
         '
-        Me.picBoxProfile.Location = New System.Drawing.Point(788, 191)
-        Me.picBoxProfile.Margin = New System.Windows.Forms.Padding(4)
+        Me.picBoxProfile.Location = New System.Drawing.Point(559, 104)
         Me.picBoxProfile.Name = "picBoxProfile"
-        Me.picBoxProfile.Size = New System.Drawing.Size(217, 240)
+        Me.picBoxProfile.Size = New System.Drawing.Size(200, 205)
         Me.picBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picBoxProfile.TabIndex = 16
         Me.picBoxProfile.TabStop = False
         '
         'btnChangePic
         '
-        Me.btnChangePic.Location = New System.Drawing.Point(801, 486)
-        Me.btnChangePic.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnChangePic.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.btnChangePic.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnChangePic.FlatAppearance.BorderSize = 0
+        Me.btnChangePic.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnChangePic.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnChangePic.ForeColor = System.Drawing.Color.White
+        Me.btnChangePic.Location = New System.Drawing.Point(559, 336)
         Me.btnChangePic.Name = "btnChangePic"
-        Me.btnChangePic.Size = New System.Drawing.Size(161, 50)
+        Me.btnChangePic.Size = New System.Drawing.Size(200, 41)
         Me.btnChangePic.TabIndex = 17
         Me.btnChangePic.Text = "Upload Image"
-        Me.btnChangePic.UseVisualStyleBackColor = True
+        Me.btnChangePic.UseVisualStyleBackColor = False
         '
         'OpenFileDialog1
         '
@@ -209,75 +200,77 @@ Partial Class EditStudentProfile_UserControl
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BiosciencesAndBioengineeringToolStripMenuItem, Me.ChemicalEngineeringToolStripMenuItem, Me.ChemistryToolStripMenuItem, Me.CivilEngineeringToolStripMenuItem, Me.ComputerScienceAndEnggToolStripMenuItem, Me.HumanitiesAndSocialSciencesToolStripMenuItem, Me.MathematicsToolStripMenuItem, Me.MechanicjalEngineeringToolStripMenuItem, Me.PhysicsToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(289, 220)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(242, 202)
         '
         'BiosciencesAndBioengineeringToolStripMenuItem
         '
         Me.BiosciencesAndBioengineeringToolStripMenuItem.Name = "BiosciencesAndBioengineeringToolStripMenuItem"
-        Me.BiosciencesAndBioengineeringToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
+        Me.BiosciencesAndBioengineeringToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
         Me.BiosciencesAndBioengineeringToolStripMenuItem.Text = "Biosciences and Bioengineering"
         '
         'ChemicalEngineeringToolStripMenuItem
         '
         Me.ChemicalEngineeringToolStripMenuItem.Name = "ChemicalEngineeringToolStripMenuItem"
-        Me.ChemicalEngineeringToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
+        Me.ChemicalEngineeringToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
         Me.ChemicalEngineeringToolStripMenuItem.Text = "Chemical Engineering"
         '
         'ChemistryToolStripMenuItem
         '
         Me.ChemistryToolStripMenuItem.Name = "ChemistryToolStripMenuItem"
-        Me.ChemistryToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
+        Me.ChemistryToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
         Me.ChemistryToolStripMenuItem.Text = "Chemistry"
         '
         'CivilEngineeringToolStripMenuItem
         '
         Me.CivilEngineeringToolStripMenuItem.Name = "CivilEngineeringToolStripMenuItem"
-        Me.CivilEngineeringToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
+        Me.CivilEngineeringToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
         Me.CivilEngineeringToolStripMenuItem.Text = "Civil Engineering"
         '
         'ComputerScienceAndEnggToolStripMenuItem
         '
         Me.ComputerScienceAndEnggToolStripMenuItem.Name = "ComputerScienceAndEnggToolStripMenuItem"
-        Me.ComputerScienceAndEnggToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
+        Me.ComputerScienceAndEnggToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
         Me.ComputerScienceAndEnggToolStripMenuItem.Text = "Computer Science and Engg"
         '
         'HumanitiesAndSocialSciencesToolStripMenuItem
         '
         Me.HumanitiesAndSocialSciencesToolStripMenuItem.Name = "HumanitiesAndSocialSciencesToolStripMenuItem"
-        Me.HumanitiesAndSocialSciencesToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
+        Me.HumanitiesAndSocialSciencesToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
         Me.HumanitiesAndSocialSciencesToolStripMenuItem.Text = "Humanities and Social Sciences"
         '
         'MathematicsToolStripMenuItem
         '
         Me.MathematicsToolStripMenuItem.Name = "MathematicsToolStripMenuItem"
-        Me.MathematicsToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
+        Me.MathematicsToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
         Me.MathematicsToolStripMenuItem.Text = "Mathematics"
         '
         'MechanicjalEngineeringToolStripMenuItem
         '
         Me.MechanicjalEngineeringToolStripMenuItem.Name = "MechanicjalEngineeringToolStripMenuItem"
-        Me.MechanicjalEngineeringToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
+        Me.MechanicjalEngineeringToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
         Me.MechanicjalEngineeringToolStripMenuItem.Text = "Mechanical Engineering"
         '
         'PhysicsToolStripMenuItem
         '
         Me.PhysicsToolStripMenuItem.Name = "PhysicsToolStripMenuItem"
-        Me.PhysicsToolStripMenuItem.Size = New System.Drawing.Size(288, 24)
+        Me.PhysicsToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
         Me.PhysicsToolStripMenuItem.Text = "Physics"
         '
         'ComboBox1
         '
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Biosciences & Bioengineering", "Chemical Engineering", "Chemistry", "Civil Engineering", "Computer Science & Engg.", "Design", "Electronics & Electrical Engg.", "Humanities and Social Sciences", "Mathematics", "Mechanical Engineering", "Physics"})
-        Me.ComboBox1.Location = New System.Drawing.Point(377, 375)
+        Me.ComboBox1.Location = New System.Drawing.Point(202, 282)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(137, 24)
+        Me.ComboBox1.Size = New System.Drawing.Size(225, 27)
         Me.ComboBox1.TabIndex = 18
         '
         'EditStudentProfile_UserControl
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.btnChangePic)
@@ -285,16 +278,13 @@ Partial Class EditStudentProfile_UserControl
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(UserNameLabel)
         Me.Controls.Add(Me.txtName)
-        Me.Controls.Add(PasswordLabel)
-        Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(EmailLabel)
         Me.Controls.Add(Me.EmailTextBox)
         Me.Controls.Add(PhoneNumberLabel)
         Me.Controls.Add(Me.PhoneNumberTextBox)
         Me.Controls.Add(DepartmentLabel)
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "EditStudentProfile_UserControl"
-        Me.Size = New System.Drawing.Size(1439, 838)
+        Me.Size = New System.Drawing.Size(1079, 681)
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UserBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picBoxProfile, System.ComponentModel.ISupportInitialize).EndInit()
@@ -307,7 +297,6 @@ Partial Class EditStudentProfile_UserControl
     Friend WithEvents UserBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents UserTableAdapter As LibraryManagementSystem.DatabaseDataSetTableAdapters.UserTableAdapter
     Friend WithEvents TableAdapterManager As LibraryManagementSystem.DatabaseDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents txtPassword As System.Windows.Forms.TextBox
     Friend WithEvents EmailTextBox As System.Windows.Forms.TextBox
     Friend WithEvents PhoneNumberTextBox As System.Windows.Forms.TextBox
     Friend WithEvents txtName As System.Windows.Forms.TextBox

@@ -3,9 +3,11 @@
 Public Class StudentProfile_UserControl
 
     Private Sub StudentProfile_UserControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
         Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
         cn.Open()
-        Dim selectString As String = "SELECT * FROM Users WHERE Userid = " & StudentLogin.UserID
+        Dim selectString As String = "SELECT * FROM Users WHERE UserName = '" & StudentLogin.UserName & "'"
         Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
         Dim reader As OleDbDataReader = cmd.ExecuteReader()
 
@@ -16,7 +18,6 @@ Public Class StudentProfile_UserControl
             picBoxProfile.ImageLocation = fullPath
 
             lblUsername.Text = reader("UserName")
-            lblName.Text = reader("ProfileName")
             lblEmail.Text = reader("Email")
             lblPhone.Text = reader("PhoneNumber")
             lblDepartment.Text = reader("Department")
@@ -28,6 +29,7 @@ Public Class StudentProfile_UserControl
 
         cn.Close()
     End Sub
+
 
 
 End Class

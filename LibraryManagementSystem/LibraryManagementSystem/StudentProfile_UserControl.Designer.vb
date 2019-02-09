@@ -37,7 +37,6 @@ Partial Class StudentProfile_UserControl
         Me.picBoxProfile = New System.Windows.Forms.PictureBox()
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.lblUsername = New System.Windows.Forms.Label()
-        Me.lblName = New System.Windows.Forms.Label()
         Me.lblEmail = New System.Windows.Forms.Label()
         Me.lblPhone = New System.Windows.Forms.Label()
         Me.lblDepartment = New System.Windows.Forms.Label()
@@ -60,63 +59,71 @@ Partial Class StudentProfile_UserControl
         'UserNameLabel
         '
         UserNameLabel.AutoSize = True
-        UserNameLabel.Location = New System.Drawing.Point(129, 273)
+        UserNameLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        UserNameLabel.Location = New System.Drawing.Point(128, 128)
         UserNameLabel.Name = "UserNameLabel"
-        UserNameLabel.Size = New System.Drawing.Size(58, 13)
+        UserNameLabel.Size = New System.Drawing.Size(73, 19)
         UserNameLabel.TabIndex = 3
         UserNameLabel.Text = "Username:"
         '
         'EmailLabel
         '
         EmailLabel.AutoSize = True
-        EmailLabel.Location = New System.Drawing.Point(129, 355)
+        EmailLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        EmailLabel.Location = New System.Drawing.Point(156, 161)
         EmailLabel.Name = "EmailLabel"
-        EmailLabel.Size = New System.Drawing.Size(35, 13)
+        EmailLabel.Size = New System.Drawing.Size(45, 19)
         EmailLabel.TabIndex = 9
         EmailLabel.Text = "Email:"
         '
         'PhoneNumberLabel
         '
         PhoneNumberLabel.AutoSize = True
-        PhoneNumberLabel.Location = New System.Drawing.Point(129, 381)
+        PhoneNumberLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        PhoneNumberLabel.Location = New System.Drawing.Point(97, 196)
         PhoneNumberLabel.Name = "PhoneNumberLabel"
-        PhoneNumberLabel.Size = New System.Drawing.Size(81, 13)
+        PhoneNumberLabel.Size = New System.Drawing.Size(104, 19)
         PhoneNumberLabel.TabIndex = 11
         PhoneNumberLabel.Text = "Phone Number:"
         '
         'DepartmentLabel
         '
         DepartmentLabel.AutoSize = True
-        DepartmentLabel.Location = New System.Drawing.Point(129, 407)
+        DepartmentLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DepartmentLabel.Location = New System.Drawing.Point(118, 233)
         DepartmentLabel.Name = "DepartmentLabel"
-        DepartmentLabel.Size = New System.Drawing.Size(65, 13)
+        DepartmentLabel.Size = New System.Drawing.Size(83, 19)
         DepartmentLabel.TabIndex = 13
         DepartmentLabel.Text = "Department:"
         '
         'DesignationLabel
         '
         DesignationLabel.AutoSize = True
-        DesignationLabel.Location = New System.Drawing.Point(129, 433)
+        DesignationLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DesignationLabel.Location = New System.Drawing.Point(119, 267)
         DesignationLabel.Name = "DesignationLabel"
-        DesignationLabel.Size = New System.Drawing.Size(66, 13)
+        DesignationLabel.Size = New System.Drawing.Size(82, 19)
         DesignationLabel.TabIndex = 15
         DesignationLabel.Text = "Designation:"
         '
         'TotalFineLabel
         '
         TotalFineLabel.AutoSize = True
-        TotalFineLabel.Location = New System.Drawing.Point(129, 459)
+        TotalFineLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        TotalFineLabel.Location = New System.Drawing.Point(129, 310)
         TotalFineLabel.Name = "TotalFineLabel"
-        TotalFineLabel.Size = New System.Drawing.Size(57, 13)
+        TotalFineLabel.Size = New System.Drawing.Size(72, 19)
         TotalFineLabel.TabIndex = 17
         TotalFineLabel.Text = "Total Fine:"
+
         '
         'MaxBooksLabel
         '
         MaxBooksLabel.AutoSize = True
-        MaxBooksLabel.Location = New System.Drawing.Point(129, 537)
+        MaxBooksLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        MaxBooksLabel.Location = New System.Drawing.Point(117, 346)
         MaxBooksLabel.Name = "MaxBooksLabel"
-        MaxBooksLabel.Size = New System.Drawing.Size(63, 13)
+        MaxBooksLabel.Size = New System.Drawing.Size(84, 19)
         MaxBooksLabel.TabIndex = 23
         MaxBooksLabel.Text = "Max Books:"
         '
@@ -144,7 +151,7 @@ Partial Class StudentProfile_UserControl
         '
         'picBoxProfile
         '
-        Me.picBoxProfile.Location = New System.Drawing.Point(534, 225)
+        Me.picBoxProfile.Location = New System.Drawing.Point(600, 128)
         Me.picBoxProfile.Name = "picBoxProfile"
         Me.picBoxProfile.Size = New System.Drawing.Size(191, 225)
         Me.picBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -163,80 +170,80 @@ Partial Class StudentProfile_UserControl
         'lblUsername
         '
         Me.lblUsername.AutoSize = True
-        Me.lblUsername.Location = New System.Drawing.Point(227, 279)
+        Me.lblUsername.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUsername.Location = New System.Drawing.Point(212, 128)
         Me.lblUsername.Name = "lblUsername"
-        Me.lblUsername.Size = New System.Drawing.Size(39, 13)
+        Me.lblUsername.Size = New System.Drawing.Size(51, 19)
         Me.lblUsername.TabIndex = 28
         Me.lblUsername.Text = "Label2"
-        '
-        'lblName
-        '
-        Me.lblName.AutoSize = True
-        Me.lblName.Location = New System.Drawing.Point(147, 225)
-        Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(39, 13)
-        Me.lblName.TabIndex = 29
-        Me.lblName.Text = "Label3"
         '
         'lblEmail
         '
         Me.lblEmail.AutoSize = True
-        Me.lblEmail.Location = New System.Drawing.Point(216, 356)
+        Me.lblEmail.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmail.Location = New System.Drawing.Point(212, 161)
         Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(39, 13)
+        Me.lblEmail.Size = New System.Drawing.Size(51, 19)
         Me.lblEmail.TabIndex = 30
         Me.lblEmail.Text = "Label4"
         '
         'lblPhone
         '
         Me.lblPhone.AutoSize = True
-        Me.lblPhone.Location = New System.Drawing.Point(224, 386)
+        Me.lblPhone.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPhone.Location = New System.Drawing.Point(212, 196)
         Me.lblPhone.Name = "lblPhone"
-        Me.lblPhone.Size = New System.Drawing.Size(39, 13)
+        Me.lblPhone.Size = New System.Drawing.Size(51, 19)
         Me.lblPhone.TabIndex = 31
         Me.lblPhone.Text = "Label5"
         '
         'lblDepartment
         '
         Me.lblDepartment.AutoSize = True
-        Me.lblDepartment.Location = New System.Drawing.Point(211, 411)
+        Me.lblDepartment.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDepartment.Location = New System.Drawing.Point(212, 233)
         Me.lblDepartment.Name = "lblDepartment"
-        Me.lblDepartment.Size = New System.Drawing.Size(39, 13)
+        Me.lblDepartment.Size = New System.Drawing.Size(51, 19)
         Me.lblDepartment.TabIndex = 32
         Me.lblDepartment.Text = "Label6"
         '
         'lblDesignation
         '
         Me.lblDesignation.AutoSize = True
-        Me.lblDesignation.Location = New System.Drawing.Point(211, 444)
+        Me.lblDesignation.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDesignation.Location = New System.Drawing.Point(212, 267)
         Me.lblDesignation.Name = "lblDesignation"
-        Me.lblDesignation.Size = New System.Drawing.Size(39, 13)
+        Me.lblDesignation.Size = New System.Drawing.Size(51, 19)
         Me.lblDesignation.TabIndex = 33
         Me.lblDesignation.Text = "Label7"
         '
         'lblFine
         '
         Me.lblFine.AutoSize = True
-        Me.lblFine.Location = New System.Drawing.Point(207, 473)
+        Me.lblFine.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFine.Location = New System.Drawing.Point(212, 310)
         Me.lblFine.Name = "lblFine"
-        Me.lblFine.Size = New System.Drawing.Size(39, 13)
+        Me.lblFine.Size = New System.Drawing.Size(51, 19)
         Me.lblFine.TabIndex = 34
         Me.lblFine.Text = "Label8"
         '
         'lblMaxBooks
         '
         Me.lblMaxBooks.AutoSize = True
-        Me.lblMaxBooks.Location = New System.Drawing.Point(218, 538)
+        Me.lblMaxBooks.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMaxBooks.Location = New System.Drawing.Point(212, 346)
         Me.lblMaxBooks.Name = "lblMaxBooks"
-        Me.lblMaxBooks.Size = New System.Drawing.Size(39, 13)
+        Me.lblMaxBooks.Size = New System.Drawing.Size(51, 19)
         Me.lblMaxBooks.TabIndex = 35
         Me.lblMaxBooks.Text = "Label9"
         '
         'lblWelcome2
         '
-        Me.lblWelcome2.Location = New System.Drawing.Point(37, 95)
+        Me.lblWelcome2.Font = New System.Drawing.Font("Times New Roman", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWelcome2.ForeColor = System.Drawing.Color.Red
+        Me.lblWelcome2.Location = New System.Drawing.Point(28, 22)
         Me.lblWelcome2.Name = "lblWelcome2"
-        Me.lblWelcome2.Size = New System.Drawing.Size(915, 39)
+        Me.lblWelcome2.Size = New System.Drawing.Size(950, 39)
         Me.lblWelcome2.TabIndex = 36
         Me.lblWelcome2.Text = "Label1"
         Me.lblWelcome2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -252,7 +259,6 @@ Partial Class StudentProfile_UserControl
         Me.Controls.Add(Me.lblDepartment)
         Me.Controls.Add(Me.lblPhone)
         Me.Controls.Add(Me.lblEmail)
-        Me.Controls.Add(Me.lblName)
         Me.Controls.Add(Me.lblUsername)
         Me.Controls.Add(Me.lblWelcome)
         Me.Controls.Add(Me.picBoxProfile)
@@ -279,7 +285,6 @@ Partial Class StudentProfile_UserControl
     Friend WithEvents picBoxProfile As System.Windows.Forms.PictureBox
     Friend WithEvents lblWelcome As System.Windows.Forms.Label
     Friend WithEvents lblUsername As System.Windows.Forms.Label
-    Friend WithEvents lblName As System.Windows.Forms.Label
     Friend WithEvents lblEmail As System.Windows.Forms.Label
     Friend WithEvents lblPhone As System.Windows.Forms.Label
     Friend WithEvents lblDepartment As System.Windows.Forms.Label

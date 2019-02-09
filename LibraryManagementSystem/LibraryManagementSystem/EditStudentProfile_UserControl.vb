@@ -11,7 +11,6 @@ Public Class EditStudentProfile_UserControl
         Dim email As String = EmailTextBox.Text
         Dim phonenumber As String = PhoneNumberTextBox.Text
         Dim department As String = ComboBox1.SelectedItem
-        Dim password As String = txtPassword.Text
 
         ' Data validation
         Dim update As Boolean = True
@@ -54,22 +53,16 @@ Public Class EditStudentProfile_UserControl
             MessageBox.Show("Please upload a valid image")
         End If
 
-        ' Password Validation
+        
 
-        For Each c In password
-            If c = " " Then
-                update = False
-                MessageBox.Show("Password should not contain blanks")
-            End If
-        Next
 
         If update Then
-            Dim updateString As String = "UPDATE Users SET ProfileName='" & name & "', [Password]='" & txtPassword.Text & "', Email='" & email & "',  PhoneNumber='" & phonenumber & "', Department='" & department & "', ProfileImage='" & StudentLogin.UserID & ".JPG' WHERE Userid = " & StudentLogin.UserID
-            picBoxProfile.Image.Save(System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & StudentLogin.UserID & ".JPG")
+            Dim updateString As String = "UPDATE Users SET ProfileName='" & name & "', Email='" & email & "',  PhoneNumber='" & phonenumber & "', Department='" & department & "', ProfileImage='" & StudentLogin.UserName & ".JPG' WHERE UserName = '" & StudentLogin.UserName & "'"
+            picBoxProfile.Image.Save(System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & StudentLogin.UserName & ".JPG")
             Dim cmd As OleDbCommand = New OleDbCommand(updateString, cn)
             If cmd.ExecuteNonQuery() > 0 Then
                 cmd.Dispose()
-                MessageBox.Show("Profile updated!")
+                MessageBox.Show("Profile successfully updated!", "Profile updated")
             End If
         End If
 
@@ -88,7 +81,7 @@ Public Class EditStudentProfile_UserControl
 
         Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
         cn.Open()
-        Dim selectString As String = "SELECT * FROM Users WHERE Userid = " & StudentLogin.UserID
+        Dim selectString As String = "SELECT * FROM Users WHERE UserName = '" & StudentLogin.UserName & "'"
         Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
         Dim reader As OleDbDataReader = cmd.ExecuteReader()
 
@@ -106,6 +99,26 @@ Public Class EditStudentProfile_UserControl
     End Sub
 
     Private Sub txtName_TextChanged(sender As Object, e As EventArgs) Handles txtName.TextChanged
+
+    End Sub
+
+    Private Sub DepartmentLabel_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub UserNameLabel_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub PhoneNumberLabel_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub EmailLabel_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub PasswordLabel_Click(sender As Object, e As EventArgs)
 
     End Sub
 End Class

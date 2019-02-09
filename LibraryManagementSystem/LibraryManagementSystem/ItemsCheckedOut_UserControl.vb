@@ -8,11 +8,11 @@ Public Class ItemsCheckedOut_UserControl
         Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
         cn.Open()
 
-        Dim selectString As String = "SELECT * FROM Borrowed WHERE BorrowerId = " & StudentLogin.UserID
+        Dim selectString As String = "SELECT * FROM Borrowed WHERE BorrowerId = '" & StudentLogin.UserName & "'"
         Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
         Dim reader As OleDbDataReader = cmd.ExecuteReader()
 
-        Dim boxWidth As Integer = (Panel1.Width / 3) 
+        Dim boxWidth As Integer = (Panel1.Width / 3) - 20
         Dim boxHeight As Integer = 200
         Dim nextX As Integer = 0
         Dim nextY As Integer = 0
@@ -35,10 +35,10 @@ Public Class ItemsCheckedOut_UserControl
                 Dim Remaininglabel As New Label
                 Dim pictureBox As New PictureBox
 
-                Titlelabel.Size = New Size(100, 20)
-                Authorlabel.Size = New Size(100, 20)
-                Publisherlabel.Size = New Size(100, 20)
-                Locationlabel.Size = New Size(100, 20)
+                Titlelabel.Size = New Size(140, 20)
+                Authorlabel.Size = New Size(140, 20)
+                Publisherlabel.Size = New Size(140, 20)
+                Locationlabel.Size = New Size(140, 20)
                 pictureBox.Size = New Size(150, 150)
                 pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
                 Titlelabel.Tag = reader2("ISBN")
@@ -55,16 +55,25 @@ Public Class ItemsCheckedOut_UserControl
                 Publisherlabel.Location = New Point(nextX + 160, nextY + 50)
                 Locationlabel.Location = New Point(nextX + 160, nextY + 75)
 
+                Titlelabel.Font = New Font("Times New Roman", 11, FontStyle.Regular)
+                Authorlabel.Font = New Font("Times New Roman", 11, FontStyle.Regular)
+                Publisherlabel.Font = New Font("Times New Roman", 11, FontStyle.Regular)
+                Locationlabel.Font = New Font("Times New Roman", 11, FontStyle.Regular)
+
+                Titlelabel.AutoEllipsis = True
+                Authorlabel.AutoEllipsis = True
+                Publisherlabel.AutoEllipsis = True
+                Locationlabel.AutoEllipsis = True
+
                 Me.Panel1.Controls.Add(Titlelabel)
                 Me.Panel1.Controls.Add(pictureBox)
                 Me.Panel1.Controls.Add(Authorlabel)
                 Me.Panel1.Controls.Add(Publisherlabel)
                 Me.Panel1.Controls.Add(Locationlabel)
-                AddHandler pictureBox.Click, AddressOf pictureBox_click
                 AddHandler Titlelabel.Click, AddressOf Titlelabel_click
 
                 nextX += boxWidth
-                If nextX = Panel1.Width Then
+                If nextX > 2 * (Panel1.Width / 3) Then
                     nextX = 0
                     nextY += boxHeight
                 End If
@@ -76,18 +85,11 @@ Public Class ItemsCheckedOut_UserControl
         cn.Close()
     End Sub
 
-    Private Sub pictureBox_click(ByVal sender As Object, ByVal e As EventArgs)
-        'Dim Form2Caller As New Information
-        'Form2Caller.SetInformation(sender.Tag)
-    End Sub
-
 
     Private Sub Titlelabel_click(ByVal sender As Object, ByVal e As EventArgs)
-        'Dim Form2Caller As New Information
         Dim frm As New BookDetails
         frm.passISBN = sender.tag
         frm.Show()
-        'Form2Caller.SetInformation(sender.Text)
     End Sub
 
 End Class

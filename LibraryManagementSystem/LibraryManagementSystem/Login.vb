@@ -17,12 +17,12 @@ Public Class Login
 
         If reader.Read Then
             If reader("Designation") = "Staff" Then
-                StaffLogin.UserID = reader("UserId")    ' User ID in Staff Login form
+                StaffLogin.UserName = reader("UserName")    ' User ID in Staff Login form
                 StaffLogin.Show()
                 Me.Hide()
                 MainPage.Hide()
             Else
-                StudentLogin.UserID = reader("UserId")
+                StudentLogin.UserName = reader("UserName")
                 StudentLogin.Show()
                 Me.Hide()
                 MainPage.Hide()
@@ -79,4 +79,5 @@ Public Class Login
             txtPassword.UseSystemPasswordChar = True
         End If
     End Sub
+
 End Class

@@ -1,5 +1,6 @@
 ﻿Public Class StaffLogin
-    Public UserId As String
+    Public UserName As String
+
     Private Sub IssueBook_Click(sender As Object, e As EventArgs) Handles IssueBook.Click
         Action.Controls.Clear()
         Action.Controls.Add(New issuebook)
@@ -23,5 +24,9 @@
     Private Sub StudentButton_Click(sender As Object, e As EventArgs) Handles StudentButton.Click
         Action.Controls.Clear()
         Action.Controls.Add(New AddUser)
+    End Sub
+
+    Private Sub StaffLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
