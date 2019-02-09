@@ -9,14 +9,14 @@ Public Class BookDetails
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
         cn.Open()
-        Dim selectString As String = "SELECT * FROM Books WHERE ISBN like '%" & passISBN & "%'"
+        Dim selectString As String = "SELECT * FROM Books WHERE ISBN = '" & passISBN & "'"
         Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
         Dim reader As OleDbDataReader = cmd.ExecuteReader()
         Thumbnails(reader)
         cn.Close()
 
         cn.Open()
-        Dim borrowerstring As String = "SELECT * FROM Borrowed WHERE ISBN like '%" & passISBN & "%'"
+        Dim borrowerstring As String = "SELECT * FROM Borrowed WHERE ISBN = '" & passISBN & "'"
         Dim cmd1 As OleDbCommand = New OleDbCommand(borrowerstring, cn)
         Dim reader1 As OleDbDataReader = cmd1.ExecuteReader()
         Borrowers(reader1)
@@ -53,7 +53,6 @@ Public Class BookDetails
             Locationlabel.Size = New Size(250, 40)
             pictureBox.Size = New Size(200, 250)
             pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-
             pictureBox.Tag = fullPath
             pictureBox.ImageLocation = fullPath
             Titlelabel.Text = "Title: " & reader("Title")
@@ -64,6 +63,17 @@ Public Class BookDetails
             Locationlabel.Text = "Location: " & reader("Location")
             Totallabel.Text = "Total number: " & reader("Total")
             ISBNlabel.Text = "ISBN: " & reader("ISBN")
+
+            ISBNlabel.AutoEllipsis = True
+            Titlelabel.AutoEllipsis = True
+            PublishYearlabel.AutoEllipsis = True
+            Remaininglabel.AutoEllipsis = True
+            Authorlabel.AutoEllipsis = True
+            Publisherlabel.AutoEllipsis = True
+            Locationlabel.AutoEllipsis = True
+            Totallabel.AutoEllipsis = True
+            ISBNlabel.Text = "ISBN: " & reader("ISBN")
+            Locationlabel.AutoEllipsis = True
 
             pictureBox.Location = New Point(x, y + 10)
             Titlelabel.Location = New Point(x + 250, y)
@@ -110,8 +120,6 @@ Public Class BookDetails
             Me.Panel1.Controls.Add(Totallabel)
             Me.Panel1.Controls.Add(Remaininglabel)
             Me.Panel1.Controls.Add(ISBNlabel)
-            'AddHandler pictureBox.Click, AddressOf pictureBox_click
-            'AddHandler Titlelabel.Click, AddressOf Titlelabel_click
         End While
     End Sub
 
@@ -119,33 +127,60 @@ Public Class BookDetails
         Panel2.Controls.Clear()
         Dim x, y, count As Integer
         count = 0
-        x = Panel2.Location.X
-        y = Panel2.Location.Y - 2 * Panel2.Height
-
-
+        x = Panel2.Width
+        y = -1.05 * Panel2.Location.Y + 2 * Panel2.Height
+        Dim nextx As Integer = Panel2.Location.X - 10
+        Dim nexty As Integer = 0
+        'MessageBox.Show(nextx)
         While reader1.Read()
             Dim userid As String = reader1("BorrowerId")
+            'MessageBox.Show(reader1("BorrowerId"))
             Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
             cn.Open()
-            Dim selectString As String = "SELECT * FROM Users WHERE UserId like '%" & userid & "%'"
+            Dim selectString As String = "SELECT * FROM Users WHERE UserName = '" & userid & "'"
             Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
             Dim reader As OleDbDataReader = cmd.ExecuteReader()
             While reader.Read()
-                Dim Rolllabel As New Label
-                Dim Emaillabel As New Label
+                Dim Namelabel As New Label
+                Dim Departmentlabel As New Label
+                Dim PhoneNumber As New Label
+                Dim Email As New Label
 
-                Rolllabel.Size = New Size(100, 20)
-                Emaillabel.Size = New Size(200, 20)
+                Namelabel.Size = New Size(150, 25)
+                Departmentlabel.Size = New Size(150, 25)
+                PhoneNumber.Size = New Size(150, 25)
+                Email.Size = New Size(150, 25)
+                Namelabel.Text = reader("ProfileName")
+                Departmentlabel.Text = reader("Department")
+                PhoneNumber.Text = reader("PhoneNumber")
+                Email.Text = reader("Email")
 
-                Rolllabel.Text = reader("Password")
-                Emaillabel.Text = reader("Email")
+                Namelabel.Location = New Point(nextx, y)
+                Departmentlabel.Location = New Point(nextx + 170, y)
+                PhoneNumber.Location = New Point(nextx + 320, y)
+                Email.Location = New Point(nextx + 490, y)
 
-                Rolllabel.Location = New Point(x, y)
-                Emaillabel.Location = New Point(x + 100, y)
-                y += 40
+                Namelabel.Font = New System.Drawing.Font("Comic Sans MS", 9, FontStyle.Italic)
+                Departmentlabel.Font = New System.Drawing.Font("Comic Sans MS", 9, FontStyle.Italic)
+                PhoneNumber.Font = New System.Drawing.Font("Comic Sans MS", 9, FontStyle.Italic)
+                Email.Font = New System.Drawing.Font("Comic Sans MS", 9, FontStyle.Italic)
 
-                Me.Panel2.Controls.Add(Rolllabel)
-                Me.Panel2.Controls.Add(Emaillabel)
+                Namelabel.ForeColor = Color.White
+                Departmentlabel.ForeColor = Color.White
+                PhoneNumber.ForeColor = Color.White
+                Email.ForeColor = Color.White
+
+                Namelabel.AutoEllipsis = True
+                Departmentlabel.AutoEllipsis = True
+                PhoneNumber.AutoEllipsis = True
+                Email.AutoEllipsis = True
+
+                y += 35
+
+                Me.Panel2.Controls.Add(Namelabel)
+                Me.Panel2.Controls.Add(Departmentlabel)
+                Me.Panel2.Controls.Add(PhoneNumber)
+                Me.Panel2.Controls.Add(Email)
             End While
             cn.Close()
         End While
