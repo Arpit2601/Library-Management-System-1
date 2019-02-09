@@ -169,6 +169,8 @@
         If result = DialogResult.Yes Then
             Me.Close()
             MainPage.Show()
+        Else
+            btnLogout.BackColor = Color.MidnightBlue
         End If
     End Sub
 
@@ -177,4 +179,5 @@
             SendKeys.Send(Keys.Tab)
         End If
     End Sub
+
 End Class

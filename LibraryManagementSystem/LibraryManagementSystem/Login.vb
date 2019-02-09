@@ -8,36 +8,40 @@ Public Class Login
         Dim username As String = txtUsername.Text
         Dim pre_password As String = txtPassword.Text
 
-        Dim password As String = ""
-        For Each c In pre_password
-            If Not c = " " Then
-                password += c
-            End If
-        Next
+        'Dim password As String = ""
+        'For Each c In pre_password
+        '    If Not c = " " Then
+        '        password += c
+        '    End If
+        'Next
 
         Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
 
-        Dim selectString As String = "SELECT * FROM Users WHERE UserName = '" & username & "' AND Password = '" & password & "'"
+        Dim selectString As String = "SELECT * FROM Users WHERE UserName = '" & username & "' AND Password = '" & pre_password & "'"
         Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
         cn.Open()
         Dim reader As OleDbDataReader = cmd.ExecuteReader()
+        If txtPassword.Text.Trim = pre_password And txtUsername.Text.Trim = username Then
 
-        If reader.Read Then
-            If reader("Designation") = "Staff" Then
-                StaffLogin.UserName = reader("UserName")    ' User ID in Staff Login form
-                StaffLogin.Show()
-                Me.Hide()
-                MainPage.Hide()
+            If reader.Read Then
+                If reader("Designation") = "Staff" Then
+                    StaffLogin.UserName = reader("UserName")    ' User ID in Staff Login form
+                    StaffLogin.Show()
+                    Me.Close()
+                    MainPage.Hide()
+                Else
+                    StudentLogin.UserName = reader("UserName")
+                    StudentLogin.Show()
+                    Me.Close()
+                    MainPage.Hide()
+                End If
             Else
-                StudentLogin.UserName = reader("UserName")
-                StudentLogin.Show()
-                Me.Close()
-                MainPage.Hide()
+                MessageBox.Show("Incorrect username or password")
             End If
         Else
             MessageBox.Show("Incorrect username or password")
-        End If
 
+        End If
         cn.Close()
     End Sub
 

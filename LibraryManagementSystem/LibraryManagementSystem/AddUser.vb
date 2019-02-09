@@ -29,7 +29,7 @@ Public Class AddUser
         Next
 
         If Not Regex.IsMatch(username, "^[a-zA-Z]+[0-9]+$") Then
-            MessageBox.Show("Please enter a valid username", "Invalid email ID")
+            MessageBox.Show("Please enter a valid username", "Invalid username")
             update = False
         End If
 

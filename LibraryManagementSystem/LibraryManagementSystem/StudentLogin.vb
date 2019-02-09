@@ -43,6 +43,8 @@
             Me.Close()
             MainPage.Show()
         Else
+            btnLogout.BackColor = Color.MidnightBlue
+            btnMyProfile.BackColor = Color.MediumSeaGreen
             contentPanel.Controls.Clear()
             Dim instance As New StudentProfile_UserControl
             contentPanel.Controls.Add(instance)

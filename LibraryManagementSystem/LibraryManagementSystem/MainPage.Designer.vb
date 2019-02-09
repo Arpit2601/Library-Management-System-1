@@ -76,7 +76,7 @@ Partial Class MainPage
         Me.ISBNRadioButton.ForeColor = System.Drawing.Color.White
         Me.ISBNRadioButton.Location = New System.Drawing.Point(844, 95)
         Me.ISBNRadioButton.Name = "ISBNRadioButton"
-        Me.ISBNRadioButton.Size = New System.Drawing.Size(66, 24)
+        Me.ISBNRadioButton.Size = New System.Drawing.Size(83, 30)
         Me.ISBNRadioButton.TabIndex = 11
         Me.ISBNRadioButton.TabStop = True
         Me.ISBNRadioButton.Text = "ISBN"
@@ -89,7 +89,7 @@ Partial Class MainPage
         Me.PublisherRadioButton.ForeColor = System.Drawing.Color.White
         Me.PublisherRadioButton.Location = New System.Drawing.Point(674, 95)
         Me.PublisherRadioButton.Name = "PublisherRadioButton"
-        Me.PublisherRadioButton.Size = New System.Drawing.Size(90, 24)
+        Me.PublisherRadioButton.Size = New System.Drawing.Size(111, 30)
         Me.PublisherRadioButton.TabIndex = 10
         Me.PublisherRadioButton.TabStop = True
         Me.PublisherRadioButton.Text = "Publisher"
@@ -102,7 +102,7 @@ Partial Class MainPage
         Me.AuthorRadioButton.ForeColor = System.Drawing.Color.White
         Me.AuthorRadioButton.Location = New System.Drawing.Point(320, 95)
         Me.AuthorRadioButton.Name = "AuthorRadioButton"
-        Me.AuthorRadioButton.Size = New System.Drawing.Size(76, 24)
+        Me.AuthorRadioButton.Size = New System.Drawing.Size(93, 30)
         Me.AuthorRadioButton.TabIndex = 9
         Me.AuthorRadioButton.TabStop = True
         Me.AuthorRadioButton.Text = "Author"
@@ -115,7 +115,7 @@ Partial Class MainPage
         Me.FieldRadioButton1.ForeColor = System.Drawing.Color.White
         Me.FieldRadioButton1.Location = New System.Drawing.Point(474, 95)
         Me.FieldRadioButton1.Name = "FieldRadioButton1"
-        Me.FieldRadioButton1.Size = New System.Drawing.Size(61, 24)
+        Me.FieldRadioButton1.Size = New System.Drawing.Size(75, 30)
         Me.FieldRadioButton1.TabIndex = 8
         Me.FieldRadioButton1.TabStop = True
         Me.FieldRadioButton1.Text = "Field"
@@ -128,7 +128,7 @@ Partial Class MainPage
         Me.TitleRadioButton.ForeColor = System.Drawing.Color.White
         Me.TitleRadioButton.Location = New System.Drawing.Point(173, 95)
         Me.TitleRadioButton.Name = "TitleRadioButton"
-        Me.TitleRadioButton.Size = New System.Drawing.Size(60, 24)
+        Me.TitleRadioButton.Size = New System.Drawing.Size(73, 30)
         Me.TitleRadioButton.TabIndex = 7
         Me.TitleRadioButton.TabStop = True
         Me.TitleRadioButton.Text = "Title"
@@ -140,7 +140,7 @@ Partial Class MainPage
         Me.SearchTextBox.ForeColor = System.Drawing.Color.Black
         Me.SearchTextBox.Location = New System.Drawing.Point(81, 44)
         Me.SearchTextBox.Name = "SearchTextBox"
-        Me.SearchTextBox.Size = New System.Drawing.Size(912, 30)
+        Me.SearchTextBox.Size = New System.Drawing.Size(912, 35)
         Me.SearchTextBox.TabIndex = 0
         Me.SearchTextBox.Text = "Enter Book Details"
         '
@@ -159,7 +159,7 @@ Partial Class MainPage
         Me.Label2.Font = New System.Drawing.Font("Comic Sans MS", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(146, 42)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(712, 38)
+        Me.Label2.Size = New System.Drawing.Size(881, 47)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "LIBRARY MANAGEMENT SYSTEM - IIT GUWAHATI"
         '
@@ -227,7 +227,7 @@ Partial Class MainPage
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1264, 681)
+        Me.ClientSize = New System.Drawing.Size(1280, 720)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label2)
@@ -235,6 +235,7 @@ Partial Class MainPage
         Me.Controls.Add(Me.LoginButton)
         Me.Controls.Add(Me.BrowseButton)
         Me.Controls.Add(Me.Panel2)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximumSize = New System.Drawing.Size(1280, 720)
         Me.MinimumSize = New System.Drawing.Size(1280, 720)

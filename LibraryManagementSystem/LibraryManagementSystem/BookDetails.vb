@@ -16,7 +16,7 @@ Public Class BookDetails
         cn.Close()
 
         cn.Open()
-        Dim borrowerstring As String = "SELECT * FROM Borrowed WHERE ISBN = '" & passISBN & "'"
+        Dim borrowerstring As String = "SELECT * FROM Borrowed WHERE ISBN = '" & passISBN & "' AND IsIssued=True"
         Dim cmd1 As OleDbCommand = New OleDbCommand(borrowerstring, cn)
         Dim reader1 As OleDbDataReader = cmd1.ExecuteReader()
         Borrowers(reader1)
