@@ -49,9 +49,9 @@ Partial Class addBook
         Me.AuthorLabel = New System.Windows.Forms.Label()
         Me.PublisherLabel = New System.Windows.Forms.Label()
         Me.FieldLabel = New System.Windows.Forms.Label()
-        Me.ImageLabel = New System.Windows.Forms.Label()
         Me.DatabaseDataSet1 = New LibraryManagementSystem.DatabaseDataSet()
         Me.FieldTextBox = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.AddNumber, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatabaseDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,19 +65,21 @@ Partial Class addBook
         '
         'ISBNTextBox1
         '
-        Me.ISBNTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.ISBNTextBox1.Location = New System.Drawing.Point(263, 130)
+        Me.ISBNTextBox1.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ISBNTextBox1.Location = New System.Drawing.Point(198, 79)
+        Me.ISBNTextBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ISBNTextBox1.Name = "ISBNTextBox1"
-        Me.ISBNTextBox1.Size = New System.Drawing.Size(254, 30)
+        Me.ISBNTextBox1.Size = New System.Drawing.Size(244, 26)
         Me.ISBNTextBox1.TabIndex = 11
         '
         'TotalTextBox
         '
         Me.TotalTextBox.Enabled = False
-        Me.TotalTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TotalTextBox.Location = New System.Drawing.Point(263, 156)
+        Me.TotalTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TotalTextBox.Location = New System.Drawing.Point(198, 117)
+        Me.TotalTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TotalTextBox.Name = "TotalTextBox"
-        Me.TotalTextBox.Size = New System.Drawing.Size(254, 30)
+        Me.TotalTextBox.Size = New System.Drawing.Size(244, 26)
         Me.TotalTextBox.TabIndex = 13
         Me.TotalTextBox.Text = "0"
         Me.TotalTextBox.Visible = False
@@ -85,94 +87,109 @@ Partial Class addBook
         'RemainingTextBox
         '
         Me.RemainingTextBox.Enabled = False
-        Me.RemainingTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.RemainingTextBox.Location = New System.Drawing.Point(263, 186)
+        Me.RemainingTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RemainingTextBox.Location = New System.Drawing.Point(198, 148)
+        Me.RemainingTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.RemainingTextBox.Name = "RemainingTextBox"
-        Me.RemainingTextBox.Size = New System.Drawing.Size(254, 30)
+        Me.RemainingTextBox.Size = New System.Drawing.Size(244, 26)
         Me.RemainingTextBox.TabIndex = 15
         Me.RemainingTextBox.Text = "0"
         Me.RemainingTextBox.Visible = False
         '
         'LocationTextBox
         '
-        Me.LocationTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.LocationTextBox.Location = New System.Drawing.Point(263, 214)
+        Me.LocationTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LocationTextBox.Location = New System.Drawing.Point(198, 189)
+        Me.LocationTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.LocationTextBox.Name = "LocationTextBox"
-        Me.LocationTextBox.Size = New System.Drawing.Size(254, 30)
+        Me.LocationTextBox.Size = New System.Drawing.Size(244, 26)
         Me.LocationTextBox.TabIndex = 17
         Me.LocationTextBox.Visible = False
         '
         'PublishYearDateTimePicker
         '
-        Me.PublishYearDateTimePicker.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.PublishYearDateTimePicker.Location = New System.Drawing.Point(263, 242)
+        Me.PublishYearDateTimePicker.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PublishYearDateTimePicker.Location = New System.Drawing.Point(198, 230)
+        Me.PublishYearDateTimePicker.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PublishYearDateTimePicker.Name = "PublishYearDateTimePicker"
-        Me.PublishYearDateTimePicker.Size = New System.Drawing.Size(254, 30)
+        Me.PublishYearDateTimePicker.Size = New System.Drawing.Size(244, 26)
         Me.PublishYearDateTimePicker.TabIndex = 19
         Me.PublishYearDateTimePicker.Visible = False
         '
         'TitleTextBox
         '
-        Me.TitleTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TitleTextBox.Location = New System.Drawing.Point(263, 270)
+        Me.TitleTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TitleTextBox.Location = New System.Drawing.Point(198, 262)
+        Me.TitleTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TitleTextBox.Name = "TitleTextBox"
-        Me.TitleTextBox.Size = New System.Drawing.Size(254, 30)
+        Me.TitleTextBox.Size = New System.Drawing.Size(244, 26)
         Me.TitleTextBox.TabIndex = 21
         Me.TitleTextBox.Visible = False
         '
         'AuthorTextBox
         '
-        Me.AuthorTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.AuthorTextBox.Location = New System.Drawing.Point(263, 298)
+        Me.AuthorTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AuthorTextBox.Location = New System.Drawing.Point(198, 296)
+        Me.AuthorTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.AuthorTextBox.Name = "AuthorTextBox"
-        Me.AuthorTextBox.Size = New System.Drawing.Size(254, 30)
+        Me.AuthorTextBox.Size = New System.Drawing.Size(244, 26)
         Me.AuthorTextBox.TabIndex = 23
         Me.AuthorTextBox.Visible = False
         '
         'PublisherTextBox
         '
-        Me.PublisherTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.PublisherTextBox.Location = New System.Drawing.Point(263, 326)
+        Me.PublisherTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PublisherTextBox.Location = New System.Drawing.Point(198, 330)
+        Me.PublisherTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PublisherTextBox.Name = "PublisherTextBox"
-        Me.PublisherTextBox.Size = New System.Drawing.Size(254, 30)
+        Me.PublisherTextBox.Size = New System.Drawing.Size(244, 26)
         Me.PublisherTextBox.TabIndex = 25
         Me.PublisherTextBox.Visible = False
         '
         'myButton
         '
-        Me.myButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.myButton.Location = New System.Drawing.Point(449, 532)
+        Me.myButton.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.myButton.FlatAppearance.BorderSize = 0
+        Me.myButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.myButton.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.myButton.ForeColor = System.Drawing.Color.White
+        Me.myButton.Location = New System.Drawing.Point(217, 497)
+        Me.myButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.myButton.Name = "myButton"
-        Me.myButton.Size = New System.Drawing.Size(114, 48)
+        Me.myButton.Size = New System.Drawing.Size(225, 42)
         Me.myButton.TabIndex = 30
         Me.myButton.Text = "Search"
-        Me.myButton.UseVisualStyleBackColor = True
+        Me.myButton.UseVisualStyleBackColor = False
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(66, 431)
+        Me.Label1.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(87, 444)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(219, 25)
+        Me.Label1.Size = New System.Drawing.Size(160, 19)
         Me.Label1.TabIndex = 32
         Me.Label1.Text = "Number of books to add"
         Me.Label1.Visible = False
         '
         'AddNumber
         '
-        Me.AddNumber.Location = New System.Drawing.Point(353, 431)
+        Me.AddNumber.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AddNumber.Location = New System.Drawing.Point(271, 442)
+        Me.AddNumber.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.AddNumber.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
         Me.AddNumber.Name = "AddNumber"
-        Me.AddNumber.Size = New System.Drawing.Size(120, 22)
+        Me.AddNumber.Size = New System.Drawing.Size(171, 26)
         Me.AddNumber.TabIndex = 33
         Me.AddNumber.Visible = False
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(695, 130)
+        Me.PictureBox1.Location = New System.Drawing.Point(583, 79)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(223, 274)
+        Me.PictureBox1.Size = New System.Drawing.Size(200, 200)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 34
         Me.PictureBox1.TabStop = False
@@ -180,12 +197,18 @@ Partial Class addBook
         '
         'uploadButton
         '
-        Me.uploadButton.Location = New System.Drawing.Point(735, 449)
+        Me.uploadButton.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.uploadButton.FlatAppearance.BorderSize = 0
+        Me.uploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.uploadButton.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.uploadButton.ForeColor = System.Drawing.Color.White
+        Me.uploadButton.Location = New System.Drawing.Point(583, 308)
+        Me.uploadButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.uploadButton.Name = "uploadButton"
-        Me.uploadButton.Size = New System.Drawing.Size(150, 59)
+        Me.uploadButton.Size = New System.Drawing.Size(200, 48)
         Me.uploadButton.TabIndex = 35
-        Me.uploadButton.Text = "Upload"
-        Me.uploadButton.UseVisualStyleBackColor = True
+        Me.uploadButton.Text = "Upload Image"
+        Me.uploadButton.UseVisualStyleBackColor = False
         Me.uploadButton.Visible = False
         '
         'OpenFileDialog1
@@ -195,9 +218,11 @@ Partial Class addBook
         'PriceLabel
         '
         Me.PriceLabel.AutoSize = True
-        Me.PriceLabel.Location = New System.Drawing.Point(86, 399)
+        Me.PriceLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PriceLabel.Location = New System.Drawing.Point(121, 403)
+        Me.PriceLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.PriceLabel.Name = "PriceLabel"
-        Me.PriceLabel.Size = New System.Drawing.Size(35, 20)
+        Me.PriceLabel.Size = New System.Drawing.Size(40, 23)
         Me.PriceLabel.TabIndex = 36
         Me.PriceLabel.Text = "Price"
         Me.PriceLabel.UseCompatibleTextRendering = True
@@ -205,29 +230,33 @@ Partial Class addBook
         '
         'PriceBox
         '
-        Me.PriceBox.Location = New System.Drawing.Point(263, 406)
+        Me.PriceBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PriceBox.Location = New System.Drawing.Point(198, 400)
+        Me.PriceBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PriceBox.Name = "PriceBox"
-        Me.PriceBox.Size = New System.Drawing.Size(254, 22)
+        Me.PriceBox.Size = New System.Drawing.Size(244, 26)
         Me.PriceBox.TabIndex = 37
         Me.PriceBox.Visible = False
         '
         'ISBNLabel
         '
         Me.ISBNLabel.AutoSize = True
-        Me.ISBNLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.ISBNLabel.Location = New System.Drawing.Point(81, 130)
+        Me.ISBNLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ISBNLabel.Location = New System.Drawing.Point(113, 82)
+        Me.ISBNLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.ISBNLabel.Name = "ISBNLabel"
-        Me.ISBNLabel.Size = New System.Drawing.Size(64, 25)
+        Me.ISBNLabel.Size = New System.Drawing.Size(48, 19)
         Me.ISBNLabel.TabIndex = 10
         Me.ISBNLabel.Text = "ISBN:"
         '
         'TotalLabel
         '
         Me.TotalLabel.AutoSize = True
-        Me.TotalLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TotalLabel.Location = New System.Drawing.Point(81, 158)
+        Me.TotalLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TotalLabel.Location = New System.Drawing.Point(119, 120)
+        Me.TotalLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.TotalLabel.Name = "TotalLabel"
-        Me.TotalLabel.Size = New System.Drawing.Size(62, 25)
+        Me.TotalLabel.Size = New System.Drawing.Size(42, 19)
         Me.TotalLabel.TabIndex = 12
         Me.TotalLabel.Text = "Total:"
         Me.TotalLabel.Visible = False
@@ -235,10 +264,11 @@ Partial Class addBook
         'RemainingLabel
         '
         Me.RemainingLabel.AutoSize = True
-        Me.RemainingLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.RemainingLabel.Location = New System.Drawing.Point(81, 186)
+        Me.RemainingLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RemainingLabel.Location = New System.Drawing.Point(87, 151)
+        Me.RemainingLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.RemainingLabel.Name = "RemainingLabel"
-        Me.RemainingLabel.Size = New System.Drawing.Size(110, 25)
+        Me.RemainingLabel.Size = New System.Drawing.Size(74, 19)
         Me.RemainingLabel.TabIndex = 14
         Me.RemainingLabel.Text = "Remaining:"
         Me.RemainingLabel.Visible = False
@@ -246,10 +276,11 @@ Partial Class addBook
         'LocationLabel
         '
         Me.LocationLabel.AutoSize = True
-        Me.LocationLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.LocationLabel.Location = New System.Drawing.Point(81, 214)
+        Me.LocationLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LocationLabel.Location = New System.Drawing.Point(96, 192)
+        Me.LocationLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LocationLabel.Name = "LocationLabel"
-        Me.LocationLabel.Size = New System.Drawing.Size(92, 25)
+        Me.LocationLabel.Size = New System.Drawing.Size(65, 19)
         Me.LocationLabel.TabIndex = 16
         Me.LocationLabel.Text = "Location:"
         Me.LocationLabel.Visible = False
@@ -257,10 +288,11 @@ Partial Class addBook
         'PublishYearLabel
         '
         Me.PublishYearLabel.AutoSize = True
-        Me.PublishYearLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.PublishYearLabel.Location = New System.Drawing.Point(81, 243)
+        Me.PublishYearLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PublishYearLabel.Location = New System.Drawing.Point(75, 236)
+        Me.PublishYearLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.PublishYearLabel.Name = "PublishYearLabel"
-        Me.PublishYearLabel.Size = New System.Drawing.Size(128, 25)
+        Me.PublishYearLabel.Size = New System.Drawing.Size(86, 19)
         Me.PublishYearLabel.TabIndex = 18
         Me.PublishYearLabel.Text = "Publish Year:"
         Me.PublishYearLabel.Visible = False
@@ -268,10 +300,11 @@ Partial Class addBook
         'TitleLabel
         '
         Me.TitleLabel.AutoSize = True
-        Me.TitleLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TitleLabel.Location = New System.Drawing.Point(81, 270)
+        Me.TitleLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TitleLabel.Location = New System.Drawing.Point(124, 265)
+        Me.TitleLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.TitleLabel.Name = "TitleLabel"
-        Me.TitleLabel.Size = New System.Drawing.Size(55, 25)
+        Me.TitleLabel.Size = New System.Drawing.Size(37, 19)
         Me.TitleLabel.TabIndex = 20
         Me.TitleLabel.Text = "Title:"
         Me.TitleLabel.Visible = False
@@ -279,10 +312,11 @@ Partial Class addBook
         'AuthorLabel
         '
         Me.AuthorLabel.AutoSize = True
-        Me.AuthorLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.AuthorLabel.Location = New System.Drawing.Point(81, 298)
+        Me.AuthorLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AuthorLabel.Location = New System.Drawing.Point(105, 296)
+        Me.AuthorLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.AuthorLabel.Name = "AuthorLabel"
-        Me.AuthorLabel.Size = New System.Drawing.Size(76, 25)
+        Me.AuthorLabel.Size = New System.Drawing.Size(54, 19)
         Me.AuthorLabel.TabIndex = 22
         Me.AuthorLabel.Text = "Author:"
         Me.AuthorLabel.Visible = False
@@ -290,10 +324,11 @@ Partial Class addBook
         'PublisherLabel
         '
         Me.PublisherLabel.AutoSize = True
-        Me.PublisherLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.PublisherLabel.Location = New System.Drawing.Point(81, 326)
+        Me.PublisherLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PublisherLabel.Location = New System.Drawing.Point(94, 333)
+        Me.PublisherLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.PublisherLabel.Name = "PublisherLabel"
-        Me.PublisherLabel.Size = New System.Drawing.Size(99, 25)
+        Me.PublisherLabel.Size = New System.Drawing.Size(67, 19)
         Me.PublisherLabel.TabIndex = 24
         Me.PublisherLabel.Text = "Publisher:"
         Me.PublisherLabel.Visible = False
@@ -301,24 +336,14 @@ Partial Class addBook
         'FieldLabel
         '
         Me.FieldLabel.AutoSize = True
-        Me.FieldLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.FieldLabel.Location = New System.Drawing.Point(81, 354)
+        Me.FieldLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FieldLabel.Location = New System.Drawing.Point(117, 365)
+        Me.FieldLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.FieldLabel.Name = "FieldLabel"
-        Me.FieldLabel.Size = New System.Drawing.Size(60, 25)
+        Me.FieldLabel.Size = New System.Drawing.Size(42, 19)
         Me.FieldLabel.TabIndex = 26
         Me.FieldLabel.Text = "Field:"
         Me.FieldLabel.Visible = False
-        '
-        'ImageLabel
-        '
-        Me.ImageLabel.AutoSize = True
-        Me.ImageLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.ImageLabel.Location = New System.Drawing.Point(593, 219)
-        Me.ImageLabel.Name = "ImageLabel"
-        Me.ImageLabel.Size = New System.Drawing.Size(72, 25)
-        Me.ImageLabel.TabIndex = 28
-        Me.ImageLabel.Text = "Image:"
-        Me.ImageLabel.Visible = False
         '
         'DatabaseDataSet1
         '
@@ -329,18 +354,32 @@ Partial Class addBook
         '
         Me.FieldTextBox.AllowDrop = True
         Me.FieldTextBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.FieldTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FieldTextBox.FormattingEnabled = True
         Me.FieldTextBox.Items.AddRange(New Object() {"Biosciences & Bioengineering", "Chemical Engineering", "Chemistry", "Civil Engineering", "Computer Science & Engg.", "Design", "Electronics & Electrical Engg.", "Humanities and Social Sciences", "Mathematics", "Mechanical Engineering", "Physics"})
-        Me.FieldTextBox.Location = New System.Drawing.Point(263, 362)
+        Me.FieldTextBox.Location = New System.Drawing.Point(198, 362)
+        Me.FieldTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.FieldTextBox.Name = "FieldTextBox"
-        Me.FieldTextBox.Size = New System.Drawing.Size(254, 24)
+        Me.FieldTextBox.Size = New System.Drawing.Size(244, 27)
         Me.FieldTextBox.TabIndex = 38
         Me.FieldTextBox.Visible = False
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Red
+        Me.Label2.Location = New System.Drawing.Point(44, 29)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(95, 23)
+        Me.Label2.TabIndex = 39
+        Me.Label2.Text = "Add Book"
+        '
         'addBook
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.FieldTextBox)
         Me.Controls.Add(Me.PriceBox)
         Me.Controls.Add(Me.PriceLabel)
@@ -366,9 +405,9 @@ Partial Class addBook
         Me.Controls.Add(Me.PublisherLabel)
         Me.Controls.Add(Me.PublisherTextBox)
         Me.Controls.Add(Me.FieldLabel)
-        Me.Controls.Add(Me.ImageLabel)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "addBook"
-        Me.Size = New System.Drawing.Size(1133, 781)
+        Me.Size = New System.Drawing.Size(1017, 681)
         CType(Me.AddNumber, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DatabaseDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -399,12 +438,12 @@ Partial Class addBook
     Friend WithEvents TitleLabel As System.Windows.Forms.Label
     Friend WithEvents AuthorLabel As System.Windows.Forms.Label
     Friend WithEvents FieldLabel As System.Windows.Forms.Label
-    Friend WithEvents ImageLabel As System.Windows.Forms.Label
     Friend WithEvents RemainingLabel As System.Windows.Forms.Label
     Friend WithEvents LocationLabel As System.Windows.Forms.Label
     Friend WithEvents PublishYearLabel As System.Windows.Forms.Label
     Friend WithEvents DatabaseDataSet1 As LibraryManagementSystem.DatabaseDataSet
     Friend WithEvents FieldTextBox As System.Windows.Forms.ComboBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 
 
 End Class

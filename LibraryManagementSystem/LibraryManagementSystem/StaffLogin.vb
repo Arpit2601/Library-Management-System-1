@@ -13,9 +13,9 @@
 
 
         Dim returnBookInstance = New returnBook
-        returnBookInstance.Dock = DockStyle.Bottom
+        returnBookInstance.Location = New Point(0, 227)
         Dim reIssueBookInstance = New reissuebook
-        reIssueBookInstance.Location = New Point(0, 227)
+        reIssueBookInstance.Dock = DockStyle.Bottom
         Dim issueBookInstance = New issuebook
         issueBookInstance.Dock = DockStyle.Top
 
@@ -54,9 +54,9 @@
         Action.Controls.Clear()
 
         Dim returnBookInstance = New returnBook
-        returnBookInstance.Dock = DockStyle.Bottom
+        returnBookInstance.Location = New Point(0, 227)
         Dim reIssueBookInstance = New reissuebook
-        reIssueBookInstance.Location = New Point(0, 227)
+        reIssueBookInstance.Dock = DockStyle.Bottom
         Dim issueBookInstance = New issuebook
         issueBookInstance.Dock = DockStyle.Top
 
@@ -96,9 +96,9 @@
 
 
         Dim returnBookInstance = New returnBook
-        returnBookInstance.Dock = DockStyle.Bottom
+        returnBookInstance.Location = New Point(0, 227)
         Dim reIssueBookInstance = New reissuebook
-        reIssueBookInstance.Location = New Point(0, 227)
+        reIssueBookInstance.Dock = DockStyle.Bottom
         Dim issueBookInstance = New issuebook
         issueBookInstance.Dock = DockStyle.Top
 
@@ -151,5 +151,19 @@
 
     Private Sub StaffLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        IssueBook.BackColor = Color.MidnightBlue
+        ReturnBook.BackColor = Color.MidnightBlue
+        ReIssueBook.BackColor = Color.MidnightBlue
+        StudentButton.BackColor = Color.MidnightBlue
+        btnLogout.BackColor = Color.MediumSeaGreen
+
+        Dim result = MessageBox.Show("Do you want to logout?", "Confirm logout", MessageBoxButtons.YesNo)
+        If result = DialogResult.Yes Then
+            Me.Close()
+            MainPage.Show()
+        End If
     End Sub
 End Class

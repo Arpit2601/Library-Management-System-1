@@ -153,7 +153,6 @@ Public Class addBook
         PriceLabel.Show()
         PriceBox.Show()
         PictureBox1.Show()
-        ImageLabel.Show()
         uploadButton.Show()
         ISBNTextBox1.Enabled = False
         Return True

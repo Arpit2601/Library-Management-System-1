@@ -49,6 +49,7 @@ Partial Class EditStudentProfile_UserControl
         Me.MechanicjalEngineeringToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PhysicsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         EmailLabel = New System.Windows.Forms.Label()
         PhoneNumberLabel = New System.Windows.Forms.Label()
         DepartmentLabel = New System.Windows.Forms.Label()
@@ -268,10 +269,22 @@ Partial Class EditStudentProfile_UserControl
         Me.ComboBox1.Size = New System.Drawing.Size(225, 27)
         Me.ComboBox1.TabIndex = 18
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Red
+        Me.Label1.Location = New System.Drawing.Point(47, 32)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(108, 23)
+        Me.Label1.TabIndex = 19
+        Me.Label1.Text = "Edit Profile"
+        '
         'EditStudentProfile_UserControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.btnChangePic)
         Me.Controls.Add(Me.picBoxProfile)
@@ -315,5 +328,6 @@ Partial Class EditStudentProfile_UserControl
     Friend WithEvents MechanicjalEngineeringToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PhysicsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 
 End Class

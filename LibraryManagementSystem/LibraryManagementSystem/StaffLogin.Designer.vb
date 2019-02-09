@@ -23,6 +23,7 @@ Partial Class StaffLogin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Buttons = New System.Windows.Forms.Panel()
+        Me.btnLogout = New System.Windows.Forms.Button()
         Me.ReIssueBook = New System.Windows.Forms.Button()
         Me.ReturnBook = New System.Windows.Forms.Button()
         Me.IssueBook = New System.Windows.Forms.Button()
@@ -35,6 +36,7 @@ Partial Class StaffLogin
         'Buttons
         '
         Me.Buttons.BackColor = System.Drawing.Color.MidnightBlue
+        Me.Buttons.Controls.Add(Me.btnLogout)
         Me.Buttons.Controls.Add(Me.ReIssueBook)
         Me.Buttons.Controls.Add(Me.ReturnBook)
         Me.Buttons.Controls.Add(Me.IssueBook)
@@ -47,6 +49,20 @@ Partial Class StaffLogin
         Me.Buttons.Name = "Buttons"
         Me.Buttons.Size = New System.Drawing.Size(247, 681)
         Me.Buttons.TabIndex = 0
+        '
+        'btnLogout
+        '
+        Me.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnLogout.FlatAppearance.BorderSize = 0
+        Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogout.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLogout.ForeColor = System.Drawing.Color.White
+        Me.btnLogout.Location = New System.Drawing.Point(0, 261)
+        Me.btnLogout.Name = "btnLogout"
+        Me.btnLogout.Size = New System.Drawing.Size(247, 45)
+        Me.btnLogout.TabIndex = 5
+        Me.btnLogout.Text = "Log Out"
+        Me.btnLogout.UseVisualStyleBackColor = True
         '
         'ReIssueBook
         '
@@ -149,4 +165,5 @@ Partial Class StaffLogin
     Friend WithEvents BookButton As System.Windows.Forms.Button
     Friend WithEvents ReturnBook As System.Windows.Forms.Button
     Friend WithEvents ReIssueBook As System.Windows.Forms.Button
+    Friend WithEvents btnLogout As System.Windows.Forms.Button
 End Class
