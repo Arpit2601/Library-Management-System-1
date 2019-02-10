@@ -32,16 +32,19 @@ Partial Class viewBookTable
         Dim FineLabel As System.Windows.Forms.Label
         Dim IssueCountLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(viewBookTable))
-        Me.DatabaseDataSet1 = New LibraryManagementSystem.DatabaseDataSet1()
-        Me.BorrowedBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BorrowedTableAdapter = New LibraryManagementSystem.DatabaseDataSet1TableAdapters.BorrowedTableAdapter()
-        Me.TableAdapterManager = New LibraryManagementSystem.DatabaseDataSet1TableAdapters.TableAdapterManager()
         Me.BorrowedBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BorrowedBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.AccNoTextBox = New System.Windows.Forms.TextBox()
         Me.ISBNTextBox = New System.Windows.Forms.TextBox()
         Me.BorrowerIdTextBox = New System.Windows.Forms.TextBox()
@@ -50,13 +53,6 @@ Partial Class viewBookTable
         Me.IsIssuedCheckBox = New System.Windows.Forms.CheckBox()
         Me.FineTextBox = New System.Windows.Forms.TextBox()
         Me.IssueCountTextBox = New System.Windows.Forms.TextBox()
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
-        Me.BorrowedBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.BorrowedDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -66,6 +62,10 @@ Partial Class viewBookTable
         Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BorrowedBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DatabaseDataSet1 = New LibraryManagementSystem.DatabaseDataSet1()
+        Me.BorrowedTableAdapter = New LibraryManagementSystem.DatabaseDataSet1TableAdapters.BorrowedTableAdapter()
+        Me.TableAdapterManager = New LibraryManagementSystem.DatabaseDataSet1TableAdapters.TableAdapterManager()
         AccNoLabel = New System.Windows.Forms.Label()
         ISBNLabel = New System.Windows.Forms.Label()
         BorrowerIdLabel = New System.Windows.Forms.Label()
@@ -74,34 +74,92 @@ Partial Class viewBookTable
         IsIssuedLabel = New System.Windows.Forms.Label()
         FineLabel = New System.Windows.Forms.Label()
         IssueCountLabel = New System.Windows.Forms.Label()
-        CType(Me.DatabaseDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BorrowedBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BorrowedBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BorrowedBindingNavigator.SuspendLayout()
         CType(Me.BorrowedDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BorrowedBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DatabaseDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DatabaseDataSet1
+        'AccNoLabel
         '
-        Me.DatabaseDataSet1.DataSetName = "DatabaseDataSet1"
-        Me.DatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        AccNoLabel.AutoSize = True
+        AccNoLabel.Location = New System.Drawing.Point(45, 180)
+        AccNoLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        AccNoLabel.Name = "AccNoLabel"
+        AccNoLabel.Size = New System.Drawing.Size(46, 13)
+        AccNoLabel.TabIndex = 1
+        AccNoLabel.Text = "Acc No:"
         '
-        'BorrowedBindingSource
+        'ISBNLabel
         '
-        Me.BorrowedBindingSource.DataMember = "Borrowed"
-        Me.BorrowedBindingSource.DataSource = Me.DatabaseDataSet1
+        ISBNLabel.AutoSize = True
+        ISBNLabel.Location = New System.Drawing.Point(45, 202)
+        ISBNLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        ISBNLabel.Name = "ISBNLabel"
+        ISBNLabel.Size = New System.Drawing.Size(35, 13)
+        ISBNLabel.TabIndex = 3
+        ISBNLabel.Text = "ISBN:"
         '
-        'BorrowedTableAdapter
+        'BorrowerIdLabel
         '
-        Me.BorrowedTableAdapter.ClearBeforeFill = True
+        BorrowerIdLabel.AutoSize = True
+        BorrowerIdLabel.Location = New System.Drawing.Point(45, 225)
+        BorrowerIdLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        BorrowerIdLabel.Name = "BorrowerIdLabel"
+        BorrowerIdLabel.Size = New System.Drawing.Size(64, 13)
+        BorrowerIdLabel.TabIndex = 5
+        BorrowerIdLabel.Text = "Borrower Id:"
         '
-        'TableAdapterManager
+        'IssueDateLabel
         '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.BooksTableAdapter = Nothing
-        Me.TableAdapterManager.BorrowedTableAdapter = Me.BorrowedTableAdapter
-        Me.TableAdapterManager.UpdateOrder = LibraryManagementSystem.DatabaseDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.UsersTableAdapter = Nothing
+        IssueDateLabel.AutoSize = True
+        IssueDateLabel.Location = New System.Drawing.Point(45, 249)
+        IssueDateLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        IssueDateLabel.Name = "IssueDateLabel"
+        IssueDateLabel.Size = New System.Drawing.Size(61, 13)
+        IssueDateLabel.TabIndex = 7
+        IssueDateLabel.Text = "Issue Date:"
+        '
+        'ReturnDateLabel
+        '
+        ReturnDateLabel.AutoSize = True
+        ReturnDateLabel.Location = New System.Drawing.Point(45, 271)
+        ReturnDateLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        ReturnDateLabel.Name = "ReturnDateLabel"
+        ReturnDateLabel.Size = New System.Drawing.Size(68, 13)
+        ReturnDateLabel.TabIndex = 9
+        ReturnDateLabel.Text = "Return Date:"
+        '
+        'IsIssuedLabel
+        '
+        IsIssuedLabel.AutoSize = True
+        IsIssuedLabel.Location = New System.Drawing.Point(45, 310)
+        IsIssuedLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        IsIssuedLabel.Name = "IsIssuedLabel"
+        IsIssuedLabel.Size = New System.Drawing.Size(52, 13)
+        IsIssuedLabel.TabIndex = 11
+        IsIssuedLabel.Text = "Is Issued:"
+        '
+        'FineLabel
+        '
+        FineLabel.AutoSize = True
+        FineLabel.Location = New System.Drawing.Point(48, 335)
+        FineLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        FineLabel.Name = "FineLabel"
+        FineLabel.Size = New System.Drawing.Size(30, 13)
+        FineLabel.TabIndex = 13
+        FineLabel.Text = "Fine:"
+        '
+        'IssueCountLabel
+        '
+        IssueCountLabel.AutoSize = True
+        IssueCountLabel.Location = New System.Drawing.Point(45, 358)
+        IssueCountLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        IssueCountLabel.Name = "IssueCountLabel"
+        IssueCountLabel.Size = New System.Drawing.Size(66, 13)
+        IssueCountLabel.TabIndex = 15
+        IssueCountLabel.Text = "Issue Count:"
         '
         'BorrowedBindingNavigator
         '
@@ -118,179 +176,9 @@ Partial Class viewBookTable
         Me.BorrowedBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.BorrowedBindingNavigator.Name = "BorrowedBindingNavigator"
         Me.BorrowedBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.BorrowedBindingNavigator.Size = New System.Drawing.Size(1356, 27)
+        Me.BorrowedBindingNavigator.Size = New System.Drawing.Size(1017, 27)
         Me.BorrowedBindingNavigator.TabIndex = 0
         Me.BorrowedBindingNavigator.Text = "BindingNavigator1"
-        '
-        'BindingNavigatorSeparator
-        '
-        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 27)
-        '
-        'BindingNavigatorPositionItem
-        '
-        Me.BindingNavigatorPositionItem.AccessibleName = "Position"
-        Me.BindingNavigatorPositionItem.AutoSize = False
-        Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
-        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 27)
-        Me.BindingNavigatorPositionItem.Text = "0"
-        Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
-        '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(45, 24)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
-        '
-        'BindingNavigatorSeparator1
-        '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 27)
-        '
-        'BindingNavigatorSeparator2
-        '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 27)
-        '
-        'AccNoLabel
-        '
-        AccNoLabel.AutoSize = True
-        AccNoLabel.Location = New System.Drawing.Point(60, 221)
-        AccNoLabel.Name = "AccNoLabel"
-        AccNoLabel.Size = New System.Drawing.Size(57, 17)
-        AccNoLabel.TabIndex = 1
-        AccNoLabel.Text = "Acc No:"
-        '
-        'AccNoTextBox
-        '
-        Me.AccNoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BorrowedBindingSource, "AccNo", True))
-        Me.AccNoTextBox.Location = New System.Drawing.Point(155, 218)
-        Me.AccNoTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.AccNoTextBox.Name = "AccNoTextBox"
-        Me.AccNoTextBox.Size = New System.Drawing.Size(150, 22)
-        Me.AccNoTextBox.TabIndex = 2
-        '
-        'ISBNLabel
-        '
-        ISBNLabel.AutoSize = True
-        ISBNLabel.Location = New System.Drawing.Point(60, 249)
-        ISBNLabel.Name = "ISBNLabel"
-        ISBNLabel.Size = New System.Drawing.Size(43, 17)
-        ISBNLabel.TabIndex = 3
-        ISBNLabel.Text = "ISBN:"
-        '
-        'ISBNTextBox
-        '
-        Me.ISBNTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BorrowedBindingSource, "ISBN", True))
-        Me.ISBNTextBox.Location = New System.Drawing.Point(155, 246)
-        Me.ISBNTextBox.Name = "ISBNTextBox"
-        Me.ISBNTextBox.Size = New System.Drawing.Size(150, 22)
-        Me.ISBNTextBox.TabIndex = 4
-        '
-        'BorrowerIdLabel
-        '
-        BorrowerIdLabel.AutoSize = True
-        BorrowerIdLabel.Location = New System.Drawing.Point(60, 277)
-        BorrowerIdLabel.Name = "BorrowerIdLabel"
-        BorrowerIdLabel.Size = New System.Drawing.Size(84, 17)
-        BorrowerIdLabel.TabIndex = 5
-        BorrowerIdLabel.Text = "Borrower Id:"
-        '
-        'BorrowerIdTextBox
-        '
-        Me.BorrowerIdTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BorrowedBindingSource, "BorrowerId", True))
-        Me.BorrowerIdTextBox.Location = New System.Drawing.Point(155, 274)
-        Me.BorrowerIdTextBox.Name = "BorrowerIdTextBox"
-        Me.BorrowerIdTextBox.Size = New System.Drawing.Size(150, 22)
-        Me.BorrowerIdTextBox.TabIndex = 6
-        '
-        'IssueDateLabel
-        '
-        IssueDateLabel.AutoSize = True
-        IssueDateLabel.Location = New System.Drawing.Point(60, 306)
-        IssueDateLabel.Name = "IssueDateLabel"
-        IssueDateLabel.Size = New System.Drawing.Size(79, 17)
-        IssueDateLabel.TabIndex = 7
-        IssueDateLabel.Text = "Issue Date:"
-        '
-        'IssueDateDateTimePicker
-        '
-        Me.IssueDateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BorrowedBindingSource, "IssueDate", True))
-        Me.IssueDateDateTimePicker.Location = New System.Drawing.Point(155, 306)
-        Me.IssueDateDateTimePicker.Name = "IssueDateDateTimePicker"
-        Me.IssueDateDateTimePicker.Size = New System.Drawing.Size(150, 22)
-        Me.IssueDateDateTimePicker.TabIndex = 8
-        '
-        'ReturnDateLabel
-        '
-        ReturnDateLabel.AutoSize = True
-        ReturnDateLabel.Location = New System.Drawing.Point(60, 334)
-        ReturnDateLabel.Name = "ReturnDateLabel"
-        ReturnDateLabel.Size = New System.Drawing.Size(89, 17)
-        ReturnDateLabel.TabIndex = 9
-        ReturnDateLabel.Text = "Return Date:"
-        '
-        'ReturnDateDateTimePicker
-        '
-        Me.ReturnDateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BorrowedBindingSource, "ReturnDate", True))
-        Me.ReturnDateDateTimePicker.Location = New System.Drawing.Point(155, 352)
-        Me.ReturnDateDateTimePicker.Name = "ReturnDateDateTimePicker"
-        Me.ReturnDateDateTimePicker.Size = New System.Drawing.Size(150, 22)
-        Me.ReturnDateDateTimePicker.TabIndex = 10
-        '
-        'IsIssuedLabel
-        '
-        IsIssuedLabel.AutoSize = True
-        IsIssuedLabel.Location = New System.Drawing.Point(60, 382)
-        IsIssuedLabel.Name = "IsIssuedLabel"
-        IsIssuedLabel.Size = New System.Drawing.Size(67, 17)
-        IsIssuedLabel.TabIndex = 11
-        IsIssuedLabel.Text = "Is Issued:"
-        '
-        'IsIssuedCheckBox
-        '
-        Me.IsIssuedCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.BorrowedBindingSource, "IsIssued", True))
-        Me.IsIssuedCheckBox.Location = New System.Drawing.Point(152, 380)
-        Me.IsIssuedCheckBox.Name = "IsIssuedCheckBox"
-        Me.IsIssuedCheckBox.Size = New System.Drawing.Size(153, 22)
-        Me.IsIssuedCheckBox.TabIndex = 12
-        Me.IsIssuedCheckBox.Text = "CheckBox1"
-        Me.IsIssuedCheckBox.UseVisualStyleBackColor = True
-        '
-        'FineLabel
-        '
-        FineLabel.AutoSize = True
-        FineLabel.Location = New System.Drawing.Point(64, 412)
-        FineLabel.Name = "FineLabel"
-        FineLabel.Size = New System.Drawing.Size(39, 17)
-        FineLabel.TabIndex = 13
-        FineLabel.Text = "Fine:"
-        '
-        'FineTextBox
-        '
-        Me.FineTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BorrowedBindingSource, "Fine", True))
-        Me.FineTextBox.Location = New System.Drawing.Point(152, 412)
-        Me.FineTextBox.Name = "FineTextBox"
-        Me.FineTextBox.Size = New System.Drawing.Size(150, 22)
-        Me.FineTextBox.TabIndex = 14
-        '
-        'IssueCountLabel
-        '
-        IssueCountLabel.AutoSize = True
-        IssueCountLabel.Location = New System.Drawing.Point(60, 440)
-        IssueCountLabel.Name = "IssueCountLabel"
-        IssueCountLabel.Size = New System.Drawing.Size(86, 17)
-        IssueCountLabel.TabIndex = 15
-        IssueCountLabel.Text = "Issue Count:"
-        '
-        'IssueCountTextBox
-        '
-        Me.IssueCountTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BorrowedBindingSource, "IssueCount", True))
-        Me.IssueCountTextBox.Location = New System.Drawing.Point(155, 440)
-        Me.IssueCountTextBox.Name = "IssueCountTextBox"
-        Me.IssueCountTextBox.Size = New System.Drawing.Size(150, 22)
-        Me.IssueCountTextBox.TabIndex = 16
         '
         'BindingNavigatorAddNewItem
         '
@@ -300,6 +188,13 @@ Partial Class viewBookTable
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(24, 24)
         Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 24)
+        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
         '
         'BindingNavigatorDeleteItem
         '
@@ -328,6 +223,25 @@ Partial Class viewBookTable
         Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(24, 24)
         Me.BindingNavigatorMovePreviousItem.Text = "Move previous"
         '
+        'BindingNavigatorSeparator
+        '
+        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 27)
+        '
+        'BindingNavigatorPositionItem
+        '
+        Me.BindingNavigatorPositionItem.AccessibleName = "Position"
+        Me.BindingNavigatorPositionItem.AutoSize = False
+        Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
+        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(38, 23)
+        Me.BindingNavigatorPositionItem.Text = "0"
+        Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
+        '
+        'BindingNavigatorSeparator1
+        '
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 27)
+        '
         'BindingNavigatorMoveNextItem
         '
         Me.BindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -346,6 +260,11 @@ Partial Class viewBookTable
         Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(24, 24)
         Me.BindingNavigatorMoveLastItem.Text = "Move last"
         '
+        'BindingNavigatorSeparator2
+        '
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 27)
+        '
         'BorrowedBindingNavigatorSaveItem
         '
         Me.BorrowedBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -354,16 +273,91 @@ Partial Class viewBookTable
         Me.BorrowedBindingNavigatorSaveItem.Size = New System.Drawing.Size(24, 24)
         Me.BorrowedBindingNavigatorSaveItem.Text = "Save Data"
         '
+        'AccNoTextBox
+        '
+        Me.AccNoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BorrowedBindingSource, "AccNo", True))
+        Me.AccNoTextBox.Location = New System.Drawing.Point(116, 177)
+        Me.AccNoTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.AccNoTextBox.Name = "AccNoTextBox"
+        Me.AccNoTextBox.Size = New System.Drawing.Size(114, 20)
+        Me.AccNoTextBox.TabIndex = 2
+        '
+        'ISBNTextBox
+        '
+        Me.ISBNTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BorrowedBindingSource, "ISBN", True))
+        Me.ISBNTextBox.Location = New System.Drawing.Point(116, 200)
+        Me.ISBNTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ISBNTextBox.Name = "ISBNTextBox"
+        Me.ISBNTextBox.Size = New System.Drawing.Size(114, 20)
+        Me.ISBNTextBox.TabIndex = 4
+        '
+        'BorrowerIdTextBox
+        '
+        Me.BorrowerIdTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BorrowedBindingSource, "BorrowerId", True))
+        Me.BorrowerIdTextBox.Location = New System.Drawing.Point(116, 223)
+        Me.BorrowerIdTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.BorrowerIdTextBox.Name = "BorrowerIdTextBox"
+        Me.BorrowerIdTextBox.Size = New System.Drawing.Size(114, 20)
+        Me.BorrowerIdTextBox.TabIndex = 6
+        '
+        'IssueDateDateTimePicker
+        '
+        Me.IssueDateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BorrowedBindingSource, "IssueDate", True))
+        Me.IssueDateDateTimePicker.Location = New System.Drawing.Point(116, 249)
+        Me.IssueDateDateTimePicker.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.IssueDateDateTimePicker.Name = "IssueDateDateTimePicker"
+        Me.IssueDateDateTimePicker.Size = New System.Drawing.Size(114, 20)
+        Me.IssueDateDateTimePicker.TabIndex = 8
+        '
+        'ReturnDateDateTimePicker
+        '
+        Me.ReturnDateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.BorrowedBindingSource, "ReturnDate", True))
+        Me.ReturnDateDateTimePicker.Location = New System.Drawing.Point(116, 286)
+        Me.ReturnDateDateTimePicker.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ReturnDateDateTimePicker.Name = "ReturnDateDateTimePicker"
+        Me.ReturnDateDateTimePicker.Size = New System.Drawing.Size(114, 20)
+        Me.ReturnDateDateTimePicker.TabIndex = 10
+        '
+        'IsIssuedCheckBox
+        '
+        Me.IsIssuedCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.BorrowedBindingSource, "IsIssued", True))
+        Me.IsIssuedCheckBox.Location = New System.Drawing.Point(114, 309)
+        Me.IsIssuedCheckBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.IsIssuedCheckBox.Name = "IsIssuedCheckBox"
+        Me.IsIssuedCheckBox.Size = New System.Drawing.Size(115, 18)
+        Me.IsIssuedCheckBox.TabIndex = 12
+        Me.IsIssuedCheckBox.Text = "CheckBox1"
+        Me.IsIssuedCheckBox.UseVisualStyleBackColor = True
+        '
+        'FineTextBox
+        '
+        Me.FineTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BorrowedBindingSource, "Fine", True))
+        Me.FineTextBox.Location = New System.Drawing.Point(114, 335)
+        Me.FineTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.FineTextBox.Name = "FineTextBox"
+        Me.FineTextBox.Size = New System.Drawing.Size(114, 20)
+        Me.FineTextBox.TabIndex = 14
+        '
+        'IssueCountTextBox
+        '
+        Me.IssueCountTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BorrowedBindingSource, "IssueCount", True))
+        Me.IssueCountTextBox.Location = New System.Drawing.Point(116, 358)
+        Me.IssueCountTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.IssueCountTextBox.Name = "IssueCountTextBox"
+        Me.IssueCountTextBox.Size = New System.Drawing.Size(114, 20)
+        Me.IssueCountTextBox.TabIndex = 16
+        '
         'BorrowedDataGridView
         '
         Me.BorrowedDataGridView.AutoGenerateColumns = False
         Me.BorrowedDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.BorrowedDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
         Me.BorrowedDataGridView.DataSource = Me.BorrowedBindingSource
-        Me.BorrowedDataGridView.Location = New System.Drawing.Point(388, 115)
+        Me.BorrowedDataGridView.Location = New System.Drawing.Point(303, 91)
+        Me.BorrowedDataGridView.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.BorrowedDataGridView.Name = "BorrowedDataGridView"
         Me.BorrowedDataGridView.RowTemplate.Height = 24
-        Me.BorrowedDataGridView.Size = New System.Drawing.Size(842, 605)
+        Me.BorrowedDataGridView.Size = New System.Drawing.Size(632, 492)
         Me.BorrowedDataGridView.TabIndex = 17
         '
         'DataGridViewTextBoxColumn1
@@ -414,9 +408,32 @@ Partial Class viewBookTable
         Me.DataGridViewTextBoxColumn7.HeaderText = "IssueCount"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         '
+        'BorrowedBindingSource
+        '
+        Me.BorrowedBindingSource.DataMember = "Borrowed"
+        Me.BorrowedBindingSource.DataSource = Me.DatabaseDataSet1
+        '
+        'DatabaseDataSet1
+        '
+        Me.DatabaseDataSet1.DataSetName = "DatabaseDataSet1"
+        Me.DatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'BorrowedTableAdapter
+        '
+        Me.BorrowedTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BooksTableAdapter = Nothing
+        Me.TableAdapterManager.BorrowedTableAdapter = Me.BorrowedTableAdapter
+        Me.TableAdapterManager.RatingListTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = LibraryManagementSystem.DatabaseDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UsersTableAdapter = Nothing
+        '
         'viewBookTable
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.BorrowedDataGridView)
         Me.Controls.Add(AccNoLabel)
@@ -436,15 +453,15 @@ Partial Class viewBookTable
         Me.Controls.Add(IssueCountLabel)
         Me.Controls.Add(Me.IssueCountTextBox)
         Me.Controls.Add(Me.BorrowedBindingNavigator)
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "viewBookTable"
-        Me.Size = New System.Drawing.Size(1356, 838)
-        CType(Me.DatabaseDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BorrowedBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Size = New System.Drawing.Size(1017, 681)
         CType(Me.BorrowedBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BorrowedBindingNavigator.ResumeLayout(False)
         Me.BorrowedBindingNavigator.PerformLayout()
         CType(Me.BorrowedDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BorrowedBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DatabaseDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

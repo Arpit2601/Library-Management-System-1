@@ -6,6 +6,7 @@ Public Class StudentLogin
     Public UserName As String
     Dim desig As String
 
+
     Private Sub btnMyProfile_Click(sender As Object, e As EventArgs) Handles btnMyProfile.Click
         btnMyProfile.BackColor = Color.MediumSeaGreen
         btnItemsCheckedout.BackColor = Color.MidnightBlue
@@ -111,6 +112,7 @@ Public Class StudentLogin
         btnEditProfile.BackColor = Color.MidnightBlue
         btnLogout.BackColor = Color.MidnightBlue
         btnRecommend.BackColor = Color.MediumSeaGreen
+        Button2.BackColor = Color.MidnightBlue
 
         contentPanel.Controls.Clear()
         If desig = "Professor" Then
@@ -118,5 +120,14 @@ Public Class StudentLogin
         Else
             contentPanel.Controls.Add(New Stud_UserControl)
         End If
+    End Sub
+
+    Public Sub refreshRecommend()
+        contentPanel.Controls.Clear()
+        contentPanel.Controls.Add(New Prof_UserControl)
+    End Sub
+
+    Private Sub buttonPanel_Paint(sender As Object, e As PaintEventArgs) Handles buttonPanel.Paint
+
     End Sub
 End Class

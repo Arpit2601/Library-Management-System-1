@@ -67,7 +67,7 @@ Partial Class addBook
         '
         Me.ISBNTextBox1.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ISBNTextBox1.Location = New System.Drawing.Point(198, 79)
-        Me.ISBNTextBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ISBNTextBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.ISBNTextBox1.Name = "ISBNTextBox1"
         Me.ISBNTextBox1.Size = New System.Drawing.Size(244, 26)
         Me.ISBNTextBox1.TabIndex = 11
@@ -77,7 +77,7 @@ Partial Class addBook
         Me.TotalTextBox.Enabled = False
         Me.TotalTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalTextBox.Location = New System.Drawing.Point(198, 117)
-        Me.TotalTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TotalTextBox.Margin = New System.Windows.Forms.Padding(2)
         Me.TotalTextBox.Name = "TotalTextBox"
         Me.TotalTextBox.Size = New System.Drawing.Size(244, 26)
         Me.TotalTextBox.TabIndex = 13
@@ -89,7 +89,7 @@ Partial Class addBook
         Me.RemainingTextBox.Enabled = False
         Me.RemainingTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RemainingTextBox.Location = New System.Drawing.Point(198, 148)
-        Me.RemainingTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.RemainingTextBox.Margin = New System.Windows.Forms.Padding(2)
         Me.RemainingTextBox.Name = "RemainingTextBox"
         Me.RemainingTextBox.Size = New System.Drawing.Size(244, 26)
         Me.RemainingTextBox.TabIndex = 15
@@ -100,7 +100,7 @@ Partial Class addBook
         '
         Me.LocationTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LocationTextBox.Location = New System.Drawing.Point(198, 189)
-        Me.LocationTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.LocationTextBox.Margin = New System.Windows.Forms.Padding(2)
         Me.LocationTextBox.Name = "LocationTextBox"
         Me.LocationTextBox.Size = New System.Drawing.Size(244, 26)
         Me.LocationTextBox.TabIndex = 17
@@ -110,7 +110,7 @@ Partial Class addBook
         '
         Me.PublishYearDateTimePicker.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PublishYearDateTimePicker.Location = New System.Drawing.Point(198, 230)
-        Me.PublishYearDateTimePicker.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PublishYearDateTimePicker.Margin = New System.Windows.Forms.Padding(2)
         Me.PublishYearDateTimePicker.Name = "PublishYearDateTimePicker"
         Me.PublishYearDateTimePicker.Size = New System.Drawing.Size(244, 26)
         Me.PublishYearDateTimePicker.TabIndex = 19
@@ -120,7 +120,7 @@ Partial Class addBook
         '
         Me.TitleTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TitleTextBox.Location = New System.Drawing.Point(198, 262)
-        Me.TitleTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TitleTextBox.Margin = New System.Windows.Forms.Padding(2)
         Me.TitleTextBox.Name = "TitleTextBox"
         Me.TitleTextBox.Size = New System.Drawing.Size(244, 26)
         Me.TitleTextBox.TabIndex = 21
@@ -130,7 +130,7 @@ Partial Class addBook
         '
         Me.AuthorTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AuthorTextBox.Location = New System.Drawing.Point(198, 296)
-        Me.AuthorTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.AuthorTextBox.Margin = New System.Windows.Forms.Padding(2)
         Me.AuthorTextBox.Name = "AuthorTextBox"
         Me.AuthorTextBox.Size = New System.Drawing.Size(244, 26)
         Me.AuthorTextBox.TabIndex = 23
@@ -140,7 +140,7 @@ Partial Class addBook
         '
         Me.PublisherTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PublisherTextBox.Location = New System.Drawing.Point(198, 330)
-        Me.PublisherTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PublisherTextBox.Margin = New System.Windows.Forms.Padding(2)
         Me.PublisherTextBox.Name = "PublisherTextBox"
         Me.PublisherTextBox.Size = New System.Drawing.Size(244, 26)
         Me.PublisherTextBox.TabIndex = 25
@@ -149,12 +149,13 @@ Partial Class addBook
         'myButton
         '
         Me.myButton.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.myButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.myButton.FlatAppearance.BorderSize = 0
         Me.myButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.myButton.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.myButton.ForeColor = System.Drawing.Color.White
         Me.myButton.Location = New System.Drawing.Point(217, 497)
-        Me.myButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.myButton.Margin = New System.Windows.Forms.Padding(2)
         Me.myButton.Name = "myButton"
         Me.myButton.Size = New System.Drawing.Size(225, 42)
         Me.myButton.TabIndex = 30
@@ -177,7 +178,7 @@ Partial Class addBook
         '
         Me.AddNumber.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AddNumber.Location = New System.Drawing.Point(271, 442)
-        Me.AddNumber.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.AddNumber.Margin = New System.Windows.Forms.Padding(2)
         Me.AddNumber.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
         Me.AddNumber.Name = "AddNumber"
         Me.AddNumber.Size = New System.Drawing.Size(171, 26)
@@ -187,7 +188,7 @@ Partial Class addBook
         'PictureBox1
         '
         Me.PictureBox1.Location = New System.Drawing.Point(583, 79)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(200, 200)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -198,12 +199,13 @@ Partial Class addBook
         'uploadButton
         '
         Me.uploadButton.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.uploadButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.uploadButton.FlatAppearance.BorderSize = 0
         Me.uploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.uploadButton.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.uploadButton.ForeColor = System.Drawing.Color.White
         Me.uploadButton.Location = New System.Drawing.Point(583, 308)
-        Me.uploadButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.uploadButton.Margin = New System.Windows.Forms.Padding(2)
         Me.uploadButton.Name = "uploadButton"
         Me.uploadButton.Size = New System.Drawing.Size(200, 48)
         Me.uploadButton.TabIndex = 35
@@ -232,7 +234,7 @@ Partial Class addBook
         '
         Me.PriceBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PriceBox.Location = New System.Drawing.Point(198, 400)
-        Me.PriceBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PriceBox.Margin = New System.Windows.Forms.Padding(2)
         Me.PriceBox.Name = "PriceBox"
         Me.PriceBox.Size = New System.Drawing.Size(244, 26)
         Me.PriceBox.TabIndex = 37
@@ -356,9 +358,9 @@ Partial Class addBook
         Me.FieldTextBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.FieldTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FieldTextBox.FormattingEnabled = True
-        Me.FieldTextBox.Items.AddRange(New Object() {"Biosciences & Bioengineering", "Chemical Engineering", "Chemistry", "Civil Engineering", "Computer Science & Engg.", "Design", "Electronics & Electrical Engg.", "Humanities and Social Sciences", "Mathematics", "Mechanical Engineering", "Physics"})
+        Me.FieldTextBox.Items.AddRange(New Object() {"Biosciences and Bioengineering", "Chemical Engineering", "Chemistry", "Civil Engineering", "Computer Science and Engg.", "Design", "Electronics and Electrical Engg.", "Humanities and Social Sciences", "Mathematics", "Mechanical Engineering", "Physics"})
         Me.FieldTextBox.Location = New System.Drawing.Point(198, 362)
-        Me.FieldTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.FieldTextBox.Margin = New System.Windows.Forms.Padding(2)
         Me.FieldTextBox.Name = "FieldTextBox"
         Me.FieldTextBox.Size = New System.Drawing.Size(244, 27)
         Me.FieldTextBox.TabIndex = 38
@@ -405,7 +407,7 @@ Partial Class addBook
         Me.Controls.Add(Me.PublisherLabel)
         Me.Controls.Add(Me.PublisherTextBox)
         Me.Controls.Add(Me.FieldLabel)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "addBook"
         Me.Size = New System.Drawing.Size(1017, 681)
         CType(Me.AddNumber, System.ComponentModel.ISupportInitialize).EndInit()

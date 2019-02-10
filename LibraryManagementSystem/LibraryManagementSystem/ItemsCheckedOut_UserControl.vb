@@ -89,7 +89,7 @@ Public Class ItemsCheckedOut_UserControl
     Private Sub Titlelabel_click(ByVal sender As Object, ByVal e As EventArgs)
         Dim frm As New RatingBookDetails
         frm.passISBN = sender.tag
-        frm.Show()
+        frm.ShowDialog()
     End Sub
 
 End Class

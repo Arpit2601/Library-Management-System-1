@@ -41,7 +41,7 @@ Public Class reissuebook
                     If Not reader3.Read() Then
                         MessageBox.Show("This book is not issued to this particular user")
                     Else
-                        cmdString = "update Borrowed set IsIssued=True,IssueDate='" & issue_date & "',ReturnDate='" & return_date & "' and BorrowerId='" & BorrowerIdTextBox.Text & "' where AccNo = " & AccNoTextBox.Text & ""
+                        cmdString = "update Borrowed set IsIssued=True,IssueDate='" & issue_date & "',ReturnDate='" & return_date & "', BorrowerId='" & BorrowerIdTextBox.Text & "' where AccNo = " & AccNoTextBox.Text & ""
                         cmd = New OleDbCommand(cmdString, cn)
 
                         reader = cmd.ExecuteReader

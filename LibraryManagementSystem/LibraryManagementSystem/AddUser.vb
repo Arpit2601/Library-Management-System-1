@@ -106,8 +106,8 @@ Public Class AddUser
     
     
     Private Sub AddUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ComboBox1.SelectedIndex = 0
-        ComboBox2.SelectedIndex = 0
+        ComboBox1.SelectedIndex = -1
+        ComboBox2.SelectedIndex = -1
     End Sub
 
     Function searchUsername(ByVal username As String) As Boolean

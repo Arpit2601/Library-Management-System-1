@@ -12,39 +12,47 @@ Public Class addBook
         Dim regex As Regex = New Regex("^(97(8|9))?\d{9}(\d|X)$")
         Console.Write(e.KeyCode)
         If e.KeyCode = Keys.Enter Then
-            If regex.IsMatch(ISBNTextBox1.Text) AndAlso ValidateISBN(ISBNinput) Then
+            ISBNinput = ""
+            Console.WriteLine(ISBNTextBox1.Text)
+            For Each ch In ISBNTextBox1.Text
+                If ch >= "0" AndAlso ch <= "9" Or ch = "x" Or ch = "X" Then
+                    ISBNinput += ch
+                ElseIf ch <> "-" Then
+                    MessageBox.Show("Invalid ISBN Number")
+                    Return
+                End If
+            Next
+            Console.WriteLine(ISBNinput)
+            If regex.IsMatch(ISBNinput) AndAlso ValidateISBN(ISBNinput) Then
                 myfunction()
             Else
                 MessageBox.Show("Invalid ISBN Number")
+                Return
             End If
         End If
     End Sub
 
-    Private Sub ISBNTextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ISBNTextBox1.KeyPress
-        If ISBNinput.Length > 13 AndAlso e.KeyChar <> ControlChars.Back Then
-            e.Handled = True
-        ElseIf Asc(e.KeyChar) >= 48 AndAlso Asc(e.KeyChar) <= 57 Or e.KeyChar = "X" Or e.KeyChar = "x" Then
-            ISBNinput = ISBNinput + e.KeyChar
-        ElseIf Asc(e.KeyChar) <> 45 AndAlso e.KeyChar <> ControlChars.Back Then
-
-            e.Handled = True
-        End If
-
-        If Asc(e.KeyChar) = 8 AndAlso ISBNinput.Length > 0 Then
-            ISBNinput = ISBNinput.Remove(ISBNinput.Length - 1)
-        End If
-
-    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles myButton.Click
 
         If myButton.Text = "Search" Then
             Dim regex As Regex = New Regex("^(97(8|9))?\d{9}(\d|X)$")
-
-            If regex.IsMatch(ISBNTextBox1.Text) AndAlso ValidateISBN(ISBNinput) Then
+            ISBNinput = ""
+            Console.WriteLine(ISBNTextBox1.Text)
+            For Each ch In ISBNTextBox1.Text
+                If ch >= "0" AndAlso ch <= "9" Or ch = "x" Or ch = "X" Then
+                    ISBNinput += ch
+                ElseIf ch <> "-" Then
+                    MessageBox.Show("Invalid ISBN Number")
+                    Return
+                End If
+            Next
+            Console.WriteLine(ISBNinput)
+            If regex.IsMatch(ISBNinput) AndAlso ValidateISBN(ISBNinput) Then
                 myfunction()
             Else
                 MessageBox.Show("Invalid ISBN Number")
+                Return
             End If
             Return
         End If
@@ -63,11 +71,11 @@ Public Class addBook
         cn.Open()
         TotalTextBox.Text = AddNumber.Value + Convert.ToInt64(TotalTextBox.Text)
         If myButton.Text = "Add" Then
-            cmdString = "insert into Books values(" & ISBNinput & ", " & TotalTextBox.Text & "," & TotalTextBox.Text & "," & LocationTextBox.Text & ",'" & PublishYearDateTimePicker.Value.Date & "','" & TitleTextBox.Text & "','" & AuthorTextBox.Text & "','" & PublisherTextBox.Text & "','" & FieldTextBox.Text & "','" & imgLocation & ".JPG'," & PriceBox.Text & ")"
-            MessageBox.Show("book added succeffuly")
+            cmdString = "insert into Books values('" & ISBNinput & "', " & TotalTextBox.Text & "," & TotalTextBox.Text & ",'" & LocationTextBox.Text & "','" & PublishYearDateTimePicker.Value.Date & "','" & TitleTextBox.Text & "','" & AuthorTextBox.Text & "','" & PublisherTextBox.Text & "','" & FieldTextBox.Text & "','" & imgLocation & ".JPG','" & PriceBox.Text & "', '0', '0')"
+            'MessageBox.Show("book added succeffuly")
+            ' MessageBox.Show("Please Mark the new books with accession numbers from " & min & "to " & max & ".", "Book Added Successfully")
         Else
-            MessageBox.Show("book modified succeffuly")
-            cmdString = "update Books set Total= " & TotalTextBox.Text & ",PublishYear='" & PublishYearDateTimePicker.Value & "',Location= '" & LocationTextBox.Text & "',Title='" & TitleTextBox.Text & "',Author='" & AuthorTextBox.Text & "',Field='" & FieldTextBox.Text & "' , Publisher='" & PublisherTextBox.Text & "' ,BookImage='" & imgLocation & ".JPG'where ISBN='" & ISBNinput & "'"
+            cmdString = "update Books set Total= " & TotalTextBox.Text & ",PublishYear='" & PublishYearDateTimePicker.Value & "',Location= '" & LocationTextBox.Text & "',Title='" & TitleTextBox.Text & "',Author='" & AuthorTextBox.Text & "',Field='" & FieldTextBox.Text & "' , Publisher='" & PublisherTextBox.Text & "' ,BookImage='" & imgLocation & ".JPG' , Price='" & PriceBox.Text & "' where ISBN='" & ISBNinput & "'"
         End If
 
         If PictureBox1.Image IsNot Nothing Then
@@ -98,7 +106,13 @@ Public Class addBook
             cmd.CommandText = "insert into Borrowed (ISBN) values ('" & ISBNinput & "') "
         Next
 
-        MessageBox.Show("Please Mark the new books with acc numbers from " & min & "to " & max & ".")
+        If AddNumber.Value = 0 Then
+            min = max = 0
+            MessageBox.Show("The book is modified successfully")
+        Else
+            MessageBox.Show("Please mark the new books with accession numbers from " & min & " to " & max & ".", "Book Added Successfully")
+        End If
+        StaffLogin.refreshModifyBook()
         'print min and max on screen
 
     End Sub
@@ -172,7 +186,7 @@ Public Class addBook
         For i As Integer = 0 To PriceBox.Text.Length - 1
             If PriceBox.Text(i) = "." Then
                 countDot += 1
-            ElseIf PriceBox.Text(i) <= "0" Or PriceBox.Text(i) >= "9" Then
+            ElseIf PriceBox.Text(i) < "0" Or PriceBox.Text(i) > "9" Then
                 MessageBox.Show("Invalid Price Entered.Please Enter a valid Price for the book")
                 Return False
             End If

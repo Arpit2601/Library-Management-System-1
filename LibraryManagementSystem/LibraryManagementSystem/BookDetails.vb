@@ -90,55 +90,69 @@ Public Class BookDetails
             pictureBox5.Size = New Size(40, 40)
             pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
 
+
+
             Dim totalStars As Integer = Convert.ToInt32(reader("StarsNumber"))
             Dim people As Integer = Convert.ToInt32(reader("Raters"))
-            Dim avgRating As Double = totalStars / people
+            Dim avgRating As Double
+            If people = 0 Then
+                avgRating = 0
+            Else
+                avgRating = totalStars / people
+            End If
 
             lblAvgRating.Text = "Book Rating: " & avgRating.ToString("0.0") & "/5.0"
 
-            If avgRating <= 0.5 Then
+            If avgRating <= 0.25 Then
+                pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+
+            ElseIf avgRating <= 0.75 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\halfstar.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
-            ElseIf avgRating <= 1 Then
+            ElseIf avgRating <= 1.25 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
-            ElseIf avgRating <= 1.5 Then
+            ElseIf avgRating <= 1.75 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\halfstar.png"
                 pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
-            ElseIf avgRating <= 2 Then
+            ElseIf avgRating <= 2.25 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
-            ElseIf avgRating <= 2.5 Then
+            ElseIf avgRating <= 2.75 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\halfstar.png"
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
-            ElseIf avgRating <= 3 Then
+            ElseIf avgRating <= 3.25 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
-            ElseIf avgRating <= 3.5 Then
+            ElseIf avgRating <= 3.75 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
@@ -146,14 +160,14 @@ Public Class BookDetails
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
 
-            ElseIf avgRating <= 4 Then
+            ElseIf avgRating <= 4.25 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
-            ElseIf avgRating <= 4.5 Then
+            ElseIf avgRating <= 4.75 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"

@@ -16,7 +16,7 @@
         ReIssueBook.BackColor = Color.MidnightBlue
         BookButton.BackColor = Color.MidnightBlue
         StudentButton.BackColor = Color.MidnightBlue
-
+        btnViewBooks.BackColor = Color.MidnightBlue
 
         Action.Controls.Clear()
         Dim textBoxes = Me.Controls.OfType(Of TextBox)()
@@ -64,6 +64,8 @@
         ReIssueBook.BackColor = Color.MidnightBlue
         BookButton.BackColor = Color.MidnightBlue
         StudentButton.BackColor = Color.MidnightBlue
+        btnLogout.BackColor = Color.MidnightBlue
+        btnViewBooks.BackColor = Color.MidnightBlue
 
         Action.Controls.Clear()
 
@@ -105,6 +107,8 @@
         ReIssueBook.BackColor = Color.MediumSeaGreen
         BookButton.BackColor = Color.MidnightBlue
         StudentButton.BackColor = Color.MidnightBlue
+        btnLogout.BackColor = Color.MidnightBlue
+        btnViewBooks.BackColor = Color.MidnightBlue
 
         Action.Controls.Clear()
 
@@ -147,6 +151,8 @@
         ReIssueBook.BackColor = Color.MidnightBlue
         BookButton.BackColor = Color.MediumSeaGreen
         StudentButton.BackColor = Color.MidnightBlue
+        btnLogout.BackColor = Color.MidnightBlue
+        btnViewBooks.BackColor = Color.MidnightBlue
 
         Action.Controls.Clear()
         Action.Controls.Add(New addBook)
@@ -158,6 +164,8 @@
         ReIssueBook.BackColor = Color.MidnightBlue
         BookButton.BackColor = Color.MidnightBlue
         StudentButton.BackColor = Color.MediumSeaGreen
+        btnLogout.BackColor = Color.MidnightBlue
+        btnViewBooks.BackColor = Color.MidnightBlue
 
         Action.Controls.Clear()
         Action.Controls.Add(New AddUser)
@@ -173,6 +181,8 @@
         ReIssueBook.BackColor = Color.MidnightBlue
         StudentButton.BackColor = Color.MidnightBlue
         btnLogout.BackColor = Color.MediumSeaGreen
+        BookButton.BackColor = Color.MidnightBlue
+        btnViewBooks.BackColor = Color.MidnightBlue
 
         Dim result = MessageBox.Show("Do you want to logout?", "Confirm logout", MessageBoxButtons.YesNo)
         If result = DialogResult.Yes Then
@@ -194,4 +204,27 @@
         Action.Controls.Add(New AddUser)
     End Sub
 
+    Public Sub refreshModifyBook()
+        Action.Controls.Clear()
+        Action.Controls.Add(New addBook)
+    End Sub
+
+
+
+    Private Sub Action_Paint(sender As Object, e As PaintEventArgs) Handles Action.Paint
+
+    End Sub
+
+    Private Sub btnViewBooks_Click(sender As Object, e As EventArgs) Handles btnViewBooks.Click
+        IssueBook.BackColor = Color.MidnightBlue
+        ReturnBook.BackColor = Color.MidnightBlue
+        ReIssueBook.BackColor = Color.MidnightBlue
+        StudentButton.BackColor = Color.MidnightBlue
+        btnLogout.BackColor = Color.MidnightBlue
+        BookButton.BackColor = Color.MidnightBlue
+        btnViewBooks.BackColor = Color.MediumSeaGreen
+
+        Action.Controls.Clear()
+        Action.Controls.Add(New viewBookTable)
+    End Sub
 End Class

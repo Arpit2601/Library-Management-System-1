@@ -108,7 +108,7 @@ Public Class MainPage
     Private Sub pictureBox_click(ByVal sender As Object, ByVal e As EventArgs)
         Dim frm As New BookDetails
         frm.passISBN = sender.tag
-        frm.Show()
+        frm.ShowDialog()
     End Sub
 
 
@@ -116,7 +116,7 @@ Public Class MainPage
         'Dim Form2Caller As New Information
         Dim frm As New BookDetails
         frm.passISBN = sender.tag
-        frm.Show()
+        frm.ShowDialog()
         'Form2Caller.SetInformation(sender.Text)
     End Sub
 
