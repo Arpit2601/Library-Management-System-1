@@ -27,7 +27,9 @@ Public Class MainPage
             Dim Locationlabel As New Label
             Dim Remaininglabel As New Label
             Dim pictureBox As New PictureBox
+            Dim border As New PictureBox
 
+            border.Size = New Size(390, 210)
             Titlelabel.Size = New Size(170, 20)
             Authorlabel.Size = New Size(170, 20)
             Publisherlabel.Size = New Size(170, 20)
@@ -42,15 +44,24 @@ Public Class MainPage
             Publisherlabel.Text = "Publisher: " & reader("Publisher")
             Locationlabel.Text = "Location: " & reader("Location")
 
-            Titlelabel.VisitedLinkColor = Color.White
-            Titlelabel.LinkColor = Color.White
-            Titlelabel.ForeColor = Color.White
-            pictureBox.ForeColor = Color.White
-            Titlelabel.ForeColor = Color.White
-            Authorlabel.ForeColor = Color.White
-            Publisherlabel.ForeColor = Color.White
-            Locationlabel.ForeColor = Color.White
+            Titlelabel.VisitedLinkColor = Color.Black
+            Titlelabel.LinkColor = Color.Black
+            Titlelabel.ForeColor = Color.Black
+            pictureBox.ForeColor = Color.Black
+            Titlelabel.ForeColor = Color.Black
+            Authorlabel.ForeColor = Color.Black
+            Publisherlabel.ForeColor = Color.Black
+            Locationlabel.ForeColor = Color.Black
 
+            Titlelabel.BackColor = Color.LightGray
+            pictureBox.BackColor = Color.LightGray
+            Titlelabel.BackColor = Color.LightGray
+            Authorlabel.BackColor = Color.LightGray
+            Publisherlabel.BackColor = Color.LightGray
+            Locationlabel.BackColor = Color.LightGray
+            border.BackColor = Color.LightGray
+
+            border.Location = New Point(nextX + 5, nextY + 5)
             pictureBox.Location = New Point(nextX + 10, nextY + 10)
             Titlelabel.Location = New Point(nextX + 220, nextY + 10)
             Authorlabel.Location = New Point(nextX + 220, nextY + 30)
@@ -62,6 +73,9 @@ Public Class MainPage
             Publisherlabel.AutoEllipsis = True
             Titlelabel.AutoEllipsis = True
 
+
+            border.SendToBack()
+
             Titlelabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
             Authorlabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
             Publisherlabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
@@ -72,6 +86,7 @@ Public Class MainPage
             Me.Panel2.Controls.Add(Authorlabel)
             Me.Panel2.Controls.Add(Publisherlabel)
             Me.Panel2.Controls.Add(Locationlabel)
+            Me.Panel2.Controls.Add(border)
             AddHandler pictureBox.Click, AddressOf pictureBox_click
             AddHandler pictureBox.MouseEnter, AddressOf pictureBox_MouseEnter
             AddHandler Titlelabel.Click, AddressOf Titlelabel_click

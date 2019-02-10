@@ -6,6 +6,7 @@
         btnItemsCheckedout.BackColor = Color.MidnightBlue
         btnEditProfile.BackColor = Color.MidnightBlue
         btnLogout.BackColor = Color.MidnightBlue
+        Button2.BackColor = Color.MidnightBlue
 
         contentPanel.Controls.Clear()
         Dim instance As New StudentProfile_UserControl
@@ -17,6 +18,7 @@
         btnItemsCheckedout.BackColor = Color.MediumSeaGreen
         btnEditProfile.BackColor = Color.MidnightBlue
         btnLogout.BackColor = Color.MidnightBlue
+        Button2.BackColor = Color.MidnightBlue
 
         contentPanel.Controls.Clear()
         contentPanel.Controls.Add(New ItemsCheckedOut_UserControl)
@@ -27,6 +29,7 @@
         btnItemsCheckedout.BackColor = Color.MidnightBlue
         btnEditProfile.BackColor = Color.MediumSeaGreen
         btnLogout.BackColor = Color.MidnightBlue
+        Button2.BackColor = Color.MidnightBlue
 
         contentPanel.Controls.Clear()
         contentPanel.Controls.Add(New EditStudentProfile_UserControl)
@@ -36,6 +39,7 @@
         btnMyProfile.BackColor = Color.MidnightBlue
         btnItemsCheckedout.BackColor = Color.MidnightBlue
         btnEditProfile.BackColor = Color.MidnightBlue
+        Button2.BackColor = Color.MidnightBlue
         btnLogout.BackColor = Color.MediumSeaGreen
 
         Dim result = MessageBox.Show("Do you want to logout?", "Confirm logout", MessageBoxButtons.YesNo)
@@ -55,6 +59,7 @@
         btnMyProfile.BackColor = Color.MediumSeaGreen
         btnItemsCheckedout.BackColor = Color.MidnightBlue
         btnEditProfile.BackColor = Color.MidnightBlue
+        Button2.BackColor = Color.MidnightBlue
         btnLogout.BackColor = Color.MidnightBlue
 
         contentPanel.Controls.Clear()
@@ -63,4 +68,13 @@
     End Sub
 
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        btnMyProfile.BackColor = Color.MidnightBlue
+        btnItemsCheckedout.BackColor = Color.MidnightBlue
+        btnEditProfile.BackColor = Color.MidnightBlue
+        btnLogout.BackColor = Color.MidnightBlue
+        Button2.BackColor = Color.MediumSeaGreen
+        contentPanel.Controls.Clear()
+        contentPanel.Controls.Add(New ChangePassword)
+    End Sub
 End Class

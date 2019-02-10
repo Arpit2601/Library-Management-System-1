@@ -28,12 +28,14 @@ Partial Class StudentLogin
         Me.btnItemsCheckedout = New System.Windows.Forms.Button()
         Me.btnMyProfile = New System.Windows.Forms.Button()
         Me.contentPanel = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.buttonPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'buttonPanel
         '
         Me.buttonPanel.BackColor = System.Drawing.Color.MidnightBlue
+        Me.buttonPanel.Controls.Add(Me.Button2)
         Me.buttonPanel.Controls.Add(Me.btnLogout)
         Me.buttonPanel.Controls.Add(Me.btnEditProfile)
         Me.buttonPanel.Controls.Add(Me.btnItemsCheckedout)
@@ -54,7 +56,7 @@ Partial Class StudentLogin
         Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogout.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogout.ForeColor = System.Drawing.Color.White
-        Me.btnLogout.Location = New System.Drawing.Point(0, 199)
+        Me.btnLogout.Location = New System.Drawing.Point(0, 272)
         Me.btnLogout.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(329, 55)
@@ -119,6 +121,22 @@ Partial Class StudentLogin
         Me.contentPanel.Size = New System.Drawing.Size(1345, 838)
         Me.contentPanel.TabIndex = 1
         '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.MidnightBlue
+        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(0, 209)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(329, 55)
+        Me.Button2.TabIndex = 5
+        Me.Button2.Text = "Change Password"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'StudentLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -141,4 +159,5 @@ Partial Class StudentLogin
     Friend WithEvents contentPanel As System.Windows.Forms.Panel
     Friend WithEvents btnEditProfile As System.Windows.Forms.Button
     Friend WithEvents btnLogout As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class
