@@ -1,16 +1,24 @@
 ﻿Imports System.Data.OleDb
+Imports System.Text.RegularExpressions
 Public Class issuebook
     Private Sub issueButton_Click_1(sender As Object, e As EventArgs) Handles issueButton.Click
+        If AccNoTextBox.Text = "" Or BorrowerIdTextBox.Text = "" Then
+            MessageBox.Show("Enter correct credentials")
+        ElseIf Not Regex.IsMatch(AccNoTextBox.Text, "^[0-9]+$") Then
+            MessageBox.Show("Enter correct Book id")
+
+        Else
         Dim connectionString = MainPage.connectionString
         Dim cn As OleDbConnection = New OleDbConnection(connectionString)
+        cn.Open()
 
         Dim cmdString = "select * from Borrowed where AccNo = " & AccNoTextBox.Text & ""
 
         Dim cmd As OleDbCommand = New OleDbCommand(cmdString, cn)
-        cn.Open()
+
         Dim reader As OleDbDataReader = cmd.ExecuteReader
 
-        If Not reader.HasRows() Then
+        If Not reader.HasRows Then
             'book does not exist
             MessageBox.Show("Book does not exist.Please add a book first")
             Return
@@ -24,9 +32,6 @@ Public Class issuebook
 
         Dim cmd2 As OleDbCommand = New OleDbCommand(cmdString, cn)
         Dim reader2 As OleDbDataReader = cmd2.ExecuteReader
-
-
-
         If Not reader2.HasRows Then
             MessageBox.Show("User does not exist.Please add user first")
             Return
@@ -35,12 +40,13 @@ Public Class issuebook
             Return
         End If
 
-        Dim rtime = 60
-        If reader2("Designation") = "Student" Then
-            rtime = 45
-        End If
+            Dim issue_date As String = DateTime.Now.ToString("dd-MM-yyyy")
+            Dim return_date As String = DateTime.Now.AddDays(60).ToString("dd-MM-yyyy")
+            If reader2("Designation") = "Student" Then
+                return_date = DateTime.Now.AddDays(45).ToString("dd-MM-yyyy")
+            End If
 
-        cmdString = "update Borrowed set IsIssued=True,IssueDate=Date(),Issuecount=1,BorrowerId='" & BorrowerIdTextBox.Text & "', ReturnDate=DateAdd(""d""," & rtime & ",Date()) where AccNo = " & AccNoTextBox.Text & ""
+            cmdString = "update Borrowed set IsIssued=True,IssueDate='" & issue_date & "',Issuecount=1,BorrowerId='" & BorrowerIdTextBox.Text & "', ReturnDate='" & return_date & "' where AccNo = " & AccNoTextBox.Text & ""
         cmd.CommandText = cmdString
 
         reader.Close()
@@ -49,7 +55,11 @@ Public Class issuebook
         reader2.Close()
         cmd2.CommandText = "UPDATE Users SET BooksIssued=" & currCount & " where UserName = '" & BorrowerIdTextBox.Text & "'"
         cmd2.ExecuteReader()
+        AccNoTextBox.Text = ""
+        BorrowerIdTextBox.Text = ""
         MessageBox.Show("Book Issued")
+            End If
+
 
     End Sub
 

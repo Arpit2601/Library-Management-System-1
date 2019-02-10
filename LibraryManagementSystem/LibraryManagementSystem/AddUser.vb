@@ -90,7 +90,7 @@ Public Class AddUser
             If ct > 0 Then
                 MessageBox.Show("Username Already Exists", "Duplicate Username")
             Else
-                cmdString = "insert into Users (UserName, [Password]) values('" & txtUsername.Text & "', '" & txtPassword.Text & "')"
+                cmdString = "insert into Users (UserName, [Password]) values('" & txtUsername.Text & "', '" & EncryptPassword(txtPassword.Text, txtUsername.Text) & "')"
                 Dim cmdString2 As String = "update Users Set ProfileName='" & txtName.Text & "', Email='" & txtEmail.Text & "', PhoneNumber='" & txtPhone.Text & "', Department='" & ComboBox1.SelectedItem & "', Designation='" & ComboBox2.SelectedItem & "', ProfileImage='" & profileImage & "', MaxBooks='" & maxBooks & "' WHERE UserName='" & txtUsername.Text & "'"
                 Console.WriteLine(cmdString2)
 

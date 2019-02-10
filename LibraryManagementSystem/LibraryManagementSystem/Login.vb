@@ -17,7 +17,7 @@ Public Class Login
 
         Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
 
-        Dim selectString As String = "SELECT * FROM Users WHERE UserName = '" & username & "' AND Password = '" & pre_password & "'"
+        Dim selectString As String = "SELECT * FROM Users WHERE UserName = '" & username & "' AND Password = '" & EncryptPassword(pre_password, username) & "'"
         Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
         cn.Open()
         Dim reader As OleDbDataReader = cmd.ExecuteReader()
