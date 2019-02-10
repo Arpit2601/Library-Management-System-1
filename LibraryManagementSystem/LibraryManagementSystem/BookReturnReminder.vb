@@ -88,13 +88,13 @@ Module BookReturnReminder
             Dim Smtp_Server As New SmtpClient
             Dim e_mail As New MailMessage()
             Smtp_Server.UseDefaultCredentials = False
-            Smtp_Server.Credentials = New Net.NetworkCredential("piyus170101045@gmail.com", "Babita Gupta")
+            Smtp_Server.Credentials = New Net.NetworkCredential("iitglibrarymanagement@gmail.com", "Group0015")
             Smtp_Server.Port = 587
             Smtp_Server.EnableSsl = True
             Smtp_Server.Host = "smtp.gmail.com"
 
             e_mail = New MailMessage()
-            e_mail.From = New MailAddress("piyus170101045@gmail.com")
+            e_mail.From = New MailAddress("iitglibrarymanagement@gmail.com")
             e_mail.To.Add(sendto)
             e_mail.Subject = subject
             e_mail.IsBodyHtml = False
