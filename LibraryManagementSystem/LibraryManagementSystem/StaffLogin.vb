@@ -189,4 +189,9 @@
         End If
     End Sub
 
+    Public Sub refreshModifyStudent()
+        Action.Controls.Clear()
+        Action.Controls.Add(New AddUser)
+    End Sub
+
 End Class

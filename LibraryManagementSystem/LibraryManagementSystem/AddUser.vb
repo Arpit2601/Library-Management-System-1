@@ -6,6 +6,12 @@ Public Class AddUser
     Private Sub btnAddUser_Click(sender As Object, e As EventArgs) Handles btnAddUser.Click
         ' Data Validation
 
+        If btnAddUser.Text = "Search" Then
+            searchUsername(txtUsername.Text)
+            Return
+        End If
+
+
         Dim name As String = txtName.Text
         Dim username As String = txtUsername.Text
         Dim email As String = txtEmail.Text
@@ -15,12 +21,13 @@ Public Class AddUser
         Dim update As Boolean = True
 
 
-        If Name = "" Then
+
+        If name = "" Then
             MessageBox.Show("Please enter your name", "Invalid name")
             update = False
         End If
 
-        For Each c In Name
+        For Each c In name
             If Not Char.IsLower(c) And Not Char.IsUpper(c) And Not c = " " Then
                 MessageBox.Show("Your name should contain only lowercase, uppercase or blankspace letters.", "Invalid name")
                 update = False
@@ -50,15 +57,17 @@ Public Class AddUser
             MessageBox.Show("Your phone number should have 10 digits only", "Invalid phone number")
         End If
 
-        For Each c In password
-            If c = " " Then
-                update = False
-                MessageBox.Show("Password should not contain blanks")
-            End If
-        Next
+        If btnAddUser.Text = "ADD" Then
+            For Each c In password
+                If c = " " Then
+                    update = False
+                    MessageBox.Show("Password should not contain blanks")
+                End If
+            Next
 
-        If password = "" Then
-            MessageBox.Show("Please enter the user's password")
+            If password = "" Then
+                MessageBox.Show("Please enter the user's password")
+            End If
         End If
 
         Dim connectionString As String = MainPage.connectionString
@@ -76,37 +85,22 @@ Public Class AddUser
 
         Dim profileImage As String = "defaultProfilePic.JPG"
 
-        If update Then
-            Dim ct As Integer = 0
-            Dim strcheck As String = "SELECT * FROM Users WHERE UserName like '" & username & "'"
-            Dim cmd1 As OleDbCommand = New OleDbCommand(strcheck, cn)
-            Dim readcheck As OleDbDataReader = cmd1.ExecuteReader()
-            While readcheck.Read()
-                ct += 1
-
-            End While
-            readcheck.Close()
-
-            If ct > 0 Then
-                MessageBox.Show("Username Already Exists", "Duplicate Username")
-            Else
-                cmdString = "insert into Users (UserName, [Password]) values('" & txtUsername.Text & "', '" & EncryptPassword(txtPassword.Text, txtUsername.Text) & "')"
-                Dim cmdString2 As String = "update Users Set ProfileName='" & txtName.Text & "', Email='" & txtEmail.Text & "', PhoneNumber='" & txtPhone.Text & "', Department='" & ComboBox1.SelectedItem & "', Designation='" & ComboBox2.SelectedItem & "', ProfileImage='" & profileImage & "', MaxBooks='" & maxBooks & "' WHERE UserName='" & txtUsername.Text & "'"
-                Console.WriteLine(cmdString2)
-
-                Dim cmd As OleDbCommand = New OleDbCommand(cmdString, cn)
-                Dim reader As OleDbDataReader = cmd.ExecuteReader
-                reader.Close()
-
-                Dim cmd2 As OleDbCommand = New OleDbCommand(cmdString2, cn)
-                Dim reader2 As OleDbDataReader = cmd2.ExecuteReader
-                MessageBox.Show("User added succesfully", "Success")
-                reader2.Close()
-
-            End If
+        If btnAddUser.Text = "ADD" Then
+            cmdString = "insert into Users (UserName, [Password]) values('" & txtUsername.Text & "', '" & EncryptPassword(txtPassword.Text, txtUsername.Text) & "')"
+            Dim cmd As OleDbCommand = New OleDbCommand(cmdString, cn)
+            Dim reader As OleDbDataReader = cmd.ExecuteReader
+            reader.Close()
         End If
 
+        Dim cmdString2 As String = "update Users Set ProfileName='" & txtName.Text & "', Email='" & txtEmail.Text & "', PhoneNumber='" & txtPhone.Text & "', Department='" & ComboBox1.SelectedItem & "', Designation='" & ComboBox2.SelectedItem & "', ProfileImage='" & profileImage & "', MaxBooks='" & maxBooks & "' WHERE UserName='" & txtUsername.Text & "'"
+
+        Dim cmd2 As OleDbCommand = New OleDbCommand(cmdString2, cn)
+        Dim reader2 As OleDbDataReader = cmd2.ExecuteReader
+        MessageBox.Show("Success")
+        reader2.Close()
         cn.Close()
+        StaffLogin.refreshModifyStudent()
+
     End Sub
 
     
@@ -124,20 +118,30 @@ Public Class AddUser
 
         Dim connectionString As String = MainPage.connectionString
         Dim cn As OleDbConnection = New OleDbConnection(connectionString)
+        cn.Open()
         Dim strcheck As String = "SELECT * FROM Users WHERE UserName like '" & username & "'"
         Dim cmd1 As OleDbCommand = New OleDbCommand(strcheck, cn)
         Dim readcheck As OleDbDataReader = cmd1.ExecuteReader()
 
+        btnAddUser.Text = "ADD"
         If readcheck.HasRows Then
+            btnAddUser.Text = "MODIFY"
             readcheck.Read()
-            txtName = readcheck("Name")
-            txtEmail = readcheck("Email")
-            txtPhone = readcheck("Phone")
+            txtName.Text = readcheck("ProfileName")
+            txtEmail.Text = readcheck("Email")
+            txtPhone.Text = readcheck("PhoneNumber")
             ComboBox1.Text = readcheck("Department")
             ComboBox2.Text = readcheck("Designation")
+            txtPassword.Enabled = False
         End If
 
         txtUsername.Enabled = False
+
+        For Each Control In Me.Controls
+            Control.visible = True
+        Next
+
+        cn.Close()
         Return True
     End Function
 

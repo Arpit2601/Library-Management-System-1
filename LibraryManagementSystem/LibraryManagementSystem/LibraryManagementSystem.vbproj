@@ -299,7 +299,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1200px-IIT_Guwahati_Logo.svg.ico" />
     <Content Include="Database.accdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
