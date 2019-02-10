@@ -42,6 +42,13 @@ Public Class BookDetails
             Dim Locationlabel As New Label
             Dim Remaininglabel As New Label
             Dim pictureBox As New PictureBox
+            Dim lblAvgRating As New Label
+
+            Dim pictureBox1 As New PictureBox
+            Dim pictureBox2 As New PictureBox
+            Dim pictureBox3 As New PictureBox
+            Dim pictureBox4 As New PictureBox
+            Dim pictureBox5 As New PictureBox
 
             Titlelabel.Size = New Size(250, 40)
             Remaininglabel.Size = New Size(200, 40)
@@ -51,6 +58,8 @@ Public Class BookDetails
             Publisherlabel.Size = New Size(250, 40)
             PublishYearlabel.Size = New Size(200, 40)
             Locationlabel.Size = New Size(250, 40)
+            lblAvgRating.Size = New Size(250, 40)
+
             pictureBox.Size = New Size(200, 250)
             pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
             pictureBox.Tag = fullPath
@@ -64,6 +73,102 @@ Public Class BookDetails
             Totallabel.Text = "Total number: " & reader("Total")
             ISBNlabel.Text = "ISBN: " & reader("ISBN")
 
+
+            ' Rating display
+            pictureBox1.Size = New Size(40, 40)
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+
+            pictureBox2.Size = New Size(40, 40)
+            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+
+            pictureBox3.Size = New Size(40, 40)
+            pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+
+            pictureBox4.Size = New Size(40, 40)
+            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+
+            pictureBox5.Size = New Size(40, 40)
+            pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+
+            Dim totalStars As Integer = Convert.ToInt32(reader("StarsNumber"))
+            Dim people As Integer = Convert.ToInt32(reader("Raters"))
+            Dim avgRating As Double = totalStars / people
+
+            lblAvgRating.Text = "Book Rating: " & avgRating.ToString("0.0") & "/5.0"
+
+            If avgRating <= 0.5 Then
+                pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\halfstar.png"
+                pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+
+            ElseIf avgRating <= 1 Then
+                pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+
+            ElseIf avgRating <= 1.5 Then
+                pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\halfstar.png"
+                pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+
+            ElseIf avgRating <= 2 Then
+                pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+
+            ElseIf avgRating <= 2.5 Then
+                pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\halfstar.png"
+                pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+
+            ElseIf avgRating <= 3 Then
+                pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+                pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+
+            ElseIf avgRating <= 3.5 Then
+                pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\halfstar.png"
+                pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+
+
+            ElseIf avgRating <= 4 Then
+                pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
+
+            ElseIf avgRating <= 4.5 Then
+                pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\halfstar.png"
+
+            Else
+                pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox3.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+                pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
+
+            End If
+
             ISBNlabel.AutoEllipsis = True
             Titlelabel.AutoEllipsis = True
             PublishYearlabel.AutoEllipsis = True
@@ -75,7 +180,12 @@ Public Class BookDetails
             ISBNlabel.Text = "ISBN: " & reader("ISBN")
             Locationlabel.AutoEllipsis = True
 
-            pictureBox.Location = New Point(x, y + 10)
+            pictureBox.Location = New Point(x, y)
+            pictureBox1.Location = New Point(x - 20, y + 270)
+            pictureBox2.Location = New Point(x + 50 - 20, y + 270)
+            pictureBox3.Location = New Point(x + 100 - 20, y + 270)
+            pictureBox4.Location = New Point(x + 150 - 20, y + 270)
+            pictureBox5.Location = New Point(x + 200 - 20, y + 270)
             Titlelabel.Location = New Point(x + 250, y)
             Authorlabel.Location = New Point(x + 250, y + 40)
             Publisherlabel.Location = New Point(x + 250, y + 80)
@@ -84,6 +194,7 @@ Public Class BookDetails
             Totallabel.Location = New Point(x + 250, y + 200)
             Remaininglabel.Location = New Point(x + 250, y + 240)
             Locationlabel.Location = New Point(x + 250, y + 280)
+            lblAvgRating.Location = New Point(x + 20, y + 320)
 
             Titlelabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
             Authorlabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
@@ -93,6 +204,7 @@ Public Class BookDetails
             Totallabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
             Remaininglabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
             Locationlabel.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
+            lblAvgRating.Font = New Font("Comic Sans MS", 11, FontStyle.Regular)
 
             Titlelabel.ForeColor = Color.White
             Authorlabel.ForeColor = Color.White
@@ -102,6 +214,7 @@ Public Class BookDetails
             Totallabel.ForeColor = Color.White
             Remaininglabel.ForeColor = Color.White
             Locationlabel.ForeColor = Color.White
+            lblAvgRating.ForeColor = Color.White
 
             x += 430
             count += 1
@@ -114,12 +227,18 @@ Public Class BookDetails
             Me.Panel1.Controls.Add(Titlelabel)
             Me.Panel1.Controls.Add(PublishYearlabel)
             Me.Panel1.Controls.Add(pictureBox)
+            Me.Panel1.Controls.Add(pictureBox1)
+            Me.Panel1.Controls.Add(pictureBox2)
+            Me.Panel1.Controls.Add(pictureBox3)
+            Me.Panel1.Controls.Add(pictureBox4)
+            Me.Panel1.Controls.Add(pictureBox5)
             Me.Panel1.Controls.Add(Authorlabel)
             Me.Panel1.Controls.Add(Publisherlabel)
             Me.Panel1.Controls.Add(Locationlabel)
             Me.Panel1.Controls.Add(Totallabel)
             Me.Panel1.Controls.Add(Remaininglabel)
             Me.Panel1.Controls.Add(ISBNlabel)
+            Me.Panel1.Controls.Add(lblAvgRating)
         End While
     End Sub
 
