@@ -67,4 +67,7 @@ Public Class issuebook
 
     End Sub
 
+    Private Sub issuebook_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

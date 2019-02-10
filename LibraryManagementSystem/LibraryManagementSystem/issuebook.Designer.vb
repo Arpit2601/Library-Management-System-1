@@ -34,9 +34,10 @@ Partial Class issuebook
         '
         Me.AccNoLabel.AutoSize = True
         Me.AccNoLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AccNoLabel.Location = New System.Drawing.Point(172, 87)
+        Me.AccNoLabel.Location = New System.Drawing.Point(129, 71)
+        Me.AccNoLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.AccNoLabel.Name = "AccNoLabel"
-        Me.AccNoLabel.Size = New System.Drawing.Size(79, 22)
+        Me.AccNoLabel.Size = New System.Drawing.Size(63, 19)
         Me.AccNoLabel.TabIndex = 5
         Me.AccNoLabel.Text = "Book Id:"
         '
@@ -44,9 +45,10 @@ Partial Class issuebook
         '
         Me.BorrowerIdLabel.AutoSize = True
         Me.BorrowerIdLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BorrowerIdLabel.Location = New System.Drawing.Point(75, 135)
+        Me.BorrowerIdLabel.Location = New System.Drawing.Point(56, 110)
+        Me.BorrowerIdLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.BorrowerIdLabel.Name = "BorrowerIdLabel"
-        Me.BorrowerIdLabel.Size = New System.Drawing.Size(177, 22)
+        Me.BorrowerIdLabel.Size = New System.Drawing.Size(136, 19)
         Me.BorrowerIdLabel.TabIndex = 7
         Me.BorrowerIdLabel.Text = "Borrower Username:"
         '
@@ -57,10 +59,10 @@ Partial Class issuebook
         Me.issueButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.issueButton.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.issueButton.ForeColor = System.Drawing.Color.White
-        Me.issueButton.Location = New System.Drawing.Point(787, 107)
-        Me.issueButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.issueButton.Location = New System.Drawing.Point(590, 87)
+        Me.issueButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.issueButton.Name = "issueButton"
-        Me.issueButton.Size = New System.Drawing.Size(300, 52)
+        Me.issueButton.Size = New System.Drawing.Size(225, 42)
         Me.issueButton.TabIndex = 9
         Me.issueButton.Text = "Issue"
         Me.issueButton.UseVisualStyleBackColor = False
@@ -68,19 +70,19 @@ Partial Class issuebook
         'AccNoTextBox
         '
         Me.AccNoTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AccNoTextBox.Location = New System.Drawing.Point(303, 87)
-        Me.AccNoTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.AccNoTextBox.Location = New System.Drawing.Point(227, 71)
+        Me.AccNoTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.AccNoTextBox.Name = "AccNoTextBox"
-        Me.AccNoTextBox.Size = New System.Drawing.Size(333, 30)
+        Me.AccNoTextBox.Size = New System.Drawing.Size(251, 26)
         Me.AccNoTextBox.TabIndex = 6
         '
         'BorrowerIdTextBox
         '
         Me.BorrowerIdTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BorrowerIdTextBox.Location = New System.Drawing.Point(303, 135)
-        Me.BorrowerIdTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.BorrowerIdTextBox.Location = New System.Drawing.Point(227, 110)
+        Me.BorrowerIdTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.BorrowerIdTextBox.Name = "BorrowerIdTextBox"
-        Me.BorrowerIdTextBox.Size = New System.Drawing.Size(333, 30)
+        Me.BorrowerIdTextBox.Size = New System.Drawing.Size(251, 26)
         Me.BorrowerIdTextBox.TabIndex = 8
         '
         'Label1
@@ -88,16 +90,15 @@ Partial Class issuebook
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(59, 25)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(44, 20)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(134, 31)
+        Me.Label1.Size = New System.Drawing.Size(103, 23)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Issue Book"
         '
         'issuebook
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.issueButton)
@@ -105,9 +106,9 @@ Partial Class issuebook
         Me.Controls.Add(Me.AccNoTextBox)
         Me.Controls.Add(Me.BorrowerIdLabel)
         Me.Controls.Add(Me.BorrowerIdTextBox)
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "issuebook"
-        Me.Size = New System.Drawing.Size(1356, 279)
+        Me.Size = New System.Drawing.Size(1017, 227)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

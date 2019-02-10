@@ -161,6 +161,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Prof_UserControl.Designer.vb">
+      <DependentUpon>Prof_UserControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Prof_UserControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="RatingBookDetails.Designer.vb">
       <DependentUpon>RatingBookDetails.vb</DependentUpon>
     </Compile>
@@ -174,6 +180,10 @@
     <Compile Include="reIssueBook.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="RemoveBook.Designer.vb">
+      <DependentUpon>RemoveBook.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveBook.vb" />
     <Compile Include="returnBook.Designer.vb">
       <DependentUpon>returnBook.vb</DependentUpon>
     </Compile>
@@ -197,6 +207,12 @@
     </Compile>
     <Compile Include="StaffLogin.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stud_UserControl.Designer.vb">
+      <DependentUpon>Stud_UserControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stud_UserControl.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ValidationFunctionsModule.vb" />
     <Compile Include="viewBookTable.Designer.vb">
@@ -240,11 +256,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources1.Designer.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Prof_UserControl.resx">
+      <DependentUpon>Prof_UserControl.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RatingBookDetails.resx">
       <DependentUpon>RatingBookDetails.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reIssueBook.resx">
       <DependentUpon>reIssueBook.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveBook.resx">
+      <DependentUpon>RemoveBook.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="returnBook.resx">
       <DependentUpon>returnBook.vb</DependentUpon>
@@ -260,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="viewBookTable.resx">
       <DependentUpon>viewBookTable.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stud_UserControl.resx">
+      <DependentUpon>Stud_UserControl.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
