@@ -229,4 +229,22 @@ Public Class MainPage
     Private Sub MainPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
+    End Sub
+
+    Private Sub MainPage_load() Handles MyBase.Load
+        Timer2.Enabled = True
+    End Sub
+
+    Private Sub timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
+        Dim time As Date = Date.Now
+        Dim ReportHour As Integer = 16
+        Dim currhour As Integer = time.Hour
+
+        If currhour = ReportHour Then
+            sendReminders()
+        End If
+    End Sub
 End Class

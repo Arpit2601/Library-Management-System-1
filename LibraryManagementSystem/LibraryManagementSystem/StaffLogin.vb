@@ -1,6 +1,15 @@
 ﻿Public Class StaffLogin
     Public UserName As String
 
+    Private Sub Staff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        For Each Control In Me.Controls
+            If Control.GetType Is GetType(Button) Then
+                Control.backcolor = Color.MediumSeaGreen
+            End If
+        Next
+    End Sub
+
+
     Private Sub IssueBook_Click(sender As Object, e As EventArgs) Handles IssueBook.Click
         IssueBook.BackColor = Color.MediumSeaGreen
         ReturnBook.BackColor = Color.MidnightBlue

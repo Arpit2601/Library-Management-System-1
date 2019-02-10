@@ -23,6 +23,7 @@ Partial Class StaffLogin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Buttons = New System.Windows.Forms.Panel()
+        Me.viewBookTable = New System.Windows.Forms.Button()
         Me.btnLogout = New System.Windows.Forms.Button()
         Me.ReIssueBook = New System.Windows.Forms.Button()
         Me.ReturnBook = New System.Windows.Forms.Button()
@@ -36,6 +37,7 @@ Partial Class StaffLogin
         'Buttons
         '
         Me.Buttons.BackColor = System.Drawing.Color.MidnightBlue
+        Me.Buttons.Controls.Add(Me.viewBookTable)
         Me.Buttons.Controls.Add(Me.btnLogout)
         Me.Buttons.Controls.Add(Me.ReIssueBook)
         Me.Buttons.Controls.Add(Me.ReturnBook)
@@ -50,6 +52,20 @@ Partial Class StaffLogin
         Me.Buttons.Size = New System.Drawing.Size(329, 838)
         Me.Buttons.TabIndex = 0
         '
+        'viewBookTable
+        '
+        Me.viewBookTable.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.viewBookTable.FlatAppearance.BorderSize = 0
+        Me.viewBookTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.viewBookTable.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.viewBookTable.Location = New System.Drawing.Point(3, 319)
+        Me.viewBookTable.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.viewBookTable.Name = "viewBookTable"
+        Me.viewBookTable.Size = New System.Drawing.Size(329, 55)
+        Me.viewBookTable.TabIndex = 6
+        Me.viewBookTable.Text = "Add/Modify Student"
+        Me.viewBookTable.UseVisualStyleBackColor = True
+        '
         'btnLogout
         '
         Me.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand
@@ -57,7 +73,7 @@ Partial Class StaffLogin
         Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogout.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogout.ForeColor = System.Drawing.Color.White
-        Me.btnLogout.Location = New System.Drawing.Point(0, 321)
+        Me.btnLogout.Location = New System.Drawing.Point(0, 380)
         Me.btnLogout.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(329, 55)
@@ -167,4 +183,5 @@ Partial Class StaffLogin
     Friend WithEvents ReturnBook As System.Windows.Forms.Button
     Friend WithEvents ReIssueBook As System.Windows.Forms.Button
     Friend WithEvents btnLogout As System.Windows.Forms.Button
+    Friend WithEvents viewBookTable As System.Windows.Forms.Button
 End Class

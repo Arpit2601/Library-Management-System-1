@@ -22,6 +22,7 @@ Partial Class MainPage
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainPage))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -37,6 +38,7 @@ Partial Class MainPage
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.LoginButton = New System.Windows.Forms.Button()
         Me.BrowseButton = New System.Windows.Forms.Button()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -221,6 +223,11 @@ Partial Class MainPage
         Me.BrowseButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BrowseButton.UseVisualStyleBackColor = False
         '
+        'Timer2
+        '
+        Me.Timer2.Enabled = True
+        Me.Timer2.Interval = 3600000
+        '
         'MainPage
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -236,6 +243,7 @@ Partial Class MainPage
         Me.Controls.Add(Me.BrowseButton)
         Me.Controls.Add(Me.Panel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximumSize = New System.Drawing.Size(1280, 720)
         Me.MinimumSize = New System.Drawing.Size(1280, 720)
@@ -261,5 +269,6 @@ Partial Class MainPage
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents SearchTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents Timer2 As System.Windows.Forms.Timer
 
 End Class

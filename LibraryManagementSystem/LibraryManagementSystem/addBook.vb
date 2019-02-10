@@ -97,8 +97,8 @@ Public Class addBook
             End If
             cmd.CommandText = "insert into Borrowed (ISBN) values ('" & ISBNinput & "') "
         Next
-        Console.WriteLine(min)
-        Console.WriteLine(max)
+
+        MessageBox.Show("Please Mark the new books with acc numbers from " & min & "to " & max & ".")
         'print min and max on screen
 
     End Sub

@@ -45,6 +45,10 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -82,6 +86,7 @@
     <Compile Include="AddUser.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="BookDetails.Designer.vb">
       <DependentUpon>BookDetails.vb</DependentUpon>
     </Compile>
@@ -94,10 +99,16 @@
     <Compile Include="ChangePassword.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="BookReturnReminder.vb" />
     <Compile Include="DatabaseDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseDataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="EditStudentProfile_UserControl.Designer.vb">
       <DependentUpon>EditStudentProfile_UserControl.vb</DependentUpon>
@@ -188,6 +199,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ValidationFunctionsModule.vb" />
+    <Compile Include="viewBookTable.Designer.vb">
+      <DependentUpon>viewBookTable.vb</DependentUpon>
+    </Compile>
+    <Compile Include="viewBookTable.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="addBook.resx">
@@ -241,6 +258,9 @@
     <EmbeddedResource Include="StaffLogin.resx">
       <DependentUpon>StaffLogin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="viewBookTable.resx">
+      <DependentUpon>viewBookTable.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="DatabaseDataSet.xsc">
@@ -253,6 +273,17 @@
     </None>
     <None Include="DatabaseDataSet.xss">
       <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet1.xsc">
+      <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseDataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseDataSet1.xss">
+      <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -268,9 +299,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="1200px-IIT_Guwahati_Logo.svg.ico" />
     <Content Include="Database.accdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="iitglogoicon.ico" />
     <None Include="Resources\search.png" />
     <None Include="Resources\51424881_2128666100554892_7501468374568796160_n1.png" />
     <None Include="Resources\icons8-search-321.png" />

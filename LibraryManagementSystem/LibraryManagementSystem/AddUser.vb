@@ -107,7 +107,6 @@ Public Class AddUser
         End If
 
         cn.Close()
-
     End Sub
 
     
@@ -116,4 +115,29 @@ Public Class AddUser
         ComboBox1.SelectedIndex = 0
         ComboBox2.SelectedIndex = 0
     End Sub
+
+    Function searchUsername(ByVal username As String) As Boolean
+        If Not Regex.IsMatch(username, "^[a-zA-Z]+[0-9]+$") Then
+            MessageBox.Show("Please enter a valid username", "Invalid email ID")
+            Return False
+        End If
+
+        Dim connectionString As String = MainPage.connectionString
+        Dim cn As OleDbConnection = New OleDbConnection(connectionString)
+        Dim strcheck As String = "SELECT * FROM Users WHERE UserName like '" & username & "'"
+        Dim cmd1 As OleDbCommand = New OleDbCommand(strcheck, cn)
+        Dim readcheck As OleDbDataReader = cmd1.ExecuteReader()
+
+        If readcheck.HasRows Then
+            readcheck.Read()
+            txtName = readcheck("Name")
+            txtEmail = readcheck("Email")
+            txtPhone = readcheck("Phone")
+
+        End If
+
+        txtUsername.Enabled = False
+        Return True
+    End Function
+
 End Class
