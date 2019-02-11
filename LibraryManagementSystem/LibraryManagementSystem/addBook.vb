@@ -128,8 +128,12 @@ Public Class addBook
 
     ' To upload the image of book
     Private Sub uploadButton_Click(sender As Object, e As EventArgs) Handles uploadButton.Click
-        OpenFileDialog1.ShowDialog()
-        PictureBox1.ImageLocation = OpenFileDialog1.FileName.ToString
+        Dim fullPath As String = System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\defaultBook.jpg")
+        If OpenFileDialog1.ShowDialog = DialogResult.Cancel Then
+            PictureBox1.ImageLocation = fullPath
+        Else
+            PictureBox1.ImageLocation = OpenFileDialog1.FileName.ToString
+        End If
     End Sub
 
     ' To prefill the information if book is being modified
@@ -211,7 +215,8 @@ Public Class addBook
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim textBoxes = Me.Controls.OfType(Of TextBox)()
-
+        Dim fullPath As String = System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\defaultBook.jpg")
+        PictureBox1.ImageLocation = fullPath
         For Each txt In textBoxes
             AddHandler txt.KeyDown, AddressOf ReturnHandler
         Next

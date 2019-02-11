@@ -26,7 +26,7 @@ Public Class ChangePassword
                 update = False
 
             ElseIf current <> reader("Password") Then
-                MessageBox.Show("Your current password doesnot match", "Wrong password")
+                MessageBox.Show("Your current password does not match", "Wrong password")
                 update = False
 
             ElseIf newpass = "" Then
@@ -89,5 +89,9 @@ Public Class ChangePassword
 
     Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
         TextBox3.UseSystemPasswordChar = True
+    End Sub
+
+    Private Sub ChangePassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

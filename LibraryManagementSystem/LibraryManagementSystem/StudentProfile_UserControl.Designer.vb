@@ -30,6 +30,7 @@ Partial Class StudentProfile_UserControl
         Dim DesignationLabel As System.Windows.Forms.Label
         Dim TotalFineLabel As System.Windows.Forms.Label
         Dim MaxBooksLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StudentProfile_UserControl))
         Me.DatabaseDataSet = New LibraryManagementSystem.DatabaseDataSet()
         Me.UserBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UserTableAdapter = New LibraryManagementSystem.DatabaseDataSetTableAdapters.UserTableAdapter()
@@ -44,6 +45,7 @@ Partial Class StudentProfile_UserControl
         Me.lblFine = New System.Windows.Forms.Label()
         Me.lblMaxBooks = New System.Windows.Forms.Label()
         Me.lblWelcome2 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         UserNameLabel = New System.Windows.Forms.Label()
         EmailLabel = New System.Windows.Forms.Label()
         PhoneNumberLabel = New System.Windows.Forms.Label()
@@ -54,6 +56,7 @@ Partial Class StudentProfile_UserControl
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UserBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picBoxProfile, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UserNameLabel
@@ -115,7 +118,6 @@ Partial Class StudentProfile_UserControl
         TotalFineLabel.Size = New System.Drawing.Size(72, 19)
         TotalFineLabel.TabIndex = 17
         TotalFineLabel.Text = "Total Fine:"
-
         '
         'MaxBooksLabel
         '
@@ -221,7 +223,7 @@ Partial Class StudentProfile_UserControl
         '
         Me.lblFine.AutoSize = True
         Me.lblFine.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFine.Location = New System.Drawing.Point(212, 310)
+        Me.lblFine.Location = New System.Drawing.Point(232, 310)
         Me.lblFine.Name = "lblFine"
         Me.lblFine.Size = New System.Drawing.Size(51, 19)
         Me.lblFine.TabIndex = 34
@@ -248,10 +250,22 @@ Partial Class StudentProfile_UserControl
         Me.lblWelcome2.Text = "Label1"
         Me.lblWelcome2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.InitialImage = CType(resources.GetObject("PictureBox1.InitialImage"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(216, 312)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(10, 15)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 37
+        Me.PictureBox1.TabStop = False
+        '
         'StudentProfile_UserControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.lblWelcome2)
         Me.Controls.Add(Me.lblMaxBooks)
         Me.Controls.Add(Me.lblFine)
@@ -274,6 +288,7 @@ Partial Class StudentProfile_UserControl
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UserBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picBoxProfile, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -292,5 +307,6 @@ Partial Class StudentProfile_UserControl
     Friend WithEvents lblFine As System.Windows.Forms.Label
     Friend WithEvents lblMaxBooks As System.Windows.Forms.Label
     Friend WithEvents lblWelcome2 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 
 End Class

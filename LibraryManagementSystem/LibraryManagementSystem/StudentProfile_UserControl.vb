@@ -22,10 +22,14 @@ Public Class StudentProfile_UserControl
             lblDesignation.Text = reader("Designation")
             lblFine.Text = reader("TotalFine")
             lblMaxBooks.Text = reader("MaxBooks")
+            lblFine.Text = reader("TotalFine")
         End If
         cn.Close()
     End Sub
 
 
 
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+
+    End Sub
 End Class

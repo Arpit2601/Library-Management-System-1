@@ -32,6 +32,11 @@ Public Class EditStudentProfile_UserControl
         Next
 
         ' Regex for checking email
+        If email = "" Then
+            MessageBox.Show("Please enter an email ID", "Invalid email ID")
+            Return
+        End If
+
         If Not Regex.IsMatch(email, "^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$") Then
             MessageBox.Show("Please enter a valid email ID", "Invalid email ID")
             update = False

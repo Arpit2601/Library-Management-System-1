@@ -73,7 +73,7 @@ Partial Class ChangePassword
         Me.TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.TextBox1.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.Location = New System.Drawing.Point(335, 135)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(197, 26)
         Me.TextBox1.TabIndex = 3
@@ -83,7 +83,7 @@ Partial Class ChangePassword
         Me.TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.TextBox2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox2.Location = New System.Drawing.Point(335, 208)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(197, 26)
         Me.TextBox2.TabIndex = 4
@@ -93,7 +93,7 @@ Partial Class ChangePassword
         Me.TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.TextBox3.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox3.Location = New System.Drawing.Point(335, 284)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.ShortcutsEnabled = False
         Me.TextBox3.Size = New System.Drawing.Size(197, 26)
@@ -107,7 +107,7 @@ Partial Class ChangePassword
         Me.Button1.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
         Me.Button1.Location = New System.Drawing.Point(335, 357)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(196, 40)
         Me.Button1.TabIndex = 6
@@ -119,7 +119,7 @@ Partial Class ChangePassword
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CheckBox1.Location = New System.Drawing.Point(434, 164)
-        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(102, 17)
         Me.CheckBox1.TabIndex = 7
@@ -138,7 +138,7 @@ Partial Class ChangePassword
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "ChangePassword"
         Me.Size = New System.Drawing.Size(1009, 681)
         Me.ResumeLayout(False)
