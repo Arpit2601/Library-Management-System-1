@@ -18,15 +18,18 @@ Public Class returnBook
             cn.Open()
             Dim reader As OleDbDataReader = cmd.ExecuteReader
             reader.Read()
+            Dim ISBN As String = ""
             If Not reader.HasRows Then
                 MessageBox.Show("Book does not exist.Please add a book first")
                 Return
             ElseIf Not reader("IsIssued") Then
                 MessageBox.Show("This Book is not issued")
+
                 AccNoTextBox.Text = ""
                 Return
             End If
 
+            ISBN = reader("ISBN")
             Dim UserID As String = reader("BorrowerId")
             reader.Close()
             Dim issue_date As String = ""
@@ -39,6 +42,23 @@ Public Class returnBook
             cmd.CommandText = "update Users set BooksIssued=" & newCount & " where UserName='" & UserID & "'"
             reader.Close()
             cmd.ExecuteReader()
+
+            Dim cmdString4 As String = "select * from Books where ISBN='" & ISBN & "'"
+            Dim cmd4 As OleDbCommand = New OleDbCommand(cmdString4, cn)
+            cmd4.CommandText = cmdString4
+            Dim reader4 As OleDbDataReader = cmd4.ExecuteReader
+            reader4.Read()
+            Dim remaining As Integer = reader4("Remaining")
+            reader4.Close()
+
+            remaining += 1
+
+            Dim cmdString3 As String = "update Books set Remaining=" & remaining & " where ISBN='" & ISBN & "'"
+            Dim cmd3 As OleDbCommand = New OleDbCommand(cmdString3, cn)
+            cmd3.CommandText = cmdString3
+            cmd3.ExecuteNonQuery()
+
+
             AccNoTextBox.Text = ""
             MessageBox.Show("Book Returned")
         End If

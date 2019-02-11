@@ -196,8 +196,8 @@ Public Class addBook
         End If
 
         For Each c In AuthorTextBox.Text
-            If Not Char.IsLower(c) And Not Char.IsUpper(c) And Not c = " " Then
-                MessageBox.Show("Author name should contain only lowercase, uppercase or blankspace letters.", "Invalid author name")
+            If Not Char.IsLower(c) And Not Char.IsUpper(c) And Not c = " " And Not c = "." And Not c = "," Then
+                MessageBox.Show("Author name should contain valid characters.", "Invalid author name")
                 Return False
             End If
         Next
