@@ -2,9 +2,11 @@
 Imports System.IO
 Imports System.Data.SqlClient
 
+' This form will show all the recommendations that this student has received from all the proffessors over time
 Public Class Stud_UserControl
     Dim field As String
 
+    ' On loading the form show all the recommendations present
     Private Sub Stud_UserControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
         cn.Open()
@@ -20,6 +22,7 @@ Public Class Stud_UserControl
         Dim cmd2 As OleDbCommand = New OleDbCommand(selectString2, cn)
         Dim reader2 As OleDbDataReader = cmd2.ExecuteReader()
 
+        ' Dynamically add all the recommendations
         Dim boxWidth As Integer = (Panel1.Width / 2) - 50
         Dim boxHeight As Integer = 100
         Dim nextX As Integer = 0
@@ -46,6 +49,8 @@ Public Class Stud_UserControl
 
             Dim recDate As String = reader2("RecDate")
 
+            ' In a thumbnail show the title of book, Proffessor name who recommended it, and date of recommendation
+            ' On clicking on the title the book detail page will open
             If reader3.Read Then
 
                 Dim backPicBox As New PictureBox
@@ -72,7 +77,7 @@ Public Class Stud_UserControl
                 lblDate.Size = New Size(400, 20)
                 lblDate.Text = "on " & recDate
 
-                Titlelabel.Location = New Point(nextX + 115, nextY + 10)   ' Set location
+                Titlelabel.Location = New Point(nextX + 115, nextY + 10)
                 lblprofName.Location = New Point(nextX + 130, nextY + 40)
                 lblMessage1.Location = New Point(nextX + 10, nextY + 10)
                 lblMessage2.Location = New Point(nextX + 10, nextY + 40)
@@ -153,10 +158,11 @@ Public Class Stud_UserControl
         cn.Close()
     End Sub
 
+    ' On clicking title show book detail page
     Private Sub Titlelabel_click(ByVal sender As Object, ByVal e As EventArgs)
         Dim frm As New BookDetails
         frm.passISBN = sender.tag
-        frm.Show()
+        frm.ShowDialog()
     End Sub
 
 End Class

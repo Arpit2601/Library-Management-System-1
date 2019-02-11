@@ -1,5 +1,6 @@
 ﻿Public Class viewBookTable
 
+    ' Added Borrowed table by simply drag and drop
     Private Sub BorrowedBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles BorrowedBindingNavigatorSaveItem.Click
         Me.Validate()
         Me.BorrowedBindingSource.EndEdit()

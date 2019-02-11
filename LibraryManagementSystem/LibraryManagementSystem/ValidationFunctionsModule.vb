@@ -1,4 +1,6 @@
 ﻿Module ValidationFunctionsModule
+
+    ' Validate ISBN
     Function ValidateISBN(ByVal ISBN As String) As Boolean
         Console.WriteLine(ISBN)
         If ISBN.Length = 13 Then

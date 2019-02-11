@@ -3,12 +3,15 @@ Imports System.Text.RegularExpressions
 
 
 Public Class addBook
-    'Global variables 
+
     Dim connectionString = MainPage.connectionString
     Dim ISBNinput As String = ""
 
 
     Private Sub ISBNTextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles ISBNTextBox1.KeyDown
+
+        ' First check if ISBN is correct
+        ' It should contain only 10 or 13 digits with '-' in between
         Dim regex As Regex = New Regex("^(97(8|9))?\d{9}(\d|X)$")
         Console.Write(e.KeyCode)
         If e.KeyCode = Keys.Enter Then
@@ -33,6 +36,7 @@ Public Class addBook
     End Sub
 
 
+    ' Main function to add book in library
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles myButton.Click
 
         If myButton.Text = "Search" Then
@@ -60,20 +64,23 @@ Public Class addBook
         Dim cn As OleDbConnection = New OleDbConnection(connectionString)
         Dim cmdString As String
 
+        ' Validation for all the fields of book
         If Not ValidateInput() Then
             Return
         End If
+        ' If no image is selected then set image of book to default image
         Dim imgLocation As String = ISBNTextBox1.Text
         If PictureBox1.Image Is Nothing Then
             imgLocation = "defaultBook"
         End If
-
         cn.Open()
         TotalTextBox.Text = AddNumber.Value + Convert.ToInt64(TotalTextBox.Text)
+
+        ' If this book is not in the library then insert 
         If myButton.Text = "Add" Then
             cmdString = "insert into Books values('" & ISBNinput & "', " & TotalTextBox.Text & "," & TotalTextBox.Text & ",'" & LocationTextBox.Text & "','" & PublishYearDateTimePicker.Value.Date & "','" & TitleTextBox.Text & "','" & AuthorTextBox.Text & "','" & PublisherTextBox.Text & "','" & FieldTextBox.Text & "','" & imgLocation & ".JPG','" & PriceBox.Text & "', '0', '0')"
-            'MessageBox.Show("book added succeffuly")
-            ' MessageBox.Show("Please Mark the new books with accession numbers from " & min & "to " & max & ".", "Book Added Successfully")
+
+            ' Else update its information
         Else
             cmdString = "update Books set Total= " & TotalTextBox.Text & ",PublishYear='" & PublishYearDateTimePicker.Value & "',Location= '" & LocationTextBox.Text & "',Title='" & TitleTextBox.Text & "',Author='" & AuthorTextBox.Text & "',Field='" & FieldTextBox.Text & "' , Publisher='" & PublisherTextBox.Text & "' ,BookImage='" & imgLocation & ".JPG' , Price='" & PriceBox.Text & "' where ISBN='" & ISBNinput & "'"
         End If
@@ -91,6 +98,8 @@ Public Class addBook
         max = Integer.MinValue
         cmd.CommandText = "insert into Borrowed (ISBN) values ('" & ISBNinput & "') "
 
+        ' Give new accession numbers to the books added and display in message box
+        ' If no new books where added, only their information was modified then do not show new accession numbers
         For index As Integer = 1 To AddNumber.Value
 
             Console.WriteLine(cmd.ExecuteScalar)
@@ -117,11 +126,13 @@ Public Class addBook
 
     End Sub
 
+    ' To upload the image of book
     Private Sub uploadButton_Click(sender As Object, e As EventArgs) Handles uploadButton.Click
         OpenFileDialog1.ShowDialog()
         PictureBox1.ImageLocation = OpenFileDialog1.FileName.ToString
     End Sub
 
+    ' To prefill the information if book is being modified
     Function myfunction() As Boolean
         'User has entered isbn number
         Dim cn As OleDbConnection = New OleDbConnection(connectionString)
@@ -151,16 +162,14 @@ Public Class addBook
             End Try
         End While
         cn.Close()
-
         For Each Control In Me.Controls
             Control.visible = True
         Next
-
-
         ISBNTextBox1.Enabled = False
         Return True
     End Function
 
+    ' Function to validate all the information
     Friend Function ValidateInput() As Boolean
         If LocationTextBox.Text = "" Then
             MessageBox.Show("Please enter shelf location of the book")
@@ -170,7 +179,6 @@ Public Class addBook
             Return False
         ElseIf AuthorTextBox.Text = "" Then
             MessageBox.Show("Please Enter Author of the Book")
-
         ElseIf PublisherTextBox.Text = "" Then
             MessageBox.Show("Please Enter Publisher of the Book")
             Return False
@@ -182,6 +190,7 @@ Public Class addBook
             Return False
         End If
 
+        ' To check if price entered is number or not
         Dim countDot As Integer = 0
         For i As Integer = 0 To PriceBox.Text.Length - 1
             If PriceBox.Text(i) = "." Then

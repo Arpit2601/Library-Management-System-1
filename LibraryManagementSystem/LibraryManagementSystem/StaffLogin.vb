@@ -1,4 +1,6 @@
 ﻿Public Class StaffLogin
+
+    ' Has he username of staff member
     Public UserName As String
 
     Private Sub Staff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -10,6 +12,7 @@
     End Sub
 
 
+    ' By clicking on issue book button disable return and reissue book part and enable only issue book user control
     Private Sub IssueBook_Click(sender As Object, e As EventArgs) Handles IssueBook.Click
         IssueBook.BackColor = Color.MediumSeaGreen
         ReturnBook.BackColor = Color.MidnightBlue
@@ -24,8 +27,7 @@
             AddHandler txt.KeyDown, AddressOf ReturnHandler
         Next
 
-
-
+        ' Display all the three return,reissue and issue book user controls but enable only one
         Dim returnBookInstance = New returnBook
         returnBookInstance.Location = New Point(0, 227)
         Dim reIssueBookInstance = New reissuebook
@@ -58,6 +60,8 @@
         Action.Controls.Add(reIssueBookInstance)
     End Sub
 
+
+    ' By clicking on issue book button disable return reissue and issue book part and enable only return book user control
     Private Sub ReturnBook_Click(sender As Object, e As EventArgs) Handles ReturnBook.Click
         IssueBook.BackColor = Color.MidnightBlue
         ReturnBook.BackColor = Color.MediumSeaGreen
@@ -145,6 +149,7 @@
         Action.Controls.Add(reIssueBookInstance)
     End Sub
 
+    ' By clicking on issue book button disable return and issue book part and enable only reissue book user control
     Private Sub BookButton_Click(sender As Object, e As EventArgs) Handles BookButton.Click
         IssueBook.BackColor = Color.MidnightBlue
         ReturnBook.BackColor = Color.MidnightBlue
@@ -175,6 +180,7 @@
 
     End Sub
 
+    ' Logout button
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         IssueBook.BackColor = Color.MidnightBlue
         ReturnBook.BackColor = Color.MidnightBlue
@@ -184,6 +190,7 @@
         BookButton.BackColor = Color.MidnightBlue
         btnViewBooks.BackColor = Color.MidnightBlue
 
+        ' If true return to main page else return to previous task
         Dim result = MessageBox.Show("Do you want to logout?", "Confirm logout", MessageBoxButtons.YesNo)
         If result = DialogResult.Yes Then
             Me.Close()
@@ -193,17 +200,20 @@
         End If
     End Sub
 
+    ' You can switch tas using Enter key
     Public Sub ReturnHandler(sender As Object, e As System.Windows.Forms.KeyEventArgs)
         If e.KeyCode = Keys.Enter Then
             SendKeys.Send(Keys.Tab)
         End If
     End Sub
 
+    ' Refresh page for modify student after his entry is done
     Public Sub refreshModifyStudent()
         Action.Controls.Clear()
         Action.Controls.Add(New AddUser)
     End Sub
 
+    ' Refresh page for modify book after books entry is done
     Public Sub refreshModifyBook()
         Action.Controls.Clear()
         Action.Controls.Add(New addBook)
@@ -215,6 +225,7 @@
 
     End Sub
 
+    ' This will show all the details of all the books and their borrowers
     Private Sub btnViewBooks_Click(sender As Object, e As EventArgs) Handles btnViewBooks.Click
         IssueBook.BackColor = Color.MidnightBlue
         ReturnBook.BackColor = Color.MidnightBlue

@@ -1,5 +1,6 @@
 ﻿Imports System.Security.Cryptography
 
+' This module is used to store passwords in encrypted form in database. They are encrypted using username as key
 Module PasswordEncryptionModule
     Private TripleDes As New TripleDESCryptoServiceProvider
 

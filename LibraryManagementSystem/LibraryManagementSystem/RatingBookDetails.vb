@@ -4,11 +4,15 @@ Imports System.Data.SqlClient
 
 Public Class RatingBookDetails
 
+    ' passISBN has the ISBN of book to be rated
+    ' str has the username of user who has rated the book
+    ' prev contains the previous star count given to this book by this user
     Public Property passISBN As String
     Public Property prev As Integer
     Dim str As String = StudentLogin.UserName
     Public Property ct As Integer = 0
 
+    ' To show book details
     Public Sub Thumbnails(reader As OleDbDataReader)
 
         Panel1.Controls.Clear()
@@ -38,6 +42,7 @@ Public Class RatingBookDetails
             PublishYearlabel.Size = New Size(200, 40)
             Locationlabel.Size = New Size(250, 40)
             pictureBox.Size = New Size(200, 250)
+
             pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
             pictureBox.Tag = fullPath
             pictureBox.ImageLocation = fullPath
@@ -109,6 +114,7 @@ Public Class RatingBookDetails
         End While
     End Sub
 
+    ' On opening the page load all the information of book
     Private Sub RatingBookDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
         cn.Open()
@@ -117,12 +123,14 @@ Public Class RatingBookDetails
         Dim reader As OleDbDataReader = cmd.ExecuteReader()
         Thumbnails(reader)
         cn.Close()
-
-
         cn.Open()
         Dim selectString1 As String = "SELECT * FROM RatingList WHERE ISBN = '" & passISBN & "' "
         cmd = New OleDbCommand(selectString1, cn)
         Dim reader1 As OleDbDataReader = cmd.ExecuteReader()
+
+        ' Store previous star set by this user for this book in prev
+        ' If ct =0 then user has yet not rated this book
+        ' Else if ct=1 then this user has rated the book previously
         While reader1.Read()
             If reader1("UserName") = str Then
                 prev = reader1("Starcount")
@@ -130,6 +138,8 @@ Public Class RatingBookDetails
             End If
         End While
         cn.Close()
+
+        ' Display the stars according to prev value
         If ct = 0 Then
             PictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
             PictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
@@ -182,6 +192,8 @@ Public Class RatingBookDetails
 
     End Sub
 
+    ' On clicking on any star change the rating accordingly and set all the stars previous to it to yellow
+    ' Store this data in the Rating table accordingly
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
         PictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
         PictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
@@ -203,6 +215,8 @@ Public Class RatingBookDetails
         cn.Close()
         Dim temp As Integer = 1
         Dim people As Integer = 1
+
+        ' If user is rating this book for first time then make a new entry in Rating table and update star count and users count in books table
         If ct = 0 Then
             cn.Open()
             Dim selectString As String = "SELECT * FROM Books WHERE ISBN = '" & passISBN & "'"
@@ -224,6 +238,8 @@ Public Class RatingBookDetails
                 r1.Close()
             End While
             cn.Close()
+
+            ' If user has previously rated the book then simply update data in both Rating table and Books Table
         Else
             cn.Open()
             Dim selectString As String = "SELECT * FROM Books WHERE ISBN = '" & passISBN & "'"
@@ -248,6 +264,8 @@ Public Class RatingBookDetails
         End If
     End Sub
 
+
+    ' Same as above. Only Difference is that here we set 2 stars for this book
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
         PictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
         PictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
@@ -314,6 +332,7 @@ Public Class RatingBookDetails
         End If
     End Sub
 
+    ' Same as above. Only Difference is that here we set 3 stars for this book
     Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
         PictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
         PictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
@@ -380,6 +399,7 @@ Public Class RatingBookDetails
         End If
     End Sub
 
+    ' Same as above. Only Difference is that here we set 4 stars for this book
     Private Sub PictureBox4_Click(sender As Object, e As EventArgs) Handles PictureBox4.Click
         PictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
         PictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
@@ -446,6 +466,7 @@ Public Class RatingBookDetails
         End If
     End Sub
 
+    ' Same as above. Only Difference is that here we set 5 stars for this book
     Private Sub PictureBox5_Click(sender As Object, e As EventArgs) Handles PictureBox5.Click
         PictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
         PictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"

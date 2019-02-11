@@ -4,13 +4,12 @@ Imports System.Text.RegularExpressions
 Public Class AddUser
 
     Private Sub btnAddUser_Click(sender As Object, e As EventArgs) Handles btnAddUser.Click
-        ' Data Validation
 
+        'Main function to add a user
         If btnAddUser.Text = "Search" Then
             searchUsername(txtUsername.Text)
             Return
         End If
-
 
         Dim name As String = txtName.Text
         Dim username As String = txtUsername.Text
@@ -20,8 +19,7 @@ Public Class AddUser
         Dim password As String = txtPassword.Text
         Dim update As Boolean = True
 
-
-
+        ' Data validation for all the fields which same as the edit profile
         If name = "" Then
             MessageBox.Show("Please enter your name", "Invalid name")
             update = False
@@ -76,6 +74,7 @@ Public Class AddUser
 
         cn.Open()
 
+        ' Max books that can be issued at a time for a student is 7 and for a proffessor is 14
         Dim maxBooks As Integer
         If ComboBox2.SelectedItem = "Student" Then
             maxBooks = 7
@@ -104,12 +103,12 @@ Public Class AddUser
     End Sub
 
     
-    
     Private Sub AddUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBox1.SelectedIndex = -1
         ComboBox2.SelectedIndex = -1
     End Sub
 
+    ' First search for username. If it exists then display its predifined details and disable its password text
     Function searchUsername(ByVal username As String) As Boolean
         If Not Regex.IsMatch(username, "^[a-zA-Z]+[0-9]+$") Then
             MessageBox.Show("Please enter a valid username", "Invalid email ID")
@@ -134,13 +133,10 @@ Public Class AddUser
             ComboBox2.Text = readcheck("Designation")
             txtPassword.Enabled = False
         End If
-
         txtUsername.Enabled = False
-
         For Each Control In Me.Controls
             Control.visible = True
         Next
-
         cn.Close()
         Return True
     End Function

@@ -2,10 +2,14 @@
 Imports System.IO
 Imports System.Data.SqlClient
 
+
 Public Class BookDetails
+
+    ' This passISBN is sent from main page
+    ' First serach for a particular book with this ISBN in Books table
+    ' Then call Thumbnails function to show all its details
+    ' From Borrowed table select all the users who have issued this book to display their information below the books detail panel
     Public Property passISBN As String
-
-
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
         cn.Open()
@@ -13,9 +17,6 @@ Public Class BookDetails
         Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
         Dim reader As OleDbDataReader = cmd.ExecuteReader()
         Thumbnails(reader)
-        cn.Close()
-
-        cn.Open()
         Dim borrowerstring As String = "SELECT * FROM Borrowed WHERE ISBN = '" & passISBN & "' AND IsIssued=True"
         Dim cmd1 As OleDbCommand = New OleDbCommand(borrowerstring, cn)
         Dim reader1 As OleDbDataReader = cmd1.ExecuteReader()
@@ -23,8 +24,10 @@ Public Class BookDetails
         cn.Close()
     End Sub
 
-    Public Sub Thumbnails(reader As OleDbDataReader)
 
+    ' Most part is same as in Main page 
+    ' Rating part is added which will show the average rating of the book given all the users
+    Public Sub Thumbnails(reader As OleDbDataReader)
         Panel1.Controls.Clear()
         Dim x, y, count As Integer
         count = 0
@@ -75,6 +78,7 @@ Public Class BookDetails
 
 
             ' Rating display
+            ' Stars are displayed via picture boxes
             pictureBox1.Size = New Size(40, 40)
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
 
@@ -90,8 +94,7 @@ Public Class BookDetails
             pictureBox5.Size = New Size(40, 40)
             pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
 
-
-
+            ' Get the average rating from books table by getting total number of stars of the book and total number of users who have rated it 
             Dim totalStars As Integer = Convert.ToInt32(reader("StarsNumber"))
             Dim people As Integer = Convert.ToInt32(reader("Raters"))
             Dim avgRating As Double
@@ -103,6 +106,7 @@ Public Class BookDetails
 
             lblAvgRating.Text = "Book Rating: " & avgRating.ToString("0.0") & "/5.0"
 
+            ' If average rating is less than 0.25 show 0 stars
             If avgRating <= 0.25 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
@@ -110,6 +114,7 @@ Public Class BookDetails
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
+                ' If average rating is between than 0.25 and 0.75 show half stars
             ElseIf avgRating <= 0.75 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\halfstar.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
@@ -117,6 +122,7 @@ Public Class BookDetails
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
+                ' If average rating is between than 0.75 and 1.25 show one stars
             ElseIf avgRating <= 1.25 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
@@ -124,6 +130,7 @@ Public Class BookDetails
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
+                ' If average rating is between than 1.25 and 1.75 show one and a half stars
             ElseIf avgRating <= 1.75 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\halfstar.png"
@@ -131,6 +138,7 @@ Public Class BookDetails
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
+                ' If average rating is between than 1.75 and 2.25 show two stars
             ElseIf avgRating <= 2.25 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
@@ -138,6 +146,7 @@ Public Class BookDetails
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
+                ' If average rating is between than 2.25 and 2.75 show two and a half stars
             ElseIf avgRating <= 2.75 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
@@ -145,6 +154,7 @@ Public Class BookDetails
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
+                ' If average rating is between than 2.75 and 3.25 show three stars
             ElseIf avgRating <= 3.25 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
@@ -152,6 +162,7 @@ Public Class BookDetails
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
+                ' If average rating is between than 3.25 and 3.75 show three and a half stars
             ElseIf avgRating <= 3.75 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
@@ -159,7 +170,7 @@ Public Class BookDetails
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\halfstar.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
-
+                ' If average rating is between than 3.75 and 4.25 show four stars
             ElseIf avgRating <= 4.25 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
@@ -167,6 +178,7 @@ Public Class BookDetails
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\blank.png"
 
+                ' If average rating is between than 4.25 and 4.75 show four and a half stars
             ElseIf avgRating <= 4.75 Then
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
@@ -174,6 +186,7 @@ Public Class BookDetails
                 pictureBox4.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox5.ImageLocation = Application.StartupPath & "\..\..\image\halfstar.png"
 
+                ' If average rating is between than 4.75 and 5 show five stars
             Else
                 pictureBox1.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
                 pictureBox2.ImageLocation = Application.StartupPath & "\..\..\image\yellow.png"
@@ -256,6 +269,9 @@ Public Class BookDetails
         End While
     End Sub
 
+
+    ' Function to show all the users who have this book checked out
+    ' We have dynamically made labels s=to show name, department, phonenumber and email of user in one row
     Public Sub Borrowers(reader1 As OleDbDataReader)
         Panel2.Controls.Clear()
         Dim x, y, count As Integer
@@ -264,10 +280,8 @@ Public Class BookDetails
         y = -1.05 * Panel2.Location.Y + 2 * Panel2.Height
         Dim nextx As Integer = Panel2.Location.X - 10
         Dim nexty As Integer = 0
-        'MessageBox.Show(nextx)
         While reader1.Read()
             Dim userid As String = reader1("BorrowerId")
-            'MessageBox.Show(reader1("BorrowerId"))
             Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
             cn.Open()
             Dim selectString As String = "SELECT * FROM Users WHERE UserName = '" & userid & "'"
@@ -283,6 +297,7 @@ Public Class BookDetails
                 Departmentlabel.Size = New Size(150, 25)
                 PhoneNumber.Size = New Size(150, 25)
                 Email.Size = New Size(150, 25)
+
                 Namelabel.Text = reader("ProfileName")
                 Departmentlabel.Text = reader("Department")
                 PhoneNumber.Text = reader("PhoneNumber")

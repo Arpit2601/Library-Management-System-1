@@ -2,11 +2,14 @@
 Imports System.IO
 Imports System.Data.SqlClient
 
+
+' This page lets the proffessor to recommend a book to all the students of a particular field 
 Public Class Prof_UserControl
     Dim field As String
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
+        ' Data validation for ISBN and field
         If TextBox1.Text = "" Then
             MessageBox.Show("Please enter a valid ISBN")
             Return
@@ -45,35 +48,34 @@ Public Class Prof_UserControl
         End If
 
         While reader.Read()
-            'MessageBox.Show("Yo")
             If reader("Field") = ComboBox1.SelectedItem And reader("ProfName") = StudentLogin.UserName Then
                 ct += 1
             End If
         End While
         cn.Close()
-        'reader.Close()
-        'MessageBox.Show(ct)
+
+        'If ct=0 then this book can be recommended
+        ' Else this book has already been recommended
         If ct = 0 Then
             cn.Open()
             Dim cmdString As String = "insert into Recommendations (ISBN, Field, ProfName, RecDate) values('" & newISBN & "', '" & ComboBox1.SelectedItem & "', '" & StudentLogin.UserName & "', '" & DateTime.Now.ToString("dd-MM-yyyy") & "')"
             cmd = New OleDbCommand(cmdString, cn)
             If cmd.ExecuteNonQuery > 0 Then
                 cmd.Dispose()
-                MessageBox.Show("Inserted")
+                MessageBox.Show("Recommended")
             End If
             reader.Close()
             cn.Close()
         Else
             MessageBox.Show("You Have already recommended this book for the selected field. Please try different ISBN or different Field")
         End If
-
         TextBox1.Clear()
         ComboBox1.SelectedIndex = -1
         StudentLogin.refreshRecommend()
 
     End Sub
 
-
+    ' On loading the page display all the books that have been recommended by this proffessor 
     Private Sub Prof_UserControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
         cn.Open()
@@ -81,7 +83,6 @@ Public Class Prof_UserControl
         Dim selectString As String = "SELECT * FROM Users WHERE UserName = '" & StudentLogin.UserName & "'"
         Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
         Dim reader As OleDbDataReader = cmd.ExecuteReader()
-    
 
         Dim selectString2 As String = "SELECT * FROM Recommendations WHERE ProfName = '" & StudentLogin.UserName & "'"
         Dim cmd2 As OleDbCommand = New OleDbCommand(selectString2, cn)
@@ -113,6 +114,7 @@ Public Class Prof_UserControl
 
             Dim recDate As String = reader2("RecDate")
 
+            ' If he/she has recommended any books then their ISBN, Title,Department and date of recommendation will be shown
             If reader3.Read Then
 
                 Dim backPicBox As New PictureBox
@@ -220,6 +222,7 @@ Public Class Prof_UserControl
         cn.Close()
     End Sub
 
+    ' On clicking the title books detail page will be shown
     Private Sub Titlelabel_click(ByVal sender As Object, ByVal e As EventArgs)
         Dim frm As New BookDetails
         frm.passISBN = sender.tag

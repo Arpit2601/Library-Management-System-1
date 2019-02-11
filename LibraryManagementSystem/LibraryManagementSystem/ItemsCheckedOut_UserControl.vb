@@ -4,6 +4,7 @@ Imports System.Data.SqlClient
 
 Public Class ItemsCheckedOut_UserControl
 
+    ' Function to show checked out books
     Private Sub ItemsCheckedOut_UserControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
         cn.Open()
@@ -18,7 +19,6 @@ Public Class ItemsCheckedOut_UserControl
         Dim nextY As Integer = 0
 
         While reader.Read
-
             Dim selectString2 As String = "SELECT * FROM Books WHERE ISBN = '" & reader("ISBN") & "'"
             Dim cmd2 As OleDbCommand = New OleDbCommand(selectString2, cn)
             Dim reader2 As OleDbDataReader = cmd2.ExecuteReader()
@@ -40,6 +40,7 @@ Public Class ItemsCheckedOut_UserControl
                 Publisherlabel.Size = New Size(140, 20)
                 Locationlabel.Size = New Size(140, 20)
                 pictureBox.Size = New Size(150, 150)
+
                 pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
                 Titlelabel.Tag = reader2("ISBN")
                 pictureBox.Tag = fullPath
@@ -85,11 +86,11 @@ Public Class ItemsCheckedOut_UserControl
         cn.Close()
     End Sub
 
-
+    ' Show book details by clicking on title 
+    ' The form opened will allow to rate that particular book
     Private Sub Titlelabel_click(ByVal sender As Object, ByVal e As EventArgs)
         Dim frm As New RatingBookDetails
         frm.passISBN = sender.tag
         frm.ShowDialog()
     End Sub
-
 End Class
