@@ -75,14 +75,14 @@ Public Class addBook
         End If
         cn.Open()
         TotalTextBox.Text = AddNumber.Value + Convert.ToInt64(TotalTextBox.Text)
-
+        RemainingTextBox.Text = AddNumber.Value + Convert.ToInt64(RemainingTextBox.Text)
         ' If this book is not in the library then insert 
         If myButton.Text = "Add" Then
             cmdString = "insert into Books values('" & ISBNinput & "', " & TotalTextBox.Text & "," & TotalTextBox.Text & ",'" & LocationTextBox.Text & "','" & PublishYearDateTimePicker.Value.Date & "','" & TitleTextBox.Text & "','" & AuthorTextBox.Text & "','" & PublisherTextBox.Text & "','" & FieldTextBox.Text & "','" & imgLocation & ".JPG','" & PriceBox.Text & "', '0', '0')"
 
             ' Else update its information
         Else
-            cmdString = "update Books set Total= " & TotalTextBox.Text & ",PublishYear='" & PublishYearDateTimePicker.Value & "',Location= '" & LocationTextBox.Text & "',Title='" & TitleTextBox.Text & "',Author='" & AuthorTextBox.Text & "',Field='" & FieldTextBox.Text & "' , Publisher='" & PublisherTextBox.Text & "' ,BookImage='" & imgLocation & ".JPG' , Price='" & PriceBox.Text & "' where ISBN='" & ISBNinput & "'"
+            cmdString = "update Books set Total= " & TotalTextBox.Text & ",Remaining= " & RemainingTextBox.Text & ",PublishYear='" & PublishYearDateTimePicker.Value & "',Location= '" & LocationTextBox.Text & "',Title='" & TitleTextBox.Text & "',Author='" & AuthorTextBox.Text & "',Field='" & FieldTextBox.Text & "' , Publisher='" & PublisherTextBox.Text & "' ,BookImage='" & imgLocation & ".JPG' , Price='" & PriceBox.Text & "' where ISBN='" & ISBNinput & "'"
         End If
 
         If PictureBox1.Image IsNot Nothing Then

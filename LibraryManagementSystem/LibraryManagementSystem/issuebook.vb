@@ -33,6 +33,8 @@ Public Class issuebook
                 Return
             End If
 
+            Dim ISBN As String = reader("ISBN")
+
             cmdString = "select * FROM Users where UserName = '" & BorrowerIdTextBox.Text & "'"
             Dim cmd2 As OleDbCommand = New OleDbCommand(cmdString, cn)
             Dim reader2 As OleDbDataReader = cmd2.ExecuteReader
@@ -54,12 +56,32 @@ Public Class issuebook
             End If
 
             ' update in borrowed table
+            Dim cmdString4 As String = "select * from Books where ISBN='" & ISBN & "'"
+            Dim cmd4 As OleDbCommand = New OleDbCommand(cmdString4, cn)
+            cmd4.CommandText = cmdString4
+            Dim reader4 As OleDbDataReader = cmd4.ExecuteReader
+            reader4.Read()
+            Dim remaining As Integer = reader4("Remaining")
+            reader4.Close()
+
+            If remaining <= 0 Then
+                MessageBox.Show("This book is not available")
+                Return
+            End If
+
             cmdString = "update Borrowed set IsIssued=True,IssueDate='" & issue_date & "',Issuecount=1,BorrowerId='" & BorrowerIdTextBox.Text & "', ReturnDate='" & return_date & "' where AccNo = " & AccNoTextBox.Text & ""
             cmd.CommandText = cmdString
             reader.Close()
             reader = cmd.ExecuteReader()
             Dim currCount As Integer = reader2("BooksIssued") + 1
             reader2.Close()
+
+            remaining -= 1
+
+            Dim cmdString3 As String = "update Books set Remaining=" & remaining & " where ISBN='" & ISBN & "'"
+            Dim cmd3 As OleDbCommand = New OleDbCommand(cmdString3, cn)
+            cmd3.CommandText = cmdString3
+            cmd3.ExecuteNonQuery()
 
             ' Increase book issued count by 1 in users table
             cmd2.CommandText = "UPDATE Users SET BooksIssued=" & currCount & " where UserName = '" & BorrowerIdTextBox.Text & "'"

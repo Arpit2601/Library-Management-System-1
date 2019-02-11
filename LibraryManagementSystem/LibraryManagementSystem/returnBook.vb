@@ -17,9 +17,13 @@ Public Class returnBook
             Dim cmd As OleDbCommand = New OleDbCommand(cmdString, cn)
             cn.Open()
             Dim reader As OleDbDataReader = cmd.ExecuteReader
-
-            If Not reader.Read() Then
+            reader.Read()
+            If Not reader.HasRows Then
                 MessageBox.Show("Book does not exist.Please add a book first")
+                Return
+            ElseIf Not reader("IsIssued") Then
+                MessageBox.Show("This Book is not issued")
+                AccNoTextBox.Text = ""
                 Return
             End If
 
@@ -41,4 +45,7 @@ Public Class returnBook
 
     End Sub
 
+    Private Sub returnBook_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

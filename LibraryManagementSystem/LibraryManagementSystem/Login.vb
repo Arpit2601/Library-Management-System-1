@@ -20,8 +20,9 @@ Public Class Login
         Dim reader As OleDbDataReader = cmd.ExecuteReader()
         If txtPassword.Text.Trim = pre_password And txtUsername.Text.Trim = username Then
             If reader.Read Then
-                If reader("Designation") = "Staff" Then
+                If reader("Designation") = "Staff" Or reader("Designation") = "Admin" Then
                     StaffLogin.UserName = reader("UserName")
+                    StaffLogin.Designation = reader("Designation")
                     StaffLogin.Show()
                     Me.Close()
                     MainPage.Hide()

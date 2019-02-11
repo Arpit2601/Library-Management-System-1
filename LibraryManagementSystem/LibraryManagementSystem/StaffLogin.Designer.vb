@@ -23,6 +23,7 @@ Partial Class StaffLogin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Buttons = New System.Windows.Forms.Panel()
+        Me.btnViewBooks = New System.Windows.Forms.Button()
         Me.btnLogout = New System.Windows.Forms.Button()
         Me.ReIssueBook = New System.Windows.Forms.Button()
         Me.ReturnBook = New System.Windows.Forms.Button()
@@ -30,7 +31,6 @@ Partial Class StaffLogin
         Me.BookButton = New System.Windows.Forms.Button()
         Me.StudentButton = New System.Windows.Forms.Button()
         Me.Action = New System.Windows.Forms.Panel()
-        Me.btnViewBooks = New System.Windows.Forms.Button()
         Me.Buttons.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -47,10 +47,25 @@ Partial Class StaffLogin
         Me.Buttons.Dock = System.Windows.Forms.DockStyle.Left
         Me.Buttons.ForeColor = System.Drawing.Color.White
         Me.Buttons.Location = New System.Drawing.Point(0, 0)
-        Me.Buttons.Margin = New System.Windows.Forms.Padding(2)
+        Me.Buttons.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Buttons.Name = "Buttons"
-        Me.Buttons.Size = New System.Drawing.Size(247, 681)
+        Me.Buttons.Size = New System.Drawing.Size(329, 838)
         Me.Buttons.TabIndex = 0
+        '
+        'btnViewBooks
+        '
+        Me.btnViewBooks.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnViewBooks.FlatAppearance.BorderSize = 0
+        Me.btnViewBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnViewBooks.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnViewBooks.ForeColor = System.Drawing.Color.White
+        Me.btnViewBooks.Location = New System.Drawing.Point(0, 315)
+        Me.btnViewBooks.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnViewBooks.Name = "btnViewBooks"
+        Me.btnViewBooks.Size = New System.Drawing.Size(329, 55)
+        Me.btnViewBooks.TabIndex = 6
+        Me.btnViewBooks.Text = "View Books Table"
+        Me.btnViewBooks.UseVisualStyleBackColor = True
         '
         'btnLogout
         '
@@ -59,9 +74,10 @@ Partial Class StaffLogin
         Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogout.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogout.ForeColor = System.Drawing.Color.White
-        Me.btnLogout.Location = New System.Drawing.Point(0, 301)
+        Me.btnLogout.Location = New System.Drawing.Point(0, 370)
+        Me.btnLogout.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(247, 45)
+        Me.btnLogout.Size = New System.Drawing.Size(329, 55)
         Me.btnLogout.TabIndex = 5
         Me.btnLogout.Text = "Log Out"
         Me.btnLogout.UseVisualStyleBackColor = True
@@ -72,10 +88,10 @@ Partial Class StaffLogin
         Me.ReIssueBook.FlatAppearance.BorderSize = 0
         Me.ReIssueBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ReIssueBook.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ReIssueBook.Location = New System.Drawing.Point(0, 125)
-        Me.ReIssueBook.Margin = New System.Windows.Forms.Padding(2)
+        Me.ReIssueBook.Location = New System.Drawing.Point(0, 154)
+        Me.ReIssueBook.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ReIssueBook.Name = "ReIssueBook"
-        Me.ReIssueBook.Size = New System.Drawing.Size(247, 45)
+        Me.ReIssueBook.Size = New System.Drawing.Size(329, 55)
         Me.ReIssueBook.TabIndex = 4
         Me.ReIssueBook.Text = "ReIssue Book"
         Me.ReIssueBook.UseVisualStyleBackColor = True
@@ -86,10 +102,10 @@ Partial Class StaffLogin
         Me.ReturnBook.FlatAppearance.BorderSize = 0
         Me.ReturnBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ReturnBook.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ReturnBook.Location = New System.Drawing.Point(0, 82)
-        Me.ReturnBook.Margin = New System.Windows.Forms.Padding(2)
+        Me.ReturnBook.Location = New System.Drawing.Point(0, 101)
+        Me.ReturnBook.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ReturnBook.Name = "ReturnBook"
-        Me.ReturnBook.Size = New System.Drawing.Size(247, 45)
+        Me.ReturnBook.Size = New System.Drawing.Size(329, 55)
         Me.ReturnBook.TabIndex = 3
         Me.ReturnBook.Text = "Return Book"
         Me.ReturnBook.UseVisualStyleBackColor = True
@@ -100,10 +116,10 @@ Partial Class StaffLogin
         Me.IssueBook.FlatAppearance.BorderSize = 0
         Me.IssueBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.IssueBook.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IssueBook.Location = New System.Drawing.Point(0, 39)
-        Me.IssueBook.Margin = New System.Windows.Forms.Padding(2)
+        Me.IssueBook.Location = New System.Drawing.Point(0, 48)
+        Me.IssueBook.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IssueBook.Name = "IssueBook"
-        Me.IssueBook.Size = New System.Drawing.Size(247, 45)
+        Me.IssueBook.Size = New System.Drawing.Size(329, 55)
         Me.IssueBook.TabIndex = 2
         Me.IssueBook.Text = "Issue Book"
         Me.IssueBook.UseVisualStyleBackColor = True
@@ -114,10 +130,10 @@ Partial Class StaffLogin
         Me.BookButton.FlatAppearance.BorderSize = 0
         Me.BookButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BookButton.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BookButton.Location = New System.Drawing.Point(0, 168)
-        Me.BookButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.BookButton.Location = New System.Drawing.Point(0, 207)
+        Me.BookButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.BookButton.Name = "BookButton"
-        Me.BookButton.Size = New System.Drawing.Size(247, 45)
+        Me.BookButton.Size = New System.Drawing.Size(329, 55)
         Me.BookButton.TabIndex = 1
         Me.BookButton.Text = "Add/Modify Book"
         Me.BookButton.UseVisualStyleBackColor = True
@@ -128,46 +144,32 @@ Partial Class StaffLogin
         Me.StudentButton.FlatAppearance.BorderSize = 0
         Me.StudentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.StudentButton.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.StudentButton.Location = New System.Drawing.Point(0, 211)
-        Me.StudentButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.StudentButton.Location = New System.Drawing.Point(0, 260)
+        Me.StudentButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.StudentButton.Name = "StudentButton"
-        Me.StudentButton.Size = New System.Drawing.Size(247, 45)
+        Me.StudentButton.Size = New System.Drawing.Size(329, 55)
         Me.StudentButton.TabIndex = 0
-        Me.StudentButton.Text = "Add/Modify Student"
+        Me.StudentButton.Text = "Add/Modify User"
         Me.StudentButton.UseVisualStyleBackColor = True
         '
         'Action
         '
         Me.Action.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Action.Location = New System.Drawing.Point(247, 0)
-        Me.Action.Margin = New System.Windows.Forms.Padding(2)
+        Me.Action.Location = New System.Drawing.Point(329, 0)
+        Me.Action.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Action.Name = "Action"
-        Me.Action.Size = New System.Drawing.Size(1017, 681)
+        Me.Action.Size = New System.Drawing.Size(1356, 838)
         Me.Action.TabIndex = 1
-        '
-        'btnViewBooks
-        '
-        Me.btnViewBooks.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnViewBooks.FlatAppearance.BorderSize = 0
-        Me.btnViewBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnViewBooks.Font = New System.Drawing.Font("Franklin Gothic Book", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnViewBooks.ForeColor = System.Drawing.Color.White
-        Me.btnViewBooks.Location = New System.Drawing.Point(0, 256)
-        Me.btnViewBooks.Name = "btnViewBooks"
-        Me.btnViewBooks.Size = New System.Drawing.Size(247, 45)
-        Me.btnViewBooks.TabIndex = 6
-        Me.btnViewBooks.Text = "View Books Table"
-        Me.btnViewBooks.UseVisualStyleBackColor = True
         '
         'StaffLogin
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1264, 681)
+        Me.ClientSize = New System.Drawing.Size(1685, 838)
         Me.Controls.Add(Me.Action)
         Me.Controls.Add(Me.Buttons)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "StaffLogin"
         Me.Text = "testing"
         Me.Buttons.ResumeLayout(False)

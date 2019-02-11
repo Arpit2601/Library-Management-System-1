@@ -290,44 +290,44 @@ Public Class BookDetails
             While reader.Read()
                 Dim Namelabel As New Label
                 Dim Departmentlabel As New Label
-                Dim PhoneNumber As New Label
+                ' Dim PhoneNumber As New Label
                 Dim Email As New Label
 
                 Namelabel.Size = New Size(150, 25)
-                Departmentlabel.Size = New Size(150, 25)
-                PhoneNumber.Size = New Size(150, 25)
-                Email.Size = New Size(150, 25)
+                Departmentlabel.Size = New Size(200, 25)
+                'PhoneNumber.Size = New Size(150, 25)
+                Email.Size = New Size(200, 25)
 
                 Namelabel.Text = reader("ProfileName")
                 Departmentlabel.Text = reader("Department")
-                PhoneNumber.Text = reader("PhoneNumber")
+                ' PhoneNumber.Text = reader("PhoneNumber")
                 Email.Text = reader("Email")
 
                 Namelabel.Location = New Point(nextx, y)
                 Departmentlabel.Location = New Point(nextx + 170, y)
-                PhoneNumber.Location = New Point(nextx + 320, y)
-                Email.Location = New Point(nextx + 490, y)
+                'PhoneNumber.Location = New Point(nextx + 320, y)
+                Email.Location = New Point(nextx + 370, y)
 
                 Namelabel.Font = New System.Drawing.Font("Comic Sans MS", 9, FontStyle.Italic)
                 Departmentlabel.Font = New System.Drawing.Font("Comic Sans MS", 9, FontStyle.Italic)
-                PhoneNumber.Font = New System.Drawing.Font("Comic Sans MS", 9, FontStyle.Italic)
+                'PhoneNumber.Font = New System.Drawing.Font("Comic Sans MS", 9, FontStyle.Italic)
                 Email.Font = New System.Drawing.Font("Comic Sans MS", 9, FontStyle.Italic)
 
                 Namelabel.ForeColor = Color.White
                 Departmentlabel.ForeColor = Color.White
-                PhoneNumber.ForeColor = Color.White
+                'PhoneNumber.ForeColor = Color.White
                 Email.ForeColor = Color.White
 
                 Namelabel.AutoEllipsis = True
                 Departmentlabel.AutoEllipsis = True
-                PhoneNumber.AutoEllipsis = True
+                'PhoneNumber.AutoEllipsis = True
                 Email.AutoEllipsis = True
 
                 y += 35
 
                 Me.Panel2.Controls.Add(Namelabel)
                 Me.Panel2.Controls.Add(Departmentlabel)
-                Me.Panel2.Controls.Add(PhoneNumber)
+                'Me.Panel2.Controls.Add(PhoneNumber)
                 Me.Panel2.Controls.Add(Email)
             End While
             cn.Close()

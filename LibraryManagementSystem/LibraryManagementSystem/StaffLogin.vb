@@ -1,5 +1,6 @@
 ﻿Public Class StaffLogin
 
+    Public Designation As String
     ' Has he username of staff member
     Public UserName As String
 
@@ -9,6 +10,7 @@
                 Control.backcolor = Color.MediumSeaGreen
             End If
         Next
+
     End Sub
 
 

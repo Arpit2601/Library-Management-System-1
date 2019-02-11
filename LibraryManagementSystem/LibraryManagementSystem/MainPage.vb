@@ -285,16 +285,18 @@ Public Class MainPage
     ' It will be used in email notifications
     Private Sub MainPage_load() Handles MyBase.Load
         Timer2.Enabled = True
+        Timer2.Interval = 86400000          '1 day
     End Sub
 
-    ' sendReminders is used to send emails if last date of book returning is coming close
     Private Sub timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
         Dim time As Date = Date.Now
-        Dim ReportHour As Integer = 16
+
+        Dim ReportHour As Integer = 0
         Dim currhour As Integer = time.Hour
 
         If currhour = ReportHour Then
             sendReminders()
+            fineCalculator()
         End If
     End Sub
 End Class

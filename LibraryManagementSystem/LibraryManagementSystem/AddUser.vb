@@ -106,6 +106,9 @@ Public Class AddUser
     Private Sub AddUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBox1.SelectedIndex = -1
         ComboBox2.SelectedIndex = -1
+        If StaffLogin.Designation = "Admin" Then
+            ComboBox2.Items.Add("Staff")
+        End If
     End Sub
 
     ' First search for username. If it exists then display its predifined details and disable its password text
@@ -124,8 +127,14 @@ Public Class AddUser
 
         btnAddUser.Text = "ADD"
         If readcheck.HasRows Then
-            btnAddUser.Text = "MODIFY"
+
             readcheck.Read()
+            If readcheck("Designation") = "Admin" Then
+                MessageBox.Show("You cannot access this account")
+                txtUsername.Text = ""
+                Return False
+            End If
+            btnAddUser.Text = "MODIFY"
             txtName.Text = readcheck("ProfileName")
             txtEmail.Text = readcheck("Email")
             txtPhone.Text = readcheck("PhoneNumber")
