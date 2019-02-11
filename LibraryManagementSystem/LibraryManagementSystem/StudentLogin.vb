@@ -144,4 +144,7 @@ Public Class StudentLogin
         contentPanel.Controls.Add(New Prof_UserControl)
     End Sub
 
+    Private Sub contentPanel_Paint(sender As Object, e As PaintEventArgs) Handles contentPanel.Paint
+
+    End Sub
 End Class

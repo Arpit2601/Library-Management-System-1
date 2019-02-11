@@ -28,6 +28,7 @@ Partial Class Prof_UserControl
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'ComboBox1
@@ -86,15 +87,32 @@ Partial Class Prof_UserControl
         '
         'Panel1
         '
+        Me.Panel1.AutoScroll = True
         Me.Panel1.Location = New System.Drawing.Point(35, 119)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(943, 540)
+        Me.Panel1.Size = New System.Drawing.Size(943, 506)
         Me.Panel1.TabIndex = 5
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(389, 631)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(191, 38)
+        Me.Button2.TabIndex = 6
+        Me.Button2.Text = "Delete"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'Prof_UserControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -113,5 +131,6 @@ Partial Class Prof_UserControl
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 
 End Class

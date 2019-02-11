@@ -1,70 +1,54 @@
-﻿'Imports System.Data.OleDb
-'Imports System.Text.RegularExpressions
-
-'Public Class RemoveBook
-
-'    Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
-'        If btnRemove.Text = "Search" Then
-'            Dim regex As Regex = New Regex("^(97(8|9))?\d{9}(\d|X)$")
-
-'            If regex.IsMatch(txtISBN.Text) AndAlso ValidateISBN(ISBNinput) Then
-'                myfunction()
-'            Else
-'                MessageBox.Show("Invalid ISBN Number")
-'            End If
-'            Return
-'        End If
-
-'        Dim cn As OleDbConnection = New OleDbConnection(connectionString)
-'        Dim cmdString As String
-
-'        If Not ValidateInput() Then
-'            Return
-'        End If
-'        Dim imgLocation As String = ISBNTextBox1.Text
-'        If PictureBox1.Image Is Nothing Then
-'            imgLocation = "defaultBook"
-'        End If
-
-'        cn.Open()
-'        TotalTextBox.Text = AddNumber.Value + Convert.ToInt64(TotalTextBox.Text)
-'        If myButton.Text = "Add" Then
-'            cmdString = "insert into Books values(" & ISBNinput & ", " & TotalTextBox.Text & "," & TotalTextBox.Text & "," & LocationTextBox.Text & ",'" & PublishYearDateTimePicker.Value.Date & "','" & TitleTextBox.Text & "','" & AuthorTextBox.Text & "','" & PublisherTextBox.Text & "','" & FieldTextBox.Text & "','" & imgLocation & ".JPG'," & PriceBox.Text & ")"
-'            MessageBox.Show("book added succeffuly")
-'        Else
-'            MessageBox.Show("book modified succeffuly")
-'            cmdString = "update Books set Total= " & TotalTextBox.Text & ",PublishYear='" & PublishYearDateTimePicker.Value & "',Location= '" & LocationTextBox.Text & "',Title='" & TitleTextBox.Text & "',Author='" & AuthorTextBox.Text & "',Field='" & FieldTextBox.Text & "' , Publisher='" & PublisherTextBox.Text & "' ,BookImage='" & imgLocation & ".JPG'where ISBN='" & ISBNinput & "'"
-'        End If
-
-'        If PictureBox1.Image IsNot Nothing Then
-'            PictureBox1.Image.Save(System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & imgLocation & ".JPG")
-'        End If
+﻿Imports System.Data.OleDb
+Imports System.Text.RegularExpressions
 
 
-'        Dim cmd As OleDbCommand = New OleDbCommand(cmdString, cn)
-'        Dim reader As OleDbDataReader = cmd.ExecuteReader
-'        reader.Close()
-'        Dim min, max As Integer
-'        min = Integer.MaxValue
-'        max = Integer.MinValue
-'        cmd.CommandText = "insert into Borrowed (ISBN) values ('" & ISBNinput & "') "
 
-'        For index As Integer = 1 To AddNumber.Value
+Public Class RemoveBook
 
-'            Console.WriteLine(cmd.ExecuteScalar)
-'            cmd.CommandText = "select @@identity"
-'            Dim tmp As Integer = cmd.ExecuteScalar
+    ' Min function to return book via its accession number
+    ' First search for accession number in Borrowed table. If found then set issued to false there and reduce book count by one in users table for that table
+    Private Sub issueButton_Click(sender As Object, e As EventArgs) Handles issueButton.Click
+        If AccNoTextBox.Text = "" Then
+            MessageBox.Show("Enter correct credentials")
+        ElseIf Not Regex.IsMatch(AccNoTextBox.Text, "^[0-9]+$") Then
+            MessageBox.Show("Enter correct Book id")
+        Else
+            Dim connectionString = MainPage.connectionString
+            Dim cn As OleDbConnection = New OleDbConnection(connectionString)
+            Dim cmdString = "select * from Borrowed where AccNo = " & AccNoTextBox.Text & ""
+            Dim cmd As OleDbCommand = New OleDbCommand(cmdString, cn)
+            cn.Open()
+            Dim reader As OleDbDataReader = cmd.ExecuteReader
+            reader.Read()
+            Dim ISBN As String = ""
+            If Not reader.HasRows Then
+                MessageBox.Show("Book does not exist")
+                Return
+            ElseIf reader("IsIssued") Then
+                MessageBox.Show("This Book is issued to someone")
+                AccNoTextBox.Text = ""
+                Return
+            End If
 
-'            If tmp > max Then
-'                max = tmp
-'            End If
-'            If tmp < min Then
-'                min = tmp
-'            End If
-'            cmd.CommandText = "insert into Borrowed (ISBN) values ('" & ISBNinput & "') "
-'        Next
-'        Console.WriteLine(min)
-'        Console.WriteLine(max)
-'        'print min and max on screen
-'    End Sub
-'End Class
+            Dim cmdString4 As String = "select * from Books where ISBN='" & reader("ISBN") & "'"
+
+            Dim cmd4 As OleDbCommand = New OleDbCommand(cmdString4, cn)
+            Dim reader4 As OleDbDataReader = cmd4.ExecuteReader
+            reader4.Read()
+            cmdString = "update Books set Remaining=" & reader4("Remaining") - 1 & ", Total = " & reader4("Total") - 1 & " where ISBN='" & reader("ISBN") & "'"
+            Dim cmd3 As OleDbCommand = New OleDbCommand(cmdString, cn)
+            cmd3.CommandText = cmdString
+            cmd3.ExecuteScalar()
+            reader4.Close()
+            reader.Close()
+
+            cmd.CommandText = "delete * from Borrowed where AccNo = " & AccNoTextBox.Text & ""
+            cmd.ExecuteScalar()
+
+            AccNoTextBox.Text = ""
+            MessageBox.Show("Book Deleted")
+            cn.Close()
+        End If
+
+    End Sub
+End Class

@@ -27,6 +27,7 @@ Partial Class Stud_UserControl
         '
         'Panel1
         '
+        Me.Panel1.AutoScroll = True
         Me.Panel1.Location = New System.Drawing.Point(35, 28)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1058, 577)

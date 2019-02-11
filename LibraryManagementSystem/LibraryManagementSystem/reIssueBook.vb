@@ -65,4 +65,8 @@ Public Class reissuebook
             End If
         End If
     End Sub
+
+    Private Sub reissuebook_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

@@ -183,7 +183,9 @@
     <Compile Include="RemoveBook.Designer.vb">
       <DependentUpon>RemoveBook.vb</DependentUpon>
     </Compile>
-    <Compile Include="RemoveBook.vb" />
+    <Compile Include="RemoveBook.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="returnBook.Designer.vb">
       <DependentUpon>returnBook.vb</DependentUpon>
     </Compile>

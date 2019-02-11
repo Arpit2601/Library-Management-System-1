@@ -22,51 +22,62 @@ Partial Class RemoveBook
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtISBN = New System.Windows.Forms.TextBox()
-        Me.btnRemove = New System.Windows.Forms.Button()
+        Dim AccNoLabel As System.Windows.Forms.Label
+        Me.issueButton = New System.Windows.Forms.Button()
+        Me.AccNoTextBox = New System.Windows.Forms.TextBox()
+        AccNoLabel = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'Label1
+        'issueButton
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(55, 46)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(32, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "ISBN"
+        Me.issueButton.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.issueButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.issueButton.FlatAppearance.BorderSize = 0
+        Me.issueButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.issueButton.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.issueButton.ForeColor = System.Drawing.Color.White
+        Me.issueButton.Location = New System.Drawing.Point(648, 314)
+        Me.issueButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.issueButton.Name = "issueButton"
+        Me.issueButton.Size = New System.Drawing.Size(225, 42)
+        Me.issueButton.TabIndex = 14
+        Me.issueButton.Text = "Remove"
+        Me.issueButton.UseVisualStyleBackColor = False
         '
-        'txtISBN
+        'AccNoLabel
         '
-        Me.txtISBN.Location = New System.Drawing.Point(118, 43)
-        Me.txtISBN.Name = "txtISBN"
-        Me.txtISBN.Size = New System.Drawing.Size(100, 20)
-        Me.txtISBN.TabIndex = 1
+        AccNoLabel.AutoSize = True
+        AccNoLabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        AccNoLabel.Location = New System.Drawing.Point(169, 326)
+        AccNoLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        AccNoLabel.Name = "AccNoLabel"
+        AccNoLabel.Size = New System.Drawing.Size(63, 19)
+        AccNoLabel.TabIndex = 12
+        AccNoLabel.Text = "Book Id:"
         '
-        'btnRemove
+        'AccNoTextBox
         '
-        Me.btnRemove.Location = New System.Drawing.Point(303, 50)
-        Me.btnRemove.Name = "btnRemove"
-        Me.btnRemove.Size = New System.Drawing.Size(75, 23)
-        Me.btnRemove.TabIndex = 2
-        Me.btnRemove.Text = "Search"
-        Me.btnRemove.UseVisualStyleBackColor = True
+        Me.AccNoTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AccNoTextBox.Location = New System.Drawing.Point(302, 323)
+        Me.AccNoTextBox.Margin = New System.Windows.Forms.Padding(2)
+        Me.AccNoTextBox.Name = "AccNoTextBox"
+        Me.AccNoTextBox.Size = New System.Drawing.Size(251, 26)
+        Me.AccNoTextBox.TabIndex = 13
         '
         'RemoveBook
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.btnRemove)
-        Me.Controls.Add(Me.txtISBN)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.issueButton)
+        Me.Controls.Add(AccNoLabel)
+        Me.Controls.Add(Me.AccNoTextBox)
         Me.Name = "RemoveBook"
-        Me.Size = New System.Drawing.Size(1094, 644)
+        Me.Size = New System.Drawing.Size(1017, 681)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents txtISBN As System.Windows.Forms.TextBox
-    Friend WithEvents btnRemove As System.Windows.Forms.Button
+    Friend WithEvents issueButton As System.Windows.Forms.Button
+    Friend WithEvents AccNoTextBox As System.Windows.Forms.TextBox
 
 End Class

@@ -58,7 +58,7 @@ Partial Class reissuebook
         '
         Me.AccNoTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AccNoTextBox.Location = New System.Drawing.Point(210, 67)
-        Me.AccNoTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.AccNoTextBox.Margin = New System.Windows.Forms.Padding(2)
         Me.AccNoTextBox.Name = "AccNoTextBox"
         Me.AccNoTextBox.Size = New System.Drawing.Size(251, 26)
         Me.AccNoTextBox.TabIndex = 1
@@ -67,7 +67,7 @@ Partial Class reissuebook
         '
         Me.BorrowerIdTextBox.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BorrowerIdTextBox.Location = New System.Drawing.Point(210, 118)
-        Me.BorrowerIdTextBox.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.BorrowerIdTextBox.Margin = New System.Windows.Forms.Padding(2)
         Me.BorrowerIdTextBox.Name = "BorrowerIdTextBox"
         Me.BorrowerIdTextBox.Size = New System.Drawing.Size(251, 26)
         Me.BorrowerIdTextBox.TabIndex = 3
@@ -81,7 +81,7 @@ Partial Class reissuebook
         Me.issueButton.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.issueButton.ForeColor = System.Drawing.Color.White
         Me.issueButton.Location = New System.Drawing.Point(604, 89)
-        Me.issueButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.issueButton.Margin = New System.Windows.Forms.Padding(2)
         Me.issueButton.Name = "issueButton"
         Me.issueButton.Size = New System.Drawing.Size(225, 42)
         Me.issueButton.TabIndex = 4
@@ -109,7 +109,7 @@ Partial Class reissuebook
         Me.Controls.Add(Me.AccNoTextBox)
         Me.Controls.Add(BorrowerIdLabel)
         Me.Controls.Add(Me.BorrowerIdTextBox)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "reissuebook"
         Me.Size = New System.Drawing.Size(1017, 227)
         Me.ResumeLayout(False)

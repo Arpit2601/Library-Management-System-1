@@ -124,11 +124,14 @@ Public Class AddUser
 
     
     Private Sub AddUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ComboBox1.SelectedIndex = -1
-        ComboBox2.SelectedIndex = -1
         If StaffLogin.Designation = "Admin" Then
+            ComboBox2.Items.Clear()
             ComboBox2.Items.Add("Staff")
+            ComboBox1.Items.Clear()
+            ComboBox1.Items.Add("None")
         End If
+        ComboBox1.SelectedIndex = 0
+        ComboBox2.SelectedIndex = 0
     End Sub
 
     ' First search for username. If it exists then display its predifined details and disable its password text

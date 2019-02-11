@@ -96,6 +96,8 @@ Public Class Prof_UserControl
         Dim countX As Integer = 0
         Dim countY As Integer = 0
 
+        Dim counter As Integer = 1
+
         While reader2.Read
             field = reader2("Field")
             Dim selectString3 As String = "SELECT * FROM Books WHERE ISBN = '" & reader2("ISBN") & "'"
@@ -115,8 +117,11 @@ Public Class Prof_UserControl
 
             Dim recDate As String = Format(reader2("RecDate"), "dddd, MMM d yyyy")
 
+
             ' If he/she has recommended any books then their ISBN, Title,Department and date of recommendation will be shown
             If reader3.Read Then
+
+                
 
                 Dim backPicBox As New PictureBox
 
@@ -126,7 +131,24 @@ Public Class Prof_UserControl
                 Dim lblMessage2 As New Label
                 Dim lblDate As New Label
 
-                Titlelabel.Size = New Size(250, 20)
+                Dim checkBox1 As New CheckBox
+                checkBox1.Name = "Box_" & counter
+                Titlelabel.Name = "Box_" & counter
+                lblprofName.Name = "Box_" & counter
+                lblMessage1.Name = "Box_" & counter
+                lblMessage2.Name = "Box_" & counter
+                lblDate.Name = "Box_" & counter
+
+                Me.Panel1.Controls.Add(Titlelabel)
+                Me.Panel1.Controls.Add(lblprofName)
+                Me.Panel1.Controls.Add(lblMessage1)
+                Me.Panel1.Controls.Add(lblMessage2)
+                Me.Panel1.Controls.Add(lblDate)
+                Me.Panel1.Controls.Add(backPicBox)
+
+                checkBox1.Size = New Size(20, 20)
+
+                Titlelabel.Size = New Size(240, 20)
                 Titlelabel.Tag = reader3("ISBN")
                 Titlelabel.Text = reader3("Title")
 
@@ -142,11 +164,20 @@ Public Class Prof_UserControl
                 lblDate.Size = New Size(400, 20)
                 lblDate.Text = "on " & recDate
 
-                Titlelabel.Location = New Point(nextX + 180, nextY + 10)   ' Set location
-                lblprofName.Location = New Point(nextX + 95, nextY + 40)
-                lblMessage1.Location = New Point(nextX + 10, nextY + 10)
-                lblMessage2.Location = New Point(nextX + 10, nextY + 40)
-                lblDate.Location = New Point(nextX + 10, nextY + 70)
+                checkBox1.Location = New Point(nextX, nextY)
+
+                'Titlelabel.Location = New Point(nextX + 180, nextY + 10)   ' Set location
+                'lblprofName.Location = New Point(nextX + 95, nextY + 40)
+                'lblMessage1.Location = New Point(nextX + 10, nextY + 10)
+                'lblMessage2.Location = New Point(nextX + 10, nextY + 40)
+                'lblDate.Location = New Point(nextX + 10, nextY + 70)
+                'backPicBox.Location = New Point(nextX, nextY)
+
+                Titlelabel.Location = New Point(nextX + 195, nextY + 10)   ' Set location
+                lblprofName.Location = New Point(nextX + 110, nextY + 40)
+                lblMessage1.Location = New Point(nextX + 25, nextY + 10)
+                lblMessage2.Location = New Point(nextX + 25, nextY + 40)
+                lblDate.Location = New Point(nextX + 25, nextY + 70)
                 backPicBox.Location = New Point(nextX, nextY)
 
                 backPicBox.Size = New Size(boxWidth - 20, boxHeight)
@@ -160,6 +191,7 @@ Public Class Prof_UserControl
                         lblMessage1.BackColor = Color.Salmon
                         lblDate.BackColor = Color.Salmon
                         lblMessage2.BackColor = Color.Salmon
+                        checkBox1.BackColor = Color.Salmon
                     Else
                         backPicBox.BackColor = Color.SandyBrown
                         Titlelabel.BackColor = Color.SandyBrown
@@ -167,6 +199,7 @@ Public Class Prof_UserControl
                         lblMessage1.BackColor = Color.SandyBrown
                         lblDate.BackColor = Color.SandyBrown
                         lblMessage2.BackColor = Color.SandyBrown
+                        checkBox1.BackColor = Color.SandyBrown
                     End If
                 Else
                     If countY Mod 2 = 0 Then
@@ -176,6 +209,7 @@ Public Class Prof_UserControl
                         lblMessage1.BackColor = Color.DarkKhaki
                         lblDate.BackColor = Color.DarkKhaki
                         lblMessage2.BackColor = Color.DarkKhaki
+                        checkBox1.BackColor = Color.DarkKhaki
                     Else
                         backPicBox.BackColor = Color.LightSteelBlue
                         Titlelabel.BackColor = Color.LightSteelBlue
@@ -183,6 +217,7 @@ Public Class Prof_UserControl
                         lblMessage1.BackColor = Color.LightSteelBlue
                         lblDate.BackColor = Color.LightSteelBlue
                         lblMessage2.BackColor = Color.LightSteelBlue
+                        checkBox1.BackColor = Color.LightSteelBlue
                     End If
                 End If
 
@@ -198,12 +233,15 @@ Public Class Prof_UserControl
                 lblMessage2.AutoEllipsis = True
                 lblDate.AutoEllipsis = True
 
+                Me.Panel1.Controls.Add(checkBox1)
                 Me.Panel1.Controls.Add(Titlelabel)
                 Me.Panel1.Controls.Add(lblprofName)
                 Me.Panel1.Controls.Add(lblMessage1)
                 Me.Panel1.Controls.Add(lblMessage2)
                 Me.Panel1.Controls.Add(lblDate)
                 Me.Panel1.Controls.Add(backPicBox)
+
+                counter += 1
 
                 AddHandler Titlelabel.Click, AddressOf Titlelabel_click
 
@@ -236,5 +274,61 @@ Public Class Prof_UserControl
 
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim message As Boolean = False
+
+        For Each cntrl As Control In Panel1.Controls
+            If TypeOf cntrl Is CheckBox Then
+                If DirectCast(cntrl, CheckBox).Checked = True Then
+                    Dim str As String = cntrl.Name
+                    Dim arr = Me.Controls.Find(str, True)
+
+                    Dim i As Integer = 0
+                    Dim title As Control = cntrl
+                    Dim bookField As Control = cntrl
+                    For Each c In arr
+                        'MessageBox.Show(c.Text)
+                        i += 1
+                        If i = 2 Then
+                            title = c
+                        End If
+                        If i = 3 Then
+                            bookField = c
+                        End If
+                    Next
+
+                    Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
+                    cn.Open()
+
+                    Dim deleteString As String = " DELETE FROM Recommendations WHERE ProfName = '" & StudentLogin.UserName & "' and ISBN = '" & title.Tag & "' and Field='" & bookField.Text & "'"
+                    Dim cmd As OleDbCommand = New OleDbCommand(deleteString, cn)
+
+                    'MessageBox.Show(deleteString)
+
+                    'cmd.ExecuteNonQuery()
+                    'cmd.Dispose()
+
+                    message = True
+
+                    Try
+                        cmd.ExecuteNonQuery()
+                        cmd.Dispose()
+                        ' MessageBox.Show("Successfully Deleted")
+                    Catch ex As Exception
+
+                    End Try
+
+                    cn.Close()
+                End If
+            End If
+        Next
+
+        If message Then
+            MessageBox.Show("Successfully deleted")
+        End If
+
+        StudentLogin.refreshRecommend()
     End Sub
 End Class
