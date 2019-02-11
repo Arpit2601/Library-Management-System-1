@@ -75,6 +75,7 @@ Partial Class MainPage
         'ISBNRadioButton
         '
         Me.ISBNRadioButton.AutoSize = True
+        Me.ISBNRadioButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ISBNRadioButton.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ISBNRadioButton.ForeColor = System.Drawing.Color.White
         Me.ISBNRadioButton.Location = New System.Drawing.Point(844, 95)
@@ -88,6 +89,7 @@ Partial Class MainPage
         'PublisherRadioButton
         '
         Me.PublisherRadioButton.AutoSize = True
+        Me.PublisherRadioButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PublisherRadioButton.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PublisherRadioButton.ForeColor = System.Drawing.Color.White
         Me.PublisherRadioButton.Location = New System.Drawing.Point(674, 95)
@@ -101,6 +103,7 @@ Partial Class MainPage
         'AuthorRadioButton
         '
         Me.AuthorRadioButton.AutoSize = True
+        Me.AuthorRadioButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.AuthorRadioButton.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AuthorRadioButton.ForeColor = System.Drawing.Color.White
         Me.AuthorRadioButton.Location = New System.Drawing.Point(320, 95)
@@ -114,6 +117,7 @@ Partial Class MainPage
         'FieldRadioButton1
         '
         Me.FieldRadioButton1.AutoSize = True
+        Me.FieldRadioButton1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.FieldRadioButton1.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FieldRadioButton1.ForeColor = System.Drawing.Color.White
         Me.FieldRadioButton1.Location = New System.Drawing.Point(474, 95)
@@ -127,6 +131,7 @@ Partial Class MainPage
         'TitleRadioButton
         '
         Me.TitleRadioButton.AutoSize = True
+        Me.TitleRadioButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.TitleRadioButton.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TitleRadioButton.ForeColor = System.Drawing.Color.White
         Me.TitleRadioButton.Location = New System.Drawing.Point(173, 95)

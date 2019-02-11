@@ -25,6 +25,8 @@ Public Class ItemsCheckedOut_UserControl
 
             If reader2.Read Then
 
+                'Dim backPicBox As New PictureBox
+
                 Dim fullPath As String = System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & reader2("BookImage")
 
                 Dim Titlelabel As New LinkLabel
@@ -40,6 +42,7 @@ Public Class ItemsCheckedOut_UserControl
                 Publisherlabel.Size = New Size(140, 20)
                 Locationlabel.Size = New Size(140, 20)
                 pictureBox.Size = New Size(150, 150)
+                'backPicBox.Size = New Size(boxWidth - 10, boxHeight)
 
                 pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
                 Titlelabel.Tag = reader2("ISBN")
@@ -55,11 +58,25 @@ Public Class ItemsCheckedOut_UserControl
                 Authorlabel.Location = New Point(nextX + 160, nextY + 25)
                 Publisherlabel.Location = New Point(nextX + 160, nextY + 50)
                 Locationlabel.Location = New Point(nextX + 160, nextY + 75)
+                'backPicBox.Location = New Point(nextX, nextY)
 
                 Titlelabel.Font = New Font("Times New Roman", 11, FontStyle.Regular)
                 Authorlabel.Font = New Font("Times New Roman", 11, FontStyle.Regular)
                 Publisherlabel.Font = New Font("Times New Roman", 11, FontStyle.Regular)
                 Locationlabel.Font = New Font("Times New Roman", 11, FontStyle.Regular)
+
+                'Titlelabel.ForeColor = Color.White
+                'Authorlabel.ForeColor = Color.White
+                'Publisherlabel.ForeColor = Color.White
+                'Locationlabel.ForeColor = Color.White
+
+                'backPicBox.BackColor = Color.MidnightBlue
+                'Titlelabel.BackColor = Color.MidnightBlue
+                'Authorlabel.BackColor = Color.MidnightBlue
+                'Publisherlabel.BackColor = Color.MidnightBlue
+                'Locationlabel.BackColor = Color.MidnightBlue
+
+                'backPicBox.SendToBack()
 
                 Titlelabel.AutoEllipsis = True
                 Authorlabel.AutoEllipsis = True
@@ -71,6 +88,7 @@ Public Class ItemsCheckedOut_UserControl
                 Me.Panel1.Controls.Add(Authorlabel)
                 Me.Panel1.Controls.Add(Publisherlabel)
                 Me.Panel1.Controls.Add(Locationlabel)
+                'Me.Panel1.Controls.Add(backPicBox)
                 AddHandler Titlelabel.Click, AddressOf Titlelabel_click
 
                 nextX += boxWidth
@@ -92,5 +110,9 @@ Public Class ItemsCheckedOut_UserControl
         Dim frm As New RatingBookDetails
         frm.passISBN = sender.tag
         frm.ShowDialog()
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
     End Sub
 End Class

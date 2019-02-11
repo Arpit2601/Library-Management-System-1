@@ -76,8 +76,24 @@ Public Class EditStudentProfile_UserControl
 
     ' Button to upload an image and preview it in picture box
     Private Sub btnChangePic_Click(sender As Object, e As EventArgs) Handles btnChangePic.Click
-        OpenFileDialog1.ShowDialog()
-        picBoxProfile.ImageLocation = OpenFileDialog1.FileName.ToString
+        Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
+        cn.Open()
+        Dim selectString As String = "SELECT * FROM Users WHERE UserName = '" & StudentLogin.UserName & "'"
+        Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
+        Dim reader As OleDbDataReader = cmd.ExecuteReader()
+        Dim fullPath As String = ""
+        If reader.Read Then
+            fullPath = System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & reader("ProfileImage")
+            picBoxProfile.ImageLocation = fullPath
+        End If
+
+        cn.Close()
+        'OpenFileDialog1.ShowDialog()
+        If OpenFileDialog1.ShowDialog = DialogResult.Cancel Then
+            picBoxProfile.ImageLocation = fullPath
+        Else
+            picBoxProfile.ImageLocation = OpenFileDialog1.FileName.ToString
+        End If
     End Sub
 
     ' On form load show all the fields autofilled as they are currently stored in the database

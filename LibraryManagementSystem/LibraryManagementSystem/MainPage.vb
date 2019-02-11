@@ -165,6 +165,11 @@ Public Class MainPage
     ' Funciton for searching books based on particular criteria
     ' Search button will work only of one of the radio button is checked else it will display message to seect a field
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If SearchTextBox.Text = "Enter Book Details" Then
+            MessageBox.Show("Please mention the string to search")
+            Return
+        End If
+
         ' If title radio is checked show all the books whose title mathes to that given in test box
         ' It will also do substring searching
         If TitleRadioButton.Checked = True Then
@@ -174,6 +179,10 @@ Public Class MainPage
             cn.Open()
             Dim reader As OleDbDataReader = cmd.ExecuteReader()
             Thumbnails(reader)
+
+            If Not reader.HasRows Then
+                MessageBox.Show("No search results found!")
+            End If
             cn.Close()
 
             ' If title radio is checked show all the books whose ISBN mathes to that given in test box
@@ -185,6 +194,10 @@ Public Class MainPage
             Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
             Dim reader As OleDbDataReader = cmd.ExecuteReader()
             Thumbnails(reader)
+
+            If Not reader.HasRows Then
+                MessageBox.Show("No search results found!")
+            End If
             cn.Close()
 
             ' If title radio is checked show all the books whose Field mathes to that given in test box
@@ -197,6 +210,10 @@ Public Class MainPage
             Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
             Dim reader As OleDbDataReader = cmd.ExecuteReader()
             Thumbnails(reader)
+
+            If Not reader.HasRows Then
+                MessageBox.Show("No search results found!")
+            End If
             cn.Close()
 
             ' If title radio is checked show all the books whose Publisher mathes to that given in test box
@@ -208,6 +225,10 @@ Public Class MainPage
             Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
             Dim reader As OleDbDataReader = cmd.ExecuteReader()
             Thumbnails(reader)
+
+            If Not reader.HasRows Then
+                MessageBox.Show("No search results found!")
+            End If
             cn.Close()
 
             ' If title radio is checked show all the books whose author mathes to that given in test box
@@ -219,6 +240,11 @@ Public Class MainPage
             Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
             Dim reader As OleDbDataReader = cmd.ExecuteReader()
             Thumbnails(reader)
+
+            If Not reader.HasRows Then
+                MessageBox.Show("No search results found!")
+            End If
+
             cn.Close()
         Else
             MessageBox.Show("Please choose a search criteria", "No radio buttons checked")
@@ -227,7 +253,10 @@ Public Class MainPage
 
     ' Exit Button
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Me.Close()
+        Dim result = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo)
+        If result = Windows.Forms.DialogResult.Yes Then
+            Me.Close()
+        End If
     End Sub
 
 
