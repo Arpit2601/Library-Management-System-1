@@ -31,6 +31,19 @@ Public Class EditStudentProfile_UserControl
             End If
         Next
 
+        Dim allSpaces As Boolean = True
+        For Each c In name
+            If Not c = " " Then
+                allSpaces = False
+                Exit For
+            End If
+        Next
+
+        If allSpaces Then
+            MessageBox.Show("Please enter valid name", "Invalid Name")
+            Return
+        End If
+
         ' Regex for checking email
         If email = "" Then
             MessageBox.Show("Please enter an email ID", "Invalid email ID")
@@ -47,6 +60,7 @@ Public Class EditStudentProfile_UserControl
             If Not Char.IsNumber(c) Then
                 update = False
                 MessageBox.Show("You should enter only numerical digits in your phone number", "Invalid phone number")
+                Return
             End If
         Next
 

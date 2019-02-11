@@ -24,11 +24,15 @@ Public Class Login
                     StaffLogin.UserName = reader("UserName")
                     StaffLogin.Designation = reader("Designation")
                     StaffLogin.Show()
+                    txtUsername.Text = ""
+                    txtPassword.Text = ""
                     Me.Close()
                     MainPage.Hide()
                 Else
                     StudentLogin.UserName = reader("UserName")
                     StudentLogin.Show()
+                    txtUsername.Text = ""
+                    txtPassword.Text = ""
                     Me.Close()
                     MainPage.Hide()
                 End If

@@ -23,36 +23,54 @@ Public Class AddUser
         If name = "" Then
             MessageBox.Show("Please enter your name", "Invalid name")
             update = False
+            Return
+        End If
+
+        Dim allSpaces As Boolean = True
+        For Each c In name
+            If Not c = " " Then
+                allSpaces = False
+                Exit For
+            End If
+        Next
+
+        If allSpaces Then
+            MessageBox.Show("Please enter valid name", "Invalid Name")
+            Return
         End If
 
         For Each c In name
             If Not Char.IsLower(c) And Not Char.IsUpper(c) And Not c = " " Then
                 MessageBox.Show("Your name should contain only lowercase, uppercase or blankspace letters.", "Invalid name")
                 update = False
-                Exit For
+                Return
             End If
         Next
 
         If Not Regex.IsMatch(username, "^[a-zA-Z]+[0-9]+$") Then
             MessageBox.Show("Please enter a valid username", "Invalid email ID")
             update = False
+            Return
         End If
 
         If Not Regex.IsMatch(email, "^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$") Then
             MessageBox.Show("Please enter a valid email ID", "Invalid email ID")
             update = False
+            Return
         End If
 
         For Each c In phonenumber
             If Not Char.IsNumber(c) Then
                 update = False
                 MessageBox.Show("You should enter only numerical digits in your phone number", "Invalid phone number")
+                Return
             End If
         Next
 
         If Not phonenumber.Length = 10 Then
             update = False
             MessageBox.Show("Your phone number should have 10 digits only", "Invalid phone number")
+            Return
         End If
 
         If btnAddUser.Text = "ADD" Then
@@ -60,11 +78,13 @@ Public Class AddUser
                 If c = " " Then
                     update = False
                     MessageBox.Show("Password should not contain blanks")
+                    Return
                 End If
             Next
 
             If password = "" Then
                 MessageBox.Show("Please enter the user's password")
+                Return
             End If
         End If
 

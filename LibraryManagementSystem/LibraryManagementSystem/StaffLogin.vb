@@ -179,7 +179,50 @@
     End Sub
 
     Private Sub StaffLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        IssueBook.BackColor = Color.MediumSeaGreen
+        ReturnBook.BackColor = Color.MidnightBlue
+        ReIssueBook.BackColor = Color.MidnightBlue
+        BookButton.BackColor = Color.MidnightBlue
+        StudentButton.BackColor = Color.MidnightBlue
+        btnViewBooks.BackColor = Color.MidnightBlue
 
+        Action.Controls.Clear()
+        Dim textBoxes = Me.Controls.OfType(Of TextBox)()
+        For Each txt In textBoxes
+            AddHandler txt.KeyDown, AddressOf ReturnHandler
+        Next
+
+        ' Display all the three return,reissue and issue book user controls but enable only one
+        Dim returnBookInstance = New returnBook
+        returnBookInstance.Location = New Point(0, 227)
+        Dim reIssueBookInstance = New reissuebook
+        reIssueBookInstance.Dock = DockStyle.Bottom
+        Dim issueBookInstance = New issuebook
+        issueBookInstance.Dock = DockStyle.Top
+
+        returnBookInstance.BackColor = Color.LightGray
+        For Each Control In returnBookInstance.Controls
+            Control.cursor = Cursors.No
+            Control.Enabled = False
+            Control.backcolor = Color.LightGray
+            If Control.GetType Is GetType(TextBox) Then
+                Control.borderstyle = BorderStyle.None
+            End If
+        Next
+
+        reIssueBookInstance.BackColor = Color.LightGray
+        For Each Control In reIssueBookInstance.Controls
+            Control.cursor = Cursors.No
+            Control.Enabled = False
+            Control.backcolor = Color.LightGray
+            If Control.GetType Is GetType(TextBox) Then
+                Control.borderstyle = BorderStyle.None
+            End If
+        Next
+
+        Action.Controls.Add(issueBookInstance)
+        Action.Controls.Add(returnBookInstance)
+        Action.Controls.Add(reIssueBookInstance)
     End Sub
 
     ' Logout button

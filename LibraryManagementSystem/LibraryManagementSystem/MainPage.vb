@@ -158,7 +158,7 @@ Public Class MainPage
 
     ' To show login form
     Private Sub LoginButton_Click(sender As Object, e As EventArgs) Handles LoginButton.Click
-        Login.Show()
+        Login.ShowDialog()
     End Sub
 
 

@@ -47,7 +47,7 @@ Public Class Stud_UserControl
                 profFullName = reader4("ProfileName")
             End If
 
-            Dim recDate As String = reader2("RecDate")
+            Dim recDate As String = Format(reader2("RecDate"), "dddd, MMM d yyyy")
 
             ' In a thumbnail show the title of book, Proffessor name who recommended it, and date of recommendation
             ' On clicking on the title the book detail page will open
@@ -65,20 +65,20 @@ Public Class Stud_UserControl
                 Titlelabel.Tag = reader3("ISBN")
                 Titlelabel.Text = reader3("Title")
 
-                lblprofName.Size = New Size(300, 20)
+                lblprofName.Size = New Size(290, 20)
                 lblprofName.Text = profFullName
 
                 lblMessage1.Text = "The book named"
                 lblMessage1.AutoSize = True
 
-                lblMessage2.Text = "is recommended by "
+                lblMessage2.Text = "is recommended by Prof."
                 lblMessage2.AutoSize = True
 
                 lblDate.Size = New Size(400, 20)
                 lblDate.Text = "on " & recDate
 
                 Titlelabel.Location = New Point(nextX + 115, nextY + 10)
-                lblprofName.Location = New Point(nextX + 130, nextY + 40)
+                lblprofName.Location = New Point(nextX + 165, nextY + 40)
                 lblMessage1.Location = New Point(nextX + 10, nextY + 10)
                 lblMessage2.Location = New Point(nextX + 10, nextY + 40)
                 lblDate.Location = New Point(nextX + 10, nextY + 70)
@@ -165,4 +165,7 @@ Public Class Stud_UserControl
         frm.ShowDialog()
     End Sub
 
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
 End Class

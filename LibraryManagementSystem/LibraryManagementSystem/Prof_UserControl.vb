@@ -24,6 +24,7 @@ Public Class Prof_UserControl
         For Each c In TextBox1.Text
             If Not Char.IsNumber(c) And Not c = "-" Then
                 MessageBox.Show("Please enter a valid ISBN")
+                Return
             End If
 
             If Not c = "-" Then
@@ -112,7 +113,7 @@ Public Class Prof_UserControl
                 profFullName = reader4("ProfileName")
             End If
 
-            Dim recDate As String = reader2("RecDate")
+            Dim recDate As String = Format(reader2("RecDate"), "dddd, MMM d yyyy")
 
             ' If he/she has recommended any books then their ISBN, Title,Department and date of recommendation will be shown
             If reader3.Read Then

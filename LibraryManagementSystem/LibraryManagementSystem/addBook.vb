@@ -183,6 +183,7 @@ Public Class addBook
             Return False
         ElseIf AuthorTextBox.Text = "" Then
             MessageBox.Show("Please Enter Author of the Book")
+            Return False
         ElseIf PublisherTextBox.Text = "" Then
             MessageBox.Show("Please Enter Publisher of the Book")
             Return False
@@ -194,19 +195,86 @@ Public Class addBook
             Return False
         End If
 
+        For Each c In AuthorTextBox.Text
+            If Not Char.IsLower(c) And Not Char.IsUpper(c) And Not c = " " Then
+                MessageBox.Show("Author name should contain only lowercase, uppercase or blankspace letters.", "Invalid author name")
+                Return False
+            End If
+        Next
+
+        ' Check all spaces in title
+        Dim allSpaces As Boolean = True
+        For Each c In TitleTextBox.Text
+            If Not c = " " Then
+                allSpaces = False
+                Exit For
+            End If
+        Next
+
+        If allSpaces Then
+            MessageBox.Show("Please enter valid title", "Invalid Name")
+            Return False
+        End If
+
+        ' Check all spaces in author
+        allSpaces = True
+        For Each c In AuthorTextBox.Text
+            If Not c = " " Then
+                allSpaces = False
+                Exit For
+            End If
+        Next
+
+        If allSpaces Then
+            MessageBox.Show("Please enter valid author", "Invalid Name")
+            Return False
+        End If
+
+        ' Check all spaces in publisher
+        allSpaces = True
+        For Each c In PublisherTextBox.Text
+            If Not c = " " Then
+                allSpaces = False
+                Exit For
+            End If
+        Next
+
+        If allSpaces Then
+            MessageBox.Show("Please enter valid publisher", "Invalid Name")
+            Return False
+        End If
+
+
+        For Each c In LocationTextBox.Text
+            If Not c = "." And Not Char.IsNumber(c) Then
+                MessageBox.Show("Enter valid shelf location", "Invalid location")
+                Return False
+            End If
+        Next
+
         ' To check if price entered is number or not
         Dim countDot As Integer = 0
         For i As Integer = 0 To PriceBox.Text.Length - 1
             If PriceBox.Text(i) = "." Then
                 countDot += 1
             ElseIf PriceBox.Text(i) < "0" Or PriceBox.Text(i) > "9" Then
-                MessageBox.Show("Invalid Price Entered.Please Enter a valid Price for the book")
+                MessageBox.Show("Please Enter a valid Price for the book", "Invalid Price")
                 Return False
             End If
         Next
 
+
         If countDot > 1 Or PriceBox.Text.Length - countDot < 1 Or PriceBox.Text(0) = "." Or PriceBox.Text(PriceBox.Text.Length - 1) = "." Then
             Return False
+        End If
+
+        If AddNumber.Value = 0 Then
+            Dim result = MessageBox.Show("Are you sure you want to add no copies of this book?", "No copies added", MessageBoxButtons.YesNo)
+            If result = DialogResult.Yes Then
+                Return True
+            Else
+                Return False
+            End If
         End If
 
         Return True
