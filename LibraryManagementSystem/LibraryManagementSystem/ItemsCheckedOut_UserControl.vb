@@ -9,7 +9,7 @@ Public Class ItemsCheckedOut_UserControl
         Dim cn As OleDbConnection = New OleDbConnection(MainPage.connectionString)
         cn.Open()
 
-        Dim selectString As String = "SELECT * FROM Borrowed WHERE BorrowerId = '" & StudentLogin.UserName & "'"
+        Dim selectString As String = "SELECT * FROM Borrowed WHERE BorrowerId = '" & StudentLogin.UserName & "' and IsIssued=True"
         Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
         Dim reader As OleDbDataReader = cmd.ExecuteReader()
 

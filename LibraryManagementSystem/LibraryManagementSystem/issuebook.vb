@@ -45,6 +45,8 @@ Public Class issuebook
                 ' If user has already issued the maximum number of books he can issue
             ElseIf reader2.Read() AndAlso reader2("MaxBooks") = reader2("BooksIssued") Then
                 MessageBox.Show("User has already issued max number of books")
+                AccNoTextBox.Text = ""
+                BorrowerIdTextBox.Text = ""
                 Return
             End If
 
