@@ -192,6 +192,12 @@
     <Compile Include="returnBook.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="StaffRecommend.Designer.vb">
+      <DependentUpon>StaffRecommend.vb</DependentUpon>
+    </Compile>
+    <Compile Include="StaffRecommend.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="StudentLogin.Designer.vb">
       <DependentUpon>StudentLogin.vb</DependentUpon>
     </Compile>
@@ -272,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="returnBook.resx">
       <DependentUpon>returnBook.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffRecommend.resx">
+      <DependentUpon>StaffRecommend.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentLogin.resx">
       <DependentUpon>StudentLogin.vb</DependentUpon>

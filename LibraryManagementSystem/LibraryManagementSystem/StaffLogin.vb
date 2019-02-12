@@ -22,7 +22,8 @@
         BookButton.BackColor = Color.MidnightBlue
         StudentButton.BackColor = Color.MidnightBlue
         btnViewBooks.BackColor = Color.MidnightBlue
-        'btnRemoveBook.BackColor = Color.MidnightBlue
+        Button2.BackColor = Color.MidnightBlue
+        btnRecommend.BackColor = Color.MidnightBlue
 
         Action.Controls.Clear()
         Dim textBoxes = Me.Controls.OfType(Of TextBox)()
@@ -73,7 +74,8 @@
         StudentButton.BackColor = Color.MidnightBlue
         btnLogout.BackColor = Color.MidnightBlue
         btnViewBooks.BackColor = Color.MidnightBlue
-        'btnRemoveBook.BackColor = Color.MidnightBlue
+        Button2.BackColor = Color.MidnightBlue
+        btnRecommend.BackColor = Color.MidnightBlue
 
         Action.Controls.Clear()
 
@@ -117,7 +119,8 @@
         StudentButton.BackColor = Color.MidnightBlue
         btnLogout.BackColor = Color.MidnightBlue
         btnViewBooks.BackColor = Color.MidnightBlue
-        ' btnRemoveBook.BackColor = Color.MidnightBlue
+        Button2.BackColor = Color.MidnightBlue
+        btnRecommend.BackColor = Color.MidnightBlue
 
         Action.Controls.Clear()
 
@@ -163,7 +166,8 @@
         StudentButton.BackColor = Color.MidnightBlue
         btnLogout.BackColor = Color.MidnightBlue
         btnViewBooks.BackColor = Color.MidnightBlue
-        'btnRemoveBook.BackColor = Color.MidnightBlue
+        Button2.BackColor = Color.MidnightBlue
+        btnRecommend.BackColor = Color.MidnightBlue
 
         Action.Controls.Clear()
         Action.Controls.Add(New addBook)
@@ -177,7 +181,8 @@
         StudentButton.BackColor = Color.MediumSeaGreen
         btnLogout.BackColor = Color.MidnightBlue
         btnViewBooks.BackColor = Color.MidnightBlue
-        'btnRemoveBook.BackColor = Color.MidnightBlue
+        Button2.BackColor = Color.MidnightBlue
+        btnRecommend.BackColor = Color.MidnightBlue
 
         Action.Controls.Clear()
         Action.Controls.Add(New AddUser)
@@ -190,7 +195,8 @@
         BookButton.BackColor = Color.MidnightBlue
         StudentButton.BackColor = Color.MidnightBlue
         btnViewBooks.BackColor = Color.MidnightBlue
-        'btnRemoveBook.BackColor = Color.MidnightBlue
+        Button2.BackColor = Color.MidnightBlue
+        btnRecommend.BackColor = Color.MidnightBlue
 
         Action.Controls.Clear()
         Dim textBoxes = Me.Controls.OfType(Of TextBox)()
@@ -240,7 +246,8 @@
         btnLogout.BackColor = Color.MediumSeaGreen
         BookButton.BackColor = Color.MidnightBlue
         btnViewBooks.BackColor = Color.MidnightBlue
-        'btnRemoveBook.BackColor = Color.MidnightBlue
+        Button2.BackColor = Color.MidnightBlue
+        btnRecommend.BackColor = Color.MidnightBlue
 
         ' If true return to main page else return to previous task
         Dim result = MessageBox.Show("Do you want to logout?", "Confirm logout", MessageBoxButtons.YesNo)
@@ -282,25 +289,45 @@
         btnLogout.BackColor = Color.MidnightBlue
         BookButton.BackColor = Color.MidnightBlue
         btnViewBooks.BackColor = Color.MediumSeaGreen
-        'btnRemoveBook.BackColor = Color.MidnightBlue
-
+        Button2.BackColor = Color.MidnightBlue
+        btnRecommend.BackColor = Color.MidnightBlue
         Action.Controls.Clear()
         Action.Controls.Add(New viewBookTable)
     End Sub
 
-    'Private Sub Button1_Click(sender As Object, e As EventArgs)
-    '    IssueBook.BackColor = Color.MidnightBlue
-    '    ReturnBook.BackColor = Color.MidnightBlue
-    '    ReIssueBook.BackColor = Color.MidnightBlue
-    '    StudentButton.BackColor = Color.MidnightBlue
-    '    btnLogout.BackColor = Color.MidnightBlue
-    '    BookButton.BackColor = Color.MidnightBlue
-    '    btnViewBooks.BackColor = Color.MidnightBlue
-    '    'btnRemoveBook.BackColor = Color.MediumSeaGreen
+    
 
+    Private Sub btnRecommend_Click(sender As Object, e As EventArgs) Handles btnRecommend.Click
+        IssueBook.BackColor = Color.MidnightBlue
+        ReturnBook.BackColor = Color.MidnightBlue
+        ReIssueBook.BackColor = Color.MidnightBlue
+        StudentButton.BackColor = Color.MidnightBlue
+        btnLogout.BackColor = Color.MidnightBlue
+        BookButton.BackColor = Color.MidnightBlue
+        btnViewBooks.BackColor = Color.MidnightBlue
+        Button2.BackColor = Color.MidnightBlue
+        btnRecommend.BackColor = Color.MediumSeaGreen
+        Action.Controls.Clear()
+        Action.Controls.Add(New StaffRecommend)
+    End Sub
 
-    '    Action.Controls.Clear()
-    '    Action.Controls.Add(New RemoveBook)
-    'End Sub
+    Public Sub refreshStaffRecommend()
+        Action.Controls.Clear()
+        Action.Controls.Add(New StaffRecommend)
+    End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        IssueBook.BackColor = Color.MidnightBlue
+        ReturnBook.BackColor = Color.MidnightBlue
+        ReIssueBook.BackColor = Color.MidnightBlue
+        StudentButton.BackColor = Color.MidnightBlue
+        btnLogout.BackColor = Color.MidnightBlue
+        BookButton.BackColor = Color.MidnightBlue
+        btnViewBooks.BackColor = Color.MidnightBlue
+        Button2.BackColor = Color.MediumSeaGreen
+        btnRecommend.BackColor = Color.MidnightBlue
+
+        Action.Controls.Clear()
+        Action.Controls.Add(New RemoveBook)
+    End Sub
 End Class

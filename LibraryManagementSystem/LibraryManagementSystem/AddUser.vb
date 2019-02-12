@@ -128,7 +128,7 @@ Public Class AddUser
             ComboBox2.Items.Clear()
             ComboBox2.Items.Add("Staff")
             ComboBox1.Items.Clear()
-            ComboBox1.Items.Add("None")
+            ComboBox1.Items.Add("Staff")
         End If
         ComboBox1.SelectedIndex = 0
         ComboBox2.SelectedIndex = 0
@@ -173,4 +173,7 @@ Public Class AddUser
         Return True
     End Function
 
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+
+    End Sub
 End Class
